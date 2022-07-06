@@ -1,0 +1,48 @@
+site_name: Web learn
+
+theme:
+  name: material
+  features:
+    - navigation.top
+    - search.highlight
+    - navigation.tabs
+
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - toc:
+      permalink: "#"
+  - pymdownx.superfences
+  - pymdownx.tabbed
+
+nav:
+  - Home: index.md
+  - HTML/CSS:
+    - HTML/CSS: html_css/html_css.md
+    - Bootstrap3: html_css/bootstrap.md
+  - JavaScript:
+    - JavaScript: js/js.md
+    - jQuery: js/jquery.md
+    - Vue.js: js/Vue.md
+    - ElementUI: js/element.md
+    - Quasar: js/quasar.md
+    - Echarts(基本图): js/echarts.md
+    - amCharts(地图): js/amcharts.md
+    - plotly.js(小提琴图): js/plotly.md
+    - Highcharts(基因结构图): js/highcharts.md
+    - Phylotree.js(绘制进化树): js/phylotree.md
+    - Cytoscape.js(网络图): js/cytoscape.md
+    - gtex-viz(带聚类树的热图): js/gtex_viz.md
+    - BioCircos.js(eQTL的circos图): js/biocircos.md
+  - PHP:
+    - PHP: php/php.md
+    - ThinkPHP: php/tp.md
+  - MySQL: mysql/mysql.md
+  - Linux: linux/linux.md
+  - More: 
+    - 异常检测、提交反馈: more/user_inter.md
+    - JBrowse1: more/jbrowse1.md
+    - JBrowse2: more/jbrowse2.md
+    - Blast: more/blast.md
+    - GBrowse_syn: more/gbrowse.md
