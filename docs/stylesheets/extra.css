@@ -1,0 +1,19 @@
+#css-page .main-heading {
+  color: red; 
+}
+
+#css-page h1 { 
+  color: blue; 
+}
+
+#css-page-1 li[class^="a"] {
+  background-color: yellow;
+}
+
+#css-page-1 li[class^="a" i] {
+  color: red;
+}
+
+#css-page-2 .box::after {
+  content: " ➥"
+}

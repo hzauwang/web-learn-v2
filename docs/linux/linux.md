@@ -37,3 +37,21 @@ echo $var |tr -d '\n\r'
 #-p 指定密码
 sshpass -p '123456' scp root@host_ip:/home/test/t ./tmp/
 ```
+
+### 创建新用户
+```shell
+#添加用户
+useradd user_name
+#添加密码
+passwd user_name
+#修改用户登入后所使用的shell
+usermod -s /bin/bash user_name
+#添加用户到组
+gpasswd -a user_name group_name
+#指定用户家目录
+usermod -d /store/user_name user_name
+#修改uid
+usermod -u 1095 user_name
+#修改gid
+groupmod -g 1007 group_name
+```
