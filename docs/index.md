@@ -3,7 +3,7 @@
 开发中！！！
 
 ---
-1. [html/css](html_css/html_css.md): 学习后即可制作静态页面  
+1. [html](html_css/html.md)/[css](html_css/css.md): 学习后即可制作静态页面  
 2. [JavaScript](js/js.md): 结合 html+css 制作动态页面  
 3. [bootstrap](html_css/bootstrap.md): 组件UI库, 可用来快速开发前端页面  
 4. [php](php/php.md): 服务器端脚本语言  
