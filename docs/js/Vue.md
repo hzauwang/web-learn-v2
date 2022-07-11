@@ -3589,24 +3589,16 @@ Mixin：对于 data 和 methods 中定义的内容，如果混入和组件同名
     })
 </script>
 ```
+### 如何在vue中同时使用某插件的两个不同版本
 
+以d3.js举例
 
+```bash
+npm install d3v3@npm:d3@3.5.17 --save-dev
+npm install d3v4@npm:d3@4.13.0 --save-dev
+```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```js
+import * as d3v3 from 'd3v3'
+import * as d3v4 from 'd3v4'
+```

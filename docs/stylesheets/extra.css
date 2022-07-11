@@ -17,3 +17,48 @@
 #css-page-2 .box::after {
   content: " ➥"
 }
+
+#css-page-3 .box {
+  border: 5px solid rebeccapurple;
+  background-color: lightgray;
+  padding: 40px;
+  margin: 40px;
+  width: 300px;
+  height: 150px;
+  box-sizing: content-box;
+}
+
+#css-page-3 .alternate {
+  box-sizing: border-box;
+}
+
+#css-page-4 .one {
+  margin-bottom: 50px;
+}
+
+#css-page-4 .two {
+  margin-top: 30px;
+}
+
+#css-page-5 .links-list a {
+  display: inline-block;
+  background-color: rgb(179,57,81);
+  color: #fff;
+  text-decoration: none;
+  padding: 1em 2em;
+}
+
+#css-page-5 .links-list a:hover {
+  background-color: rgb(66, 28, 40);
+  color: #fff;
+}
+
+#css-page-5 ul{
+  display: flex;
+  list-style: none;
+  border: 1px solid black;
+}
+
+#css-page-5 li{
+  margin: 5px;
+}
