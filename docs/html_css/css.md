@@ -143,8 +143,102 @@ h1 {
 <code>display: flex</code> 外部显示类型是 <code>block</code>，但是内部显示类型修改为 <code>flex</code>  
 <code>display: inline-flex</code> 外部显示类型是 <code>inline</code>，但是内部显示类型修改为 <code>flex</code>
 
-### 盒模型
+### 替代盒模型
 ![盒模型](../images/box-model.png)  
 1. 标准盒模型  
-  在标准模型中，如果你给盒设置 width 和 height，实际设置的是 content box。 padding 和 border 再加上设置的宽高一起决定整个盒子的大小  
+  在标准模型中，如果你给盒设置 width 和 height，实际设置的是 content box。 padding 和 border 再加上设置的宽高一起决定整个盒子的大小。  
 2. 替代（IE）盒模型
+  使用<code>box-sizing: border-box</code>来实现，替代模型中所有宽度都是可见宽度，内容宽度是该宽度减去边框和填充部分。
+
+!!! note
+    下方示例可以看到，上面的box实际宽度为390（300 + 40 * 2 + 5 * 2），下面的box宽度为300
+<div id="css-page-3">
+  <div class="box">I use the standard box model.</div>
+  <div class="box alternate">I use the alternate box model.</div>
+</div>
+```css
+.box {
+  border: 5px solid rebeccapurple;
+  background-color: lightgray;
+  padding: 40px;
+  margin: 40px;
+  width: 300px;
+  height: 150px;
+}
+
+.alternate {
+  box-sizing: border-box;
+}
+```
+```html
+<div class="box">I use the standard box model.</div>
+<div class="box alternate">I use the alternate box model.</div>
+```
+
+### 外边距折叠
+
+顶部段落的页 margin-bottom为 50px，第二段的margin-top 为 30px，框之间的实际外边距是 50px，而不是两个外边距的总和。
+
+<div id="css-page-4">
+  <div class="container">
+    <p class="one">I am paragraph one.</p>
+    <p class="two">I am paragraph two.</p>
+  </div>
+</div>
+
+```css
+.one {
+  margin-bottom: 50px;
+}
+
+.two {
+  margin-top: 30px;
+}
+```
+```html
+<div class="container">
+  <p class="one">I am paragraph one.</p>
+  <p class="two">I am paragraph two.</p>
+</div>
+```
+
+### display: inline-block
+* 设置width 和height 属性会生效。  
+* padding, margin, 以及border 会推开其他元素。
+
+<div id="css-page-5">
+  <nav>
+    <ul class="links-list">
+      <li><a href="">Link one</a></li>
+      <li><a href="">Link two</a></li>
+      <li><a href="">Link three</a></li>
+    </ul>
+  </nav>
+</div>
+
+```css
+.links-list a {
+  display: inline-block;
+  background-color: rgb(179,57,81);
+  color: #fff;
+  text-decoration: none;
+  padding: 1em 2em;
+}
+
+.links-list a:hover {
+  background-color: rgb(66, 28, 40);
+  color: #fff;
+}
+```
+```html
+<nav>
+  <ul class="links-list">
+    <li><a href="">Link one</a></li>
+    <li><a href="">Link two</a></li>
+    <li><a href="">Link three</a></li>
+  </ul>
+</nav>
+```
+
+## 渐变背景
+[在线CSS渐变生成器](https://cssgradient.io/)

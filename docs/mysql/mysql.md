@@ -148,7 +148,7 @@ create table student
 select 表1查询的字段，表2查询的字段 from 表1 left join 表2 on 条件
 ```
 
-## 数据库中导入文本文件
+## 数据库中导入本地文本文件
 ```MySQL
 #创建数据表
 create table snp
@@ -167,6 +167,11 @@ ALTER TABLE `snp` ADD PRIMARY KEY(`ID`);
 ALTER TABLE `snp` ADD INDEX zu(`CHROM`,`POS`);
 #导入文件(启动mysql时添加--local-infile参数)
 LOAD DATA LOCAL INFILE 'snp.txt' INTO TABLE snp FIELDS TERMINATED BY '\t' LINES TERMINATED BY '\n';
+```
+
+## 从数据库中导出到本地文本文件
+```shell
+mysql -uusername -ppasswd -e "select * from database_name.table_name" >out.txt
 ```
 
 ## 复制表
@@ -192,3 +197,11 @@ INSERT INTO targetTable SELECT * FROM sourceTable;
    ```mysql
    alter table test import tablespace;
    ```
+## 清空表内容
+
+```mysql
+#效率高，但不写入日志，无法恢复数据
+truncate table test;
+#速度慢，但可以恢复数据
+delete from test;
+```
