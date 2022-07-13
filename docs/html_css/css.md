@@ -242,3 +242,13 @@ h1 {
 
 ## 渐变背景
 [在线CSS渐变生成器](https://cssgradient.io/)
+
+## 调整图片大小
+
+* <code>max-width: 100%</code>,允许图片尺寸上小于但不大于盒子。  
+* 使用<code>object-fit</code>后替换元素可以以多种方式被调整到合乎盒子的大小。  
+
+## 样式化表格
+
+* <code>table-layout: fixed;</code>, 根据列标题的宽度来规定列的宽度。  
+* <code>border-collapse: collapse;</code>, 让边框合为一条。  
