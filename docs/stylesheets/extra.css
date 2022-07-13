@@ -62,3 +62,27 @@
 #css-page-5 li{
   margin: 5px;
 }
+
+#css-page-6 header {
+  background: purple;
+  height: 100px;
+}
+
+#css-page-6 h1 {
+  text-align: center;
+  color: white;
+  line-height: 100px;
+  margin: 0;
+}
+
+#css-page-6 article {
+  padding: 10px;
+  margin: 10px;
+  background: aqua;
+  flex: 200px;
+}
+
+#css-page-6 section{
+  display: flex;
+  flex-wrap: wrap;
+}

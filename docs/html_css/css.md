@@ -252,3 +252,112 @@ h1 {
 
 * <code>table-layout: fixed;</code>, 根据列标题的宽度来规定列的宽度。  
 * <code>border-collapse: collapse;</code>, 让边框合为一条。  
+
+## CSS排版
+
+### 正常布局流
+在没有改变默认布局规则情况下的页面元素布局方式。
+
+### 弹性盒子<code>display: flex;</code>
+
+#### 例子  
+<div id="css-page-6">
+  <header>
+      <h1>Sample flexbox example</h1>
+    </header>
+    <section>
+      <article>
+        <h2>First article</h2>
+        <p>p1</p>
+      </article>
+      <article>
+        <h2>Second article</h2>
+        <p>p2</p>
+      </article>
+      <article>
+        <h2>Third article</h2>
+        <p>p3</p>
+        <p>p4</p>
+      </article>
+      <article>
+        <h2>Fourth article</h2>
+        <p>p5</p>
+      </article>
+      <article>
+        <h2>Fifth article</h2>
+        <p>p6</p>
+      </article>
+      <article>
+        <h2>Six article</h2>
+        <p>p7</p>
+        <p>p8</p>
+      </article>
+      <article>
+        <h2>Seventh article</h2>
+        <p>p9</p>
+        <p>p10</p>
+      </article>
+    </section>
+</div>
+html:
+
+```html
+<header>
+  <h1>Sample flexbox example</h1>
+</header>
+<section>
+  <article>
+    <h2>First article</h2>
+    <p>p1</p>
+  </article>
+  <article>
+    <h2>Second article</h2>
+    <p>p2</p>
+  </article>
+  <article>
+    <h2>Third article</h2>
+    <p>p3</p>
+    <p>p4</p>
+  </article>
+  <article>
+    <h2>Fourth article</h2>
+    <p>p5</p>
+  </article>
+  <article>
+    <h2>Fifth article</h2>
+    <p>p6</p>
+  </article>
+  <article>
+    <h2>Six article</h2>
+    <p>p7</p>
+    <p>p8</p>
+  </article>
+  <article>
+    <h2>Seventh article</h2>
+    <p>p9</p>
+    <p>p10</p>
+  </article>
+</section>
+```
+css:
+```css
+section{
+  display: flex;
+  flex-wrap: wrap;/* 溢出的元素将被移到下一行 */
+}
+article {
+  flex: 200px; /* 每个元素的宽度至少是 200px */
+}
+```
+
+#### 属性
+!!! note
+    可使用F12开发者工具在上述例子上更改css属性
+
+* <code>flex: 1 200px;</code>: 每个 flex 项将首先给出 200px 的可用空间，然后，剩余的可用空间将根据分配的比例共享  
+* <code>justify-content: space-around;</code>: justify-content控制 flex 项在主轴上的位置  
+* <code>align-items: center;</code>: align-items控制交叉轴上的位置  
+* <code>order</code>:
+    * 所有 flex 项默认的 order 值是 0。
+    * order 值大的 flex 项比 order 值小的在显示顺序中更靠后。
+    * 可以为负数。
