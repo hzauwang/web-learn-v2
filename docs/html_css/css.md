@@ -475,3 +475,43 @@ p::first-letter {
   margin-right: 4px;
 }
 ```
+
+### 定位<code>position</code>
+
+#### 相对定位<code>position: relative;</code>
+
+例子:
+<div id="css-page-9">
+  <h1>Basic document flow</h1>
+  <p>I am a basic block level element. My adjacent block level elements sit on new lines below me.</p>
+  <p class="positioned">By default we span 100% of the width of our parent element, and we are as tall as our child content. Our total width and height is our content + padding + border width/height.</p>
+  <p>We are separated by our margins. Because of margin collapsing, we are separated by the width of one of our margins, not both.</p>
+  <p>inline elements <span>like this one</span> and <span>this one</span> sit on the same line as one another, and adjacent text nodes, if there is space on the same line. Overflowing inline elements will <span>wrap onto a new line if possible (like this one containing text)</span>, or just go on to a new line if not, much like this image will do: <img src="https://mdn.github.io/learning-area/css/css-layout/positioning/long.jpg"></p>
+</div>
+
+第二段设置为<code>position: relative;</code>，添加<code>top: 30px;left: 30px;</code>
+
+#### 绝对定位<code>position: absolute;</code>
+
+例子:
+<div id="css-page-10">
+  <h1>Basic document flow</h1>
+  <p>I am a basic block level element. My adjacent block level elements sit on new lines below me.</p>
+  <p class="positioned">By default we span 100% of the width of our parent element, and we are as tall as our child content. Our total width and height is our content + padding + border width/height.</p>
+  <p>We are separated by our margins. Because of margin collapsing, we are separated by the width of one of our margins, not both.</p>
+  <p>inline elements <span>like this one</span> and <span>this one</span> sit on the same line as one another, and adjacent text nodes, if there is space on the same line. Overflowing inline elements will <span>wrap onto a new line if possible (like this one containing text)</span>, or just go on to a new line if not, much like this image will do: <img src="https://mdn.github.io/learning-area/css/css-layout/positioning/long.jpg"></p>
+</div>
+
+第二段设置为<code>position: absolute;</code>, 父元素设置为<code>position: relative;</code>, 添加<code>top: 30px;left: 30px;</code>
+
+#### 固定定位<code>position: fixed;</code>
+
+与绝对定位的工作方式完全相同，只有一个主要区别：绝对定位固定元素是相对于 <code>&lt;html&gt;</code> 元素或其最近的定位祖先，而固定定位固定元素则是相对于浏览器视口本身。
+
+查看[例子](https://mdn.github.io/learning-area/css/css-layout/positioning/6_fixed-positioning.html)
+
+#### 粘性定位<code>position: sticky;</code>
+
+是相对位置和固定位置的混合体，它允许被定位的元素表现得像相对定位一样，直到它滚动到某个阈值点（例如，从视口顶部起 1​​0 像素）为止，此后它就变得固定了。
+
+查看[例子](../example/position_sticky.html)
