@@ -361,3 +361,117 @@ article {
     * 所有 flex 项默认的 order 值是 0。
     * order 值大的 flex 项比 order 值小的在显示顺序中更靠后。
     * 可以为负数。
+
+### 网格布局<code>display: grid;</code>
+
+#### 例子
+
+<div id="css-page-7">
+  <div class="container">
+      <div class="first-div">One</div>
+      <div>Two</div>
+      <div>Three</div>
+      <div>Four</div>
+      <div>Five</div>
+      <div>Six</div>
+      <div>Seven</div>
+  </div>
+</div>
+
+```html
+<div class="container">
+    <div class="first-div">One</div>
+    <div>Two</div>
+    <div>Three</div>
+    <div>Four</div>
+    <div>Five</div>
+    <div>Six</div>
+    <div>Seven</div>
+</div>
+```
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
+  grid-auto-rows: minmax(100px, auto);
+}
+.first-div{
+  grid-column: 1/3;
+  grid-row: 1/3;
+}
+```
+
+#### 属性
+
+* <code>grid-template-columns: repeat(2, 2fr 1fr)</code>, 表示<code>2fr 1fr 2fr 1fr</code>
+* 显式网格是使用<code>grid-template-columns</code> 和 <code>grid-template-rows</code>创建的，隐式网格是为了放显式网格放不下的元素，浏览器根据已经定义的显式网格自动生成的网格部分，可以根据<code>grid-auto-rows</code> 和 <code>grid-auto-columns</code>来手动设置隐式网格的大小。
+* <code>minmax(100px, auto)</code>, 尺寸至少为 100 像素，并且如果内容尺寸大于 100 像素则会根据内容自动调整。
+* <code>grid-column</code> 和 <code>grid-row</code>，指定从那条线开始到哪条线结束。  
+* <code>grid-template-areas</code>:
+```css
+.container {
+  display: grid;
+  grid-template-areas:
+      "header header"
+      "sidebar content"
+      "footer footer";
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 20px;
+}
+
+header {
+  grid-area: header;
+}
+
+article {
+  grid-area: content;
+}
+
+aside {
+  grid-area: sidebar;
+}
+
+footer {
+  grid-area: footer;
+}
+```
+
+### 浮动
+
+浮动元素会脱离正常的文档布局流，并吸附到其父容器的左边。在正常布局中位于该浮动元素之下的内容，此时会围绕着浮动元素，填满其右侧的空间。
+
+<div id="css-page-8">
+  <p>This is my very important paragraph.
+  I am a distinguished gentleman of such renown that my paragraph
+  needs to be styled in a manner befitting my majesty. Bow before
+  my splendour, dear students, and go forth and learn CSS!</p>
+</div>
+
+```html
+<p>This is my very important paragraph.
+I am a distinguished gentleman of such renown that my paragraph
+needs to be styled in a manner befitting my majesty. Bow before
+my splendour, dear students, and go forth and learn CSS!</p>
+```
+
+```css
+p {
+  width: 400px;
+  margin: 0 auto;
+}
+
+p::first-line {
+  text-transform: uppercase;
+}
+
+p::first-letter {
+  font-size: 3em;
+  border: 1px solid black;
+  background: red;
+  float: left;
+  padding: 2px;
+  margin-right: 4px;
+}
+```

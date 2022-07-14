@@ -1,9 +1,9 @@
 #css-page .main-heading {
-  color: red; 
+  color: red;
 }
 
-#css-page h1 { 
-  color: blue; 
+#css-page h1 {
+  color: blue;
 }
 
 #css-page-1 li[class^="a"] {
@@ -42,7 +42,7 @@
 
 #css-page-5 .links-list a {
   display: inline-block;
-  background-color: rgb(179,57,81);
+  background-color: rgb(179, 57, 81);
   color: #fff;
   text-decoration: none;
   padding: 1em 2em;
@@ -53,13 +53,13 @@
   color: #fff;
 }
 
-#css-page-5 ul{
+#css-page-5 ul {
   display: flex;
   list-style: none;
   border: 1px solid black;
 }
 
-#css-page-5 li{
+#css-page-5 li {
   margin: 5px;
 }
 
@@ -82,7 +82,44 @@
   flex: 200px;
 }
 
-#css-page-6 section{
+#css-page-6 section {
   display: flex;
   flex-wrap: wrap;
+}
+
+#css-page-7 .container>div {
+  border-radius: 5px;
+  padding: 10px;
+  background-color: rgb(207, 232, 220);
+  border: 2px solid rgb(79, 185, 227);
+}
+
+#css-page-7 .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+#css-page-7 .first-div{
+  grid-column: 1/3;
+  grid-row: 1/3;
+}
+
+#css-page-8 p {
+  width: 400px;
+  margin: 0 auto;
+}
+
+#css-page-8 p::first-line {
+  text-transform: uppercase;
+}
+
+#css-page-8 p::first-letter {
+  font-size: 3em;
+  border: 1px solid black;
+  background: red;
+  float: left;
+  padding: 2px;
+  margin-right: 4px;
 }
