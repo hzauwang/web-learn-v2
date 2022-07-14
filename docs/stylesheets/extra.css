@@ -123,3 +123,41 @@
   padding: 2px;
   margin-right: 4px;
 }
+
+#css-page-9 body,
+#css-page-10 body {
+  width: 500px;
+  margin: 0 auto;
+}
+
+#css-page-9 p,
+#css-page-10 p {
+  background: aqua;
+  border: 3px solid blue;
+  padding: 10px;
+  margin: 10px;
+}
+
+#css-page-9 span,
+#css-page-10 span {
+  background: red;
+  border: 1px solid black;
+}
+
+#css-page-9 .positioned {
+  position: relative;
+  background: yellow;
+  top: 30px;
+  left: 30px;
+}
+
+#css-page-10 {
+  position: relative;
+}
+
+#css-page-10 .positioned {
+  position: absolute;
+  background: yellow;
+  top: 30px;
+  left: 30px;
+}
