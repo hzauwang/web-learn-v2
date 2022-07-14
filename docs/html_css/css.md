@@ -515,3 +515,53 @@ p::first-letter {
 是相对位置和固定位置的混合体，它允许被定位的元素表现得像相对定位一样，直到它滚动到某个阈值点（例如，从视口顶部起 1​​0 像素）为止，此后它就变得固定了。
 
 查看[例子](../example/position_sticky.html)
+
+### 多列布局
+<code>column-count: 3;</code> 将创建指定数量的列  
+<code>column-width: 200px;</code> 将按照指定的宽度尽可能多的创建列, 任何剩余的空间之后会被现有的列平分。这意味着可能无法期望得到指定的宽度，除非容器的宽度刚好可以被你指定的宽度除尽。  
+<code>column-gap: 20px;</code> 改变列间间隙。  
+<code>column-rule: 4px dotted rgb(79, 185, 227);</code> 在列间加入一条分割线。  
+<code>break-inside: avoid;</code> 避免列与内容折断。  
+
+### 媒体查询
+
+```css
+@media media-type and (media-feature-rule) {
+  /* CSS rules go here */
+}
+```
+
+媒体类型:   
+
+* <code>all</code>  
+* <code>print</code>  
+* <code>screen</code>  
+* <code>speech</code>  
+
+媒体特征规则:  
+
+* 宽和高: <code>min-width</code>, <code>max-width</code>, <code>width</code>  
+* 朝向: <code>orientation</code> 竖放(portrait),横放(landscape)  
+* 使用指点设备: <code>hover: hover</code> 触摸屏和键盘导航没法实现悬浮，用户不能悬浮的话，可以默认显示一些交互功能  
+
+
+```css
+/*  body 的文字只会在视口至少为 400 像素宽，且设备横放时变为蓝色 */
+@media screen and (min-width: 400px) and (orientation: landscape) { 
+  body {
+    color: blue;
+  }
+}
+/* 文本会在视口至少为 400 像素宽的时候或者设备处于横放状态的时候变为蓝色 */
+@media screen and (min-width: 400px), screen and (orientation: landscape) { 
+  body {
+    color: blue;
+  }
+}
+/* 文本只会在朝向为竖着的时候变成蓝色 */
+@media not all and (orientation: landscape) {
+  body {
+    color: blue;
+  }
+}
+```
