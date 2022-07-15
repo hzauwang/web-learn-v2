@@ -35,6 +35,48 @@ var person1 = {
 person1.greeting() //输出"Hi! I'm Chris."
 ```
 
+### 原型、原型链
+
+每个对象拥有一个原型（prototype）对象，对象以其原型为模板、从原型继承方法和属性。  
+原型对象也可能拥有原型，并从中继承方法和属性，一层一层、以此类推。这种关系常被称为原型链（prototype chain）。
+```js
+function doSomething(){}
+doSomething.prototype.foo = "bar";
+var doSomeInstancing = new doSomething();
+doSomeInstancing.prop = "some value";
+console.log("doSomeInstancing.prop:      " + doSomeInstancing.prop);
+// doSomeInstancing.prop:      some value
+console.log("doSomeInstancing.foo:       " + doSomeInstancing.foo);
+// doSomeInstancing.foo:       bar
+console.log("doSomething.prop:           " + doSomething.prop);
+// doSomething.prop:           undefined
+console.log("doSomething.foo:            " + doSomething.foo);
+// doSomething.foo:            undefined
+console.log("doSomething.prototype.prop: " + doSomething.prototype.prop);
+// doSomething.prototype.prop: undefined
+console.log("doSomething.prototype.foo:  " + doSomething.prototype.foo);
+// doSomething.prototype.foo:  bar
+```
+继承的属性和方法是定义在 prototype 属性之上的。
+prototype 属性的值是一个对象，我们希望被原型链下游的对象继承的属性和方法，都被储存在其中。
+
+
+常见的对象定义模式是，在构造器（函数体）中定义属性、在 prototype 属性上定义方法。
+```js
+function Test(a, b) {
+  this.a = a
+  this.b = b
+}
+
+Test.prototype.x = function() {
+  console.log(this.a)
+}
+
+Test.prototype.y = function() {
+  console.log(this.b)
+}
+```
+
 ### 类
 
 构造函数  
