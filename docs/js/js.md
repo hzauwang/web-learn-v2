@@ -20,3 +20,17 @@
 ## JavaScript训练
 
 [freeCodeCamp](https://chinese.freecodecamp.org/learn/javascript-algorithms-and-data-structures/)  
+
+## JavaScript对象
+
+### this
+关键字"this"指向了当前代码运行时的对象(the current object the code is being written inside)  
+```JavaScript
+var person1 = {
+  name : 'Chris',
+  greeting: function() {
+    alert('Hi! I\'m ' + this.name + '.');
+  }
+}
+person1.greeting() //输出"Hi! I'm Chris."
+```
