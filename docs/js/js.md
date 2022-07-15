@@ -34,3 +34,81 @@ var person1 = {
 }
 person1.greeting() //输出"Hi! I'm Chris."
 ```
+
+### 类
+
+构造函数  
+```JavaScript
+class Person{
+	name
+
+	constructor(name) {
+		this.name = name
+	}
+
+	introduceSelf() {
+		console.log(`Hi! I'm ${this.name}`)
+	}
+}
+const xiaoming =  new Person('XiaoMing')
+xiaoming.introduceSelf() // Hi! I'm XiaoMing
+```
+
+继承  
+```JavaScript
+class Professor extends Person{
+	teaches
+
+	constructor(name, teaches) {
+		super(name)
+		this.teaches = teaches
+	}
+
+	introduceSelf() {
+		console.log(`My name is ${this.name}, and I will be your ${this.teaches} professor.`)
+	}
+
+	grade() {
+		const grade = Math.floor(Math.random() * (5 - 1) + 1)
+		console.log(grade)
+	}
+}
+const xiaodong = new Professor('XiaoDong', 'XiaoMing')
+xiaodong.introduceSelf() // My name is XiaoDong, and I will be your XiaoMing professor.
+xiaodong.grade() // some random grade
+```
+
+封装  
+```JavaScript
+class Student extends Person{
+	#year
+
+	constructor(name, year) {
+		super(name)
+		this.#year = year //私有属性
+	}
+
+	introduceSelf() {
+		console.log(`Hi! I'm ${this.name}, and I'm in year ${this.#year}.`);
+	}
+
+	canStudyArchery() {
+		return this.#year > 1;
+	}
+
+	somePublicMethod() {
+		this.#somePrivateMethod()
+	}
+
+	#somePrivateMethod() { //私有方法
+		console.log('You called me?');
+	}
+}
+
+const summers = new Student('Summers', 3)
+summers.introduceSelf() //Hi! I'm Summers, and I'm in year 3.
+summers.canStudyArchery() //true
+summers.#year //属性 "#year" 在类 "Student" 外部不可访问，因为它具有专用标识符。
+summers.somePublicMethod() //You called me?
+summers.#somePrivateMethod() //属性 "#somePrivateMethod" 在类 "Student" 外部不可访问，因为它具有专用标识符。
+```
