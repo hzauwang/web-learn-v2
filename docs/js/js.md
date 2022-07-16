@@ -154,3 +154,51 @@ summers.#year //属性 "#year" 在类 "Student" 外部不可访问，因为它�
 summers.somePublicMethod() //You called me?
 summers.#somePrivateMethod() //属性 "#somePrivateMethod" 在类 "Student" 外部不可访问，因为它具有专用标识符。
 ```
+
+## 加载JSON
+
+```js
+let requestURL = "https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json"
+
+let request = new XMLHttpRequest()
+
+request.open('GET', requestURL)
+
+request.responseType = 'json'
+
+request.onload = function() {
+  let superHeroes = request.response
+  console.log(superHeroes)
+}
+
+request.send()
+```
+
+对象和文本之间的转换
+```js
+let requestURL = "https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json"
+
+let request = new XMLHttpRequest()
+
+request.open('GET', requestURL)
+
+request.responseType = 'text'
+
+request.onload = function() {
+  let superHeroesText = request.response
+  console.log(superHeroesText)
+  let superHeroes = JSON.parse(superHeroesText) // convert it to an object
+  console.log(superHeroes)
+}
+
+request.send()
+
+let myJSON = { "name" : "Chris", "age" : "38" }
+console.log(myJSON)
+var myString = JSON.stringify(myJSON) // convert it to an string
+console.log(myString)
+```
+
+## 一个关于对象构建的实践
+
+链接: [点击跳转](../example/object_example/index.html)
