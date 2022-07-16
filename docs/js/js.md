@@ -202,3 +202,159 @@ console.log(myString)
 ## 一个关于对象构建的实践
 
 链接: [点击跳转](../example/object_example/index.html)
+
+## 异步JavaScript
+
+### 回调
+
+callback: "I will call back later!"
+
+```js
+function doStep1(init, callback) {
+  const result = init + 1
+  callback(result)
+}
+function doStep2(init, callback) {
+  const result = init + 2
+  callback(result)
+}
+function doStep3(init, callback) {
+  const result = init + 3
+  callback(result)
+}
+function doOperation() {
+  doStep1(0, result1 => {
+    doStep2(result1, result2 => {
+      doStep3(result2, result3 => {
+        console.log(result3)
+      })
+    })
+  })
+}
+doOperation() // 6
+```
+
+### Promise
+
+#### 使用 Promise
+```js
+const fetchPromise = fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json')
+fetchPromise
+  .then(response => {
+    if(!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`)
+    }
+    return response.json()
+  }) // then() 本身也会返回一个 Promise
+  .then(json => {
+    console.log(json[0].name)
+  })
+  .catch(error => {
+    console.error(`无法获取产品列表：${error}`)
+  }) // 将 catch() 添加到 Promise 链的末尾，它就可以在任何异步函数失败时被调用
+```
+[XMLHttpRequest和Fetch的区别](https://www.cnblogs.com/hanksyao/p/12089105.html)
+
+Promise 有三种状态:  
+
+* 待定（pending）  
+* 已兑现（fulfilled）:<code>then()</code>将会被调用  
+* 已拒绝（rejected）:<code>catch()</code>将会被调用
+
+#### 合并使用多个 Promise
+
+```js
+const fetchPromise1 = fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json')
+const fetchPromise2 = fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/not-found')
+const fetchPromise3 = fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+Promise.all([fetchPromise1, fetchPromise2, fetchPromise3])
+  .then(responses => {
+    for(const response of responses){
+      console.log(`${response.url}：${response.status}`)
+    }
+  })
+  .catch(error => {
+    console.error(`获取失败：${error}`)
+  })
+
+// Promise.any(): 在 Promise 数组中的任何一个被兑现时它就会被兑现
+Promise.any([fetchPromise1, fetchPromise2, fetchPromise3])
+  .then( response => {
+    console.log(`${response.url}：${response.status}`)
+  })
+  .catch( error => {
+    console.error(`获取失败：${error}`)
+  })
+```
+
+### async 和 await
+
+```js
+async function fetchProducts() {
+  try {
+    const response = await fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json')
+    if(!response.ok) {
+      throw new Error(`HTTP 请求错误：${response.status}`)
+    }
+    const json = await response.json()
+    console.log(json[0].name)
+  }
+  catch(error){
+    console.error(`无法获取产品列表：${error}`)
+  }
+}
+fetchProducts()
+```
+
+## 如何实现基于 Promise 的 API
+
+### Promise() 构造器
+<code>Promise()</code> 构造器使用单个函数作为参数, 这个函数称作执行器（executor）, 执行器本身采用两个参数，这两个参数都是函数，通常被称作 <code>resolve</code> 和 <cpde>reject</cpde>。如果异步函数成功了，就调用 <code>resolve</code>，如果失败了，就调用 <cpde>reject</cpde>。
+
+```js
+function alarm(person, delay) {
+  return new Promise((resolve, reject) => {
+    if(delay < 0) {
+      throw new Error('Alarm delay must not be negative')
+    }
+    window.setTimeout(() => {
+      resolve(`Wake up, ${person}!`)
+    }, delay);
+  })
+}
+alarm('name1', 2000)
+  .then(message => console.log(message))
+  .catch(error => console.error(error))
+```
+
+### 使用 async 和 await
+
+```js
+async function testFunction(person, delay) {
+  try {
+    const message = await alarm(person, delay)
+    console.log(message)
+  }
+  catch(error) {
+    console.error(error)
+  }
+}
+```
+
+## workers
+
+三种不同类型的 workers：  
+
+* dedicated workers  
+* shared workers: 可以由运行在不同窗口中的多个不同脚本共享。
+* service workers: 行为像代理服务器，缓存资源以便于 web 应用程序可以在用户离线时工作。
+
+第一例worker(dedicated workers):  
+[用 worker 进行质数生成](../example/worker_example/index.html)
+
+使用<code>addEventListener('message', (message) => {})</code>接受信息
+使用<code>postMessage()</code>发送信息
+
+## 序列动画
+
+[例子](../example/sequencing-animations/index.html)
