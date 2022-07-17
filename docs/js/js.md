@@ -358,3 +358,98 @@ async function testFunction(person, delay) {
 ## 序列动画
 
 [例子](../example/sequencing-animations/index.html)
+
+## 操作文档
+
+* <code>document.querySelector()</code>是推荐的选择一个元素的主流方法  
+* <code>document.querySelectorAll()</code>对多个元素进行匹配和操作  
+* <code>document.createElement()</code>创建一个新的段落
+* <code>Node.appendChild()</code>在后面追加新的段落  
+* <code>document.createTextNode()</code>创建一个文本节点  
+* <code>Node1.removeChild(Node)</code>，在拥有要删除的节点(Node)和其父节点(Node1)的引用时，或者使用<code>Node.parentNode.removeChild(Node)</code>
+* <code>Node.style.color = 'white'</code>，修改样式
+* <code>Node.setAttribute('class', 'class1')</code>，修改属性
+
+例子: 不管窗口的大小是多少，确保应用程序和它所在的窗口视图一样大
+```js
+let div = document.querySelector('div')
+const width = window.innerWidth
+const height = window.innerHeight
+
+div.style.width = width + 'px'
+div.style.height = height + 'px'
+
+window.onresize = funciton() {
+  const width = window.innerWidth
+  const height = window.innerHeight
+  div.style.width = width + 'px'
+  div.style.height = height + 'px'
+}
+```
+
+## Ajax
+
+### XMLHttpRequest
+
+```js
+let request = new XMLHttpRequest()
+request.open('GET', url)
+request.responseType = 'text'
+request.onload = function() {
+  console.log(request.response)
+}
+request.send()
+```
+
+### Fetch
+Fetch API 基本上是 XHR 的一个现代替代品
+
+```js
+fetch(url).then((response) => {
+  return response.text()
+}).then((text) => {
+  console.log(text)
+})
+```
+
+## 客户端存储
+
+### 传统方法：cookies
+
+### 存储简单数据 — web storage
+
+所有的 web storage 数据都包含在浏览器内两个类似于对象的结构中：<code>sessionStorage</code>和<code>localStorage</code>。第一种方法，只要浏览器开着，数据就会一直保存 (关闭浏览器时数据会丢失) ，而第二种会一直保存数据，甚至到浏览器关闭又开启后也是这样。
+
+```js
+//每个域名分离存储
+localStorage.setItem('name', 'xiaoming') //允许在存储中保存一个数据项
+localStorage.getItem('name') //获取存储值
+localStorage.removeItem('name') //删除
+```
+
+例子: [personal-greeting.html](../example/web_storage/index.html)
+
+### 存储复杂数据 — IndexedDB
+
+[笔记存储示例](../example/IndexedDB/index.html)
+
+## 表单
+
+### 表单验证
+
+* required 属性  
+* 使用正则表达式验证
+```html
+<form>
+  <label for="choose">Would you prefer a banana or a cherry?</label>
+  <input id="choose" name="i_like" required pattern="banana|cherry">
+  <button>Submit</button>
+</form>
+```
+* 限制输入的长度
+```html
+<input id="choose" name="i_like" required minlength="6" maxlength="6">
+<input type="number" id="number" name="amount" value="1" min="1" max="10">
+```
+
+使用<code>:invalid</code>伪类添加验证失败后的css样式
