@@ -802,16 +802,22 @@ v-on：简写模式
 
 
 
-事件处理修饰符，这里简单写了几个
+事件处理修饰符
 
-> .stop 阻止事件冒泡
+> @click.stop 阻止事件冒泡
 >
-> .prevent 阻止默认事件
+> @click.prevent 阻止默认事件
 >
-> .enter(也可以指定其他键位) 监听某一个键位
+> @click.once 该事件只会触发一次
+
+按键别名
+
+> @keyup.enter 监听某一个键位
 >
-> .once 该事件只会触发一次
+> @keydown.tab 使用keydown
 >
+> @keydown.ctrl, @keydown.alt, @keydown.shift, @keydown.meta 系统修饰键，使用keydown
+
 > .exact 精确控制事件
 
 ```html
@@ -937,6 +943,7 @@ v-if 则是直接让元素在页面消失了，dom 查看不到该元素了
 
 #### 4.10 v-model（重要）
 
+原理见[Object.defineProperty()](./js.md#javascript_1)  
 表单元素和数据的双向绑定
 
 ```html

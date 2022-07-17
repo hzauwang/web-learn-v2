@@ -23,6 +23,42 @@
 
 ## JavaScript对象
 
+### <code>Object.defineProperty()</code>
+
+```js
+let person = {
+  name: 'wang'
+}
+Object.defineProperty(person, 'age', {
+	value: 18,
+	enumerable: true, // 控制属性是否可枚举, default: false
+	writable: true, // 控制属性是否可修改, default: false
+	configurable: true // 控制属性是否可以通过delete删除, default: false
+})
+let number = 18
+
+// 数据双向绑定
+Object.defineProperty(person, 'age', {
+  get() {
+    return number // 当读取age属性时被调用(getter)
+  },
+  set(value) {
+    number = value // 当修改person.age时被调用(setter)
+  }
+})
+// 数据代理, 一个对象代理另一个对象的属性的操作（读/写）
+let obj = { x: 1 }
+let obj2 = {}
+Object.defineProperty(obj2, 'x', {
+  get() {
+    return obj.x
+  },
+  set(value) {
+    obj.x = value
+  }
+})
+```
+
 ### this
 关键字"this"指向了当前代码运行时的对象(the current object the code is being written inside)  
 ```JavaScript
