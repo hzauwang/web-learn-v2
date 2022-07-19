@@ -1102,6 +1102,50 @@ v-if 则是直接让元素在页面消失了，dom 查看不到该元素了
 </script>
 ```
 
+#### 4.11 自定义指令
+```html
+<div id="app">
+    <div>
+        <h2 v-text="message"></h2>
+        <!-- v-big: 放大10倍 -->
+        <h2 v-big="message"></h2>
+        <!-- v-fbind: 绑定的input获取焦点 -->
+        <input v-fbind="message">
+    </div>
+</div>
+
+<script src="../resources/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            message:1
+        },
+        directives: {
+            big(element, binding) {
+                element.innerText = binding.value * 10
+            },
+            fbind: {
+                // 此处的this指向的是window
+                // 指令与元素绑定时
+                bind(element, binding) {
+                    element.value = binding.value
+                },
+                // 指令所在元素插入页面时
+                inserted(element, binding) {
+                    element.focus()
+                },
+                // 指令所在模板更新时
+                update(element, binding) {
+                    element.value = binding.value
+                }
+            }
+        }
+    })
+</script>
+
+```
+
 
 
 ### 5、小插曲
