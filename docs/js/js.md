@@ -461,6 +461,8 @@ fetch(url).then((response) => {
 localStorage.setItem('name', 'xiaoming') //允许在存储中保存一个数据项
 localStorage.getItem('name') //获取存储值
 localStorage.removeItem('name') //删除
+localStorage.clear() //删除所有数据
+localStorage.key(index) //得到某个索引的key
 ```
 
 例子: [personal-greeting.html](../example/web_storage/index.html)
