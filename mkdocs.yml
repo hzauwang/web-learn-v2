@@ -6,6 +6,7 @@ theme:
     - navigation.top
     - search.highlight
     - navigation.tabs
+    - navigation.tabs.sticky
 
 markdown_extensions:
   - admonition
