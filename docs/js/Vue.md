@@ -2186,8 +2186,6 @@ Vue 在之前版本使用组件有三个步骤：
 </script>
 ```
 
-
-
 #### 8.5 父子组件通讯
 
 父子组件无法直接访问对方的 data 中的数据，但是间接就可以了，这个就是父子组件之间的通讯
@@ -2382,6 +2380,29 @@ props 定义接受参数名的时候如果用了驼峰命名，那么在页面�
             }
         }
     })
+</script>
+```
+!!!note
+    在子组件中使用<code>this.$off('mclick')</code>解绑一个自定义事件  
+    将多个事件名放在一个数组中传入可以解绑多个，<code>this.$off(['mclick', 'mclick2'])</code>  
+    <code>this.$off()</code>解绑所有自定义事件  
+
+!!!note
+    给子组件绑定原生事件时，比如@click, 会被当作自定义事件，需要在后加上修饰符.native  
+
+另一种给子组件绑定自定义事件的方法, 更加灵活，比如可以在3秒后绑定事件
+```html
+<!-- 父组件 -->
+<div id="app">
+    <my-comp ref="mycomp"></my-comp>
+</div>
+
+<script>
+    //....
+    mounted(){
+        this.$refs.mycomp.$on('mclick', this.hello) // $once 绑定一次
+    }
+    //....
 </script>
 ```
 
@@ -2714,6 +2735,55 @@ props 定义接受参数名的时候如果用了驼峰命名，那么在页面�
 ```
 
 
+
+#### 8.8 事件总线
+
+```js
+/* main.js */
+new Vue({
+	/* ----- */
+	el: '#app',
+	beforeCreate() {
+		Vue.prototype.$bus = this // 安装事件总线
+	}
+	/* ----- */
+})
+```
+
+```html
+<!-- A组件(作为接收信息者) -->
+<template>
+	<!-- ------ -->
+</template>
+
+<script>
+/* ----- */
+	mounted() {
+		this.$bus.$on('hello', (data) => {
+			console.log('接收到了数据')
+		})
+	},
+	beforeDestory() {
+		this.$bus.$off('hello')
+	}
+/* ----- */
+</script>
+
+<!-- B组件(作为发送信息者) -->
+<template>
+	<!-- ------ -->
+</template>
+
+<script>
+/* ----- */
+	methods() {
+		send() {
+			this.$bus.$emit('hello', this.testData)
+		}
+	}
+/* ----- */
+</script>
+```
 
 ### 9、插槽 slot
 
