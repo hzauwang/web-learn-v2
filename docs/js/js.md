@@ -21,6 +21,41 @@
 
 [freeCodeCamp](https://chinese.freecodecamp.org/learn/javascript-algorithms-and-data-structures/)  
 
+## JavaScript数据类型
+
+基本数据类型: Number, String, Boolean, Null, Undefined, BigInt, Symbol
+
+引用数据类型: Object
+
+<code>Symbol</code>:
+
+```js
+let a = Symbol('foo')
+a.toString() // 'Symbol(foo)'
+a.description // 'foo'
+let b = Symbol('foo')
+console.log(a === b) // false
+let c = Symbol.for('foo')
+let d = Symbol.for('foo')
+console.log(c === d) // true
+
+let obj = {
+  [a]: 'value1',
+  name: 'value2'
+}
+
+Object.getOwnPropertySymbols(obj) // 仅获取对象中的symbol键
+Reflect.ownKeys(obj) // 获取所有键包括symbol
+```
+
+## 变量声明提前
+
+使用<code>var</code>声明的变量，会在所有代码执行前被声明，但不会被赋值
+```js
+console.log(a) //undefined
+var a = 1
+```
+
 ## JavaScript对象
 
 ### <code>Object.defineProperty()</code>
@@ -57,6 +92,22 @@ Object.defineProperty(obj2, 'x', {
     obj.x = value
   }
 })
+```
+
+### <code>Object.assign()</code>
+<code>Object.assign()</code>方法将所有<strong>可枚举</strong>和<strong>自有</strong>属性从一个或多个源对象复制到目标对象，返回修改后的对象。  
+
+* 如果和target的已有属性重名，则会覆盖
+* 后续的source会覆盖前面的source的同名属性
+
+```js
+const target = { a: 1, b: 2 }
+const source = { b: 4, c: 5 }
+
+const returnedTarget = Object.assign(target, source)
+
+console.log(target) // { a: 1, b: 4, c: 5 }
+console.log(returnedTarget) // { a: 1, b: 4, c: 5 }
 ```
 
 ### this
@@ -189,6 +240,42 @@ summers.canStudyArchery() //true
 summers.#year //属性 "#year" 在类 "Student" 外部不可访问，因为它具有专用标识符。
 summers.somePublicMethod() //You called me?
 summers.#somePrivateMethod() //属性 "#somePrivateMethod" 在类 "Student" 外部不可访问，因为它具有专用标识符。
+```
+
+## call和apply
+
+```js
+function fun() {
+  console.log(this)
+}
+fun.call() // Window
+fun.apply() // Window
+
+let obj = {
+  name: 'hhh'
+}
+fun.call(obj) // obj
+fun.apply(obj) // obj
+
+let obj2 = {
+  name: 'hhh2',
+  sayMyName(){
+    console.log(this.name)
+  }
+}
+obj2.sayMyName.call(obj) // 'hhh'
+obj2.sayMyName.apply(obj) // 'hhh'
+
+let obj3 = {
+  sayMyName(name, name2){
+    console.log(name, name2)
+  }
+}
+
+// call可以在传入对象后传参数
+obj3.sayMyName.call(obj2, 'wang', 'zhao') // 'wang' 'zhao'
+// apply需要将实参封装在数组中传递
+obj3.sayMyName.apply(obj2, ['wang', 'zhao']) // 'wang' 'zhao'
 ```
 
 ## 加载JSON
