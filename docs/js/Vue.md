@@ -3763,56 +3763,131 @@ import * as d3v4 from 'd3v4'
 
 ### 13、动画
 
-* css完成  
-	```html
-	<div class="box come"></div>
-	<div class="box go"></div>
+#### css完成  
+```html
+<div class="box come"></div>
+<div class="box go"></div>
 
-	<style>
-		.come {
-			animation: donghua 1s;
-		}
+<style>
+	.come {
+		animation: donghua 1s;
+	}
 
-		.go {
-			animation: donghua 1s reverse;
-		}
+	.go {
+		animation: donghua 1s reverse;
+	}
 
-		@keyframes donghua {
-			from {
-				transform: translateX(-100%);
-			}
-			to {
-				transform: translateX(0px);
-			}
+	@keyframes donghua {
+		from {
+			transform: translateX(-100%);
 		}
-	</style>
-	```
-* vue
-	```html
-	<template>
-		<!-- 修改isShow即可有动画 -->
-		<!-- appear表示第一次显示是否带动画 -->
-		<transition name="hello" :appear="true">
-			<div v-show="isShow" class="box"></div>
-		</transition>
-	</template>
+		to {
+			transform: translateX(0px);
+		}
+	}
+</style>
+```
 
-	<style>
-		.hello-enter-active { /* 类名必须和transition的name对应 */
-			animation: donghua 1s;
-		}
+#### vue动画
+```html
+<template>
+	<!-- 修改isShow即可有动画 -->
+	<!-- appear表示第一次显示是否带动画 -->
+	<transition name="hello" :appear="true">
+		<div v-show="isShow" class="box"></div>
+	</transition>
+</template>
 
-		.hello-leave-active { /* 类名必须和transition的name对应 */
-			animation: donghua 1s reverse;
-		}
+<style>
+	.hello-enter-active { /* 类名必须和transition的name对应 */
+		animation: donghua 1s;
+	}
 
-		@keyframes donghua {
-			from {
-				transform: translateX(-100%);
-			}
-			to {
-				transform: translateX(0px);
-			}
+	.hello-leave-active { /* 类名必须和transition的name对应 */
+		animation: donghua 1s reverse;
+	}
+
+	@keyframes donghua {
+		from {
+			transform: translateX(-100%);
 		}
-	</style>
-	```
+		to {
+			transform: translateX(0px);
+		}
+	}
+</style>
+```
+
+#### vue过渡实现
+
+```html
+<template>
+	<!-- 修改isShow即可有动画 -->
+	<!-- appear表示第一次显示是否带动画 -->
+	<transition name="hello" :appear="true">
+		<div v-show="isShow" class="box"></div>
+	</transition>
+</template>
+
+<style>
+	/* 进入的起点 */
+	/* 离开的终点 */
+	.hello-enter,
+	.hello-leave-to {
+		transform: translateX(-100%);
+	}
+
+	.hello-enter-active,
+	.hello-leave-active {
+		transition: 0.5s linear;
+	}
+
+	/* 进入的终点 */
+	/* 离开的起点 */
+	.hello-enter-to,
+	.hello-leave {
+		transform: translateX(0);
+	}
+</style>
+```
+
+#### animate.css
+
+[animate.css](https://animate.style/)  
+<code>npm install animate.css</code>
+
+```html
+<template>
+	<!-- 修改isShow即可有动画 -->
+	<!-- appear表示第一次显示是否带动画 -->
+	<transition-group 
+		name="animate__animated animate__bounce" 
+		appea
+		enter-active-class="animate__swing"
+		leave-active-class="animate__backOutUp">
+		<div v-show="isShow" class="box" key="box1">box1</div>
+		<div v-show="!isShow" class="box" key="box2">box2</div>
+	</transition-group>
+</template>
+
+<script>
+	import 'animate.css'
+</script>
+```
+!!!note
+		transition-group里需要加上key
+
+### 14、axios
+
+```js
+import axios from 'axios'
+
+axios.get(url).then(
+	response => {
+		console.log(response.data)
+	},
+	error => {
+		console.log(error.message)
+	}
+)
+```
