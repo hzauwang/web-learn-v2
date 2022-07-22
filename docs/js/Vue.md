@@ -2734,8 +2734,6 @@ props 定义接受参数名的时候如果用了驼峰命名，那么在页面�
 </script>	
 ```
 
-
-
 #### 8.8 事件总线
 
 ```js
@@ -2785,10 +2783,46 @@ new Vue({
 </script>
 ```
 
+#### 8.9 消息订阅和发布
+
+A组件：订阅消息（消息名， 接收到消息的回调函数）  
+B组件：发布消息（消息名， 传递的数据）  
+
+<code>npm i pubsub-js</code>
+
+```html
+<!-- A组件 -->
+<script>
+    import pubsub from 'pubsub-js'
+    /* ------ */
+    mounted() {
+      this.pubID = pubsub.subscribe('hello', (messageName, data) => {
+				this.data = data
+				console.log('有人发布hello消息，此处接收到了数据')
+			})
+    }，
+		beforeDestory() {
+			pubsub.unsubscribe(this.pubID)
+		}
+    /* ------ */
+</script>
+
+<!-- B组件 -->
+<script>
+    import pubsub from 'pubsub-js'
+    /* ------ */
+    methods: {
+      send() {
+				pubsub.publish('hello', this.message)
+			}
+    }
+    /* ------ */
+</script>
+```
+
 ### 9、插槽 slot
 
 主要是为了提高组件的扩展性
-
 
 
 #### 9.1 基本使用
@@ -2992,8 +3026,6 @@ new Vue({
 之后，又出现了一个写法，将自己开发的模块中定义一个变量，在立即执行函数中定义一个对象，在对象中添加变量和方法，将对象返回，之后在其他模块使用的时候，直接通过 变量名.xxx 即可，这种情况下，只需要避免模块名相同即可
 
 最后，前人已经制定了一些模块化的写法，我们只需要按照相应规范即可实现模块化，模块化最主要的就是 导入 和 导出，over~
-
-
 
 
 
@@ -3714,6 +3746,7 @@ Mixin：对于 data 和 methods 中定义的内容，如果混入和组件同名
     })
 </script>
 ```
+
 ### 12、如何在vue中同时使用某插件的两个不同版本
 
 以d3.js举例
@@ -3727,3 +3760,59 @@ npm install d3v4@npm:d3@4.13.0 --save-dev
 import * as d3v3 from 'd3v3'
 import * as d3v4 from 'd3v4'
 ```
+
+### 13、动画
+
+* css完成  
+	```html
+	<div class="box come"></div>
+	<div class="box go"></div>
+
+	<style>
+		.come {
+			animation: donghua 1s;
+		}
+
+		.go {
+			animation: donghua 1s reverse;
+		}
+
+		@keyframes donghua {
+			from {
+				transform: translateX(-100%);
+			}
+			to {
+				transform: translateX(0px);
+			}
+		}
+	</style>
+	```
+* vue
+	```html
+	<template>
+		<!-- 修改isShow即可有动画 -->
+		<!-- appear表示第一次显示是否带动画 -->
+		<transition name="hello" :appear="true">
+			<div v-show="isShow" class="box"></div>
+		</transition>
+	</template>
+
+	<style>
+		.hello-enter-active { /* 类名必须和transition的name对应 */
+			animation: donghua 1s;
+		}
+
+		.hello-leave-active { /* 类名必须和transition的name对应 */
+			animation: donghua 1s reverse;
+		}
+
+		@keyframes donghua {
+			from {
+				transform: translateX(-100%);
+			}
+			to {
+				transform: translateX(0px);
+			}
+		}
+	</style>
+	```
