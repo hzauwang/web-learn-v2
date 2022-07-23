@@ -48,6 +48,18 @@ Object.getOwnPropertySymbols(obj) // 仅获取对象中的symbol键
 Reflect.ownKeys(obj) // 获取所有键包括symbol
 ```
 
+类型判断：  
+
+- <code>typeof</code>: 可以判断undefined/number/string/boolean/function  
+- <code>instanceof</code>: 判断对象的具体类型  
+- <code>===</code>: undefined/null  
+
+undefined和null：
+
+- undefined：定义了但没赋值  
+- null： 定义了且值为null， 可用于给某个对象变量赋初始值或回收不用的对象
+
+
 ## 变量声明提前
 
 使用<code>var</code>声明的变量，会在所有代码执行前被声明，但不会被赋值
@@ -55,6 +67,105 @@ Reflect.ownKeys(obj) // 获取所有键包括symbol
 console.log(a) //undefined
 var a = 1
 ```
+
+## 字符串的一些方法
+```js
+let str = 'hello'
+
+// 返回指定索引的Unicode编码
+str.charCodeAt(0) // 104
+
+// Unicode编码转为字符
+String.fromCharCode(104) // 'h'
+
+// 从后往前找
+str.lastIndexOf('l')
+
+/* ---切片--- */
+
+str.slice(0,2) // 'he'
+str.slice(0,-2) // 'hel'
+
+// substring类似于slice
+//   传递负值会转为0
+//   自动调整参数位置，传入(1, 0)会变为(0, 1)
+str.substring(0, -2) // '' 变为(0, 0)
+
+// 第二个参数为长度
+str.substr(1, 2) // 'el'
+
+/* -------- */
+
+// 大小写转换
+str.toUpperCase()
+str.toLowerCase()
+```
+
+部分方法查看<strong>正则表达式</strong>部分
+
+
+## 正则表达式
+
+匹配模式： 
+
+* i 忽略大小写
+* g 全局
+
+```js
+// new RegExp('正则', '匹配模式')
+// 字面量创建 /正则/匹配模式
+let reg = new RegExp("a", "i")
+let reg2 = /a/i
+
+// 测试是否符合正则
+reg.test("a")
+
+// \ 转义字符
+let reg3 = /a|b/ // a 或 b
+let reg4 = /[ab]/ // a 或 b
+let reg5 = /[A-z]/ // 任意字母, [0-9] 任意数字
+let reg6 = /[^ab]/ // 除了a b 以外的
+reg6.test('ab') // false
+reg6.test('ac') // true
+
+let reg7 = /(ab){m,n}/ // ab 出现m次到n次，{m,} 表示m次以上
+let reg8 = /ab+c/ // +表示至少出现一次，相当于{1,}
+let reg9 = /ab*c/ // * 相当于{0,}
+let reg10 = /ab?c/ // ? 相当于{0,1}
+
+let reg11 = /^a$/ // ^ 以a开头, $ 以a结尾
+
+let reg12 = /./ // . 表示任意字符(除了换行和行结束符)
+
+/*
+ * \w 字母、数字、_
+ * \W 和\w 相反 
+ * \d 数字
+ * \D 相反 
+ * \s 空格
+ * \S
+ * \b 单词边界
+ * \B
+ */
+
+let reg13 = /child/
+reg13.test('hello children') // true
+let reg14 = /\bchild\b/
+reg14.test('hello children') // false
+
+let str = 'someString'
+
+str.split()
+
+// 找到返回第一次出现的索引，没有返回-1
+str.search(/[ab]/)
+
+// 返回值类型为数组，默认返回第一次符合要求的内容，匹配模式设为g时，返回所有的
+str.match(/[abc]/)
+
+str.replace()
+```
+
 
 ## JavaScript对象
 
@@ -242,7 +353,83 @@ summers.somePublicMethod() //You called me?
 summers.#somePrivateMethod() //属性 "#somePrivateMethod" 在类 "Student" 外部不可访问，因为它具有专用标识符。
 ```
 
-## call和apply
+
+### <code>Date()</code>
+
+```js
+let d = new Date()
+
+// 创建指定时间
+
+let d2 = new Date("12/03/2016 11:10:30")
+console.log(d2) // Sat Dec 03 2016 11:10:30 GMT+0800 (中国标准时间)
+
+// 获取当前实例是几号
+d2.getDate() // 3
+
+// 周几, 0表示周日
+d2.getDay() // 6
+
+// 月份, 返回0-11, 11表示12月
+d2.getMonth() // 11
+
+// 年份
+d2.getFullYear() // 2016
+
+// 时间戳
+d2.getTime() // 1480734630000
+
+// 当前时间的时间戳
+Date.now()
+```
+
+### <code>Math</code>
+
+不是构造函数，是一个工具类，封装了数学相关的属性和方法
+```js
+// 绝对值
+Math.abs(-20) // 20
+
+// 向上取整
+Math.ceil(1.2) // 2
+
+// 向下取整
+Math.floor(1.8) // 1
+
+// 四舍五入
+Math.round()
+
+// 0-1之间的随机数
+Math.random()
+// x-y随机整数
+Math.round(Math.random() * (y - x) + x)
+
+Math.max(1,2,3)
+Math.min(1,2,3)
+Math.pow(2,5)
+Math.sqrt(5)
+```
+
+
+### 包装类
+
+- String()  
+- Number()  
+- Boolean()
+  
+```js
+let num = new Number(3)
+let str = new String('hello')
+let bool = new Boolean(true)
+
+// 对基本数据类型调用属性和方法时，浏览器会临时使用包装类将其转换为对象，然后再调用属性和方法
+let s = 123
+s.tpString()
+```
+
+## function
+
+### call和apply
 
 ```js
 function fun() {
@@ -276,6 +463,25 @@ let obj3 = {
 obj3.sayMyName.call(obj2, 'wang', 'zhao') // 'wang' 'zhao'
 // apply需要将实参封装在数组中传递
 obj3.sayMyName.apply(obj2, ['wang', 'zhao']) // 'wang' 'zhao'
+```
+
+### arguments
+调用函数时，会传入两个隐含参数：
+
+* this
+* arguments
+    * 类数组
+    * 传入的实参都会在arguments中
+    * 可以通过索引操作
+    * 通过length获取长度
+    * arguments.callee, 指向当前正在执行的函数
+
+```js
+function fun() {
+  console.log(arguments)
+}
+
+fun(1,2,3) // { 0: 1, 1: 2, 2: 3}
 ```
 
 ## 加载JSON
@@ -482,16 +688,22 @@ async function testFunction(person, delay) {
 
 [例子](../example/sequencing-animations/index.html)
 
-## 操作文档
+## 操作文档（DOM）
 
 * <code>document.querySelector()</code>是推荐的选择一个元素的主流方法  
 * <code>document.querySelectorAll()</code>对多个元素进行匹配和操作  
 * <code>document.createElement()</code>创建一个新的段落
 * <code>Node.appendChild()</code>在后面追加新的段落  
-* <code>document.createTextNode()</code>创建一个文本节点  
+* <code>parentNode.insertBefore(newNode, oldNode)</code> 指定的子节点前插入新的子节点
+* <code>parentNode.replaceChild(newNode, oldNode)</code> 指定的子节点替换已有的子节点
+* <code>document.createTextNode()</code>创建一个文本节点
 * <code>Node1.removeChild(Node)</code>，在拥有要删除的节点(Node)和其父节点(Node1)的引用时，或者使用<code>Node.parentNode.removeChild(Node)</code>
 * <code>Node.style.color = 'white'</code>，修改样式
 * <code>Node.setAttribute('class', 'class1')</code>，修改属性
+* <code>document.getElementsByTagName()</code>, 返回类数组
+* <code>Node.previousSibling</code>、<code>Node.nextSibling</code>, 前一个和后一个兄弟节点
+* <code>document.documentElement</code> html根标签
+* <code>document.all</code> 所有元素
 
 例子: 不管窗口的大小是多少，确保应用程序和它所在的窗口视图一样大
 ```js
@@ -509,6 +721,75 @@ window.onresize = funciton() {
   div.style.height = height + 'px'
 }
 ```
+
+<code>元素.style.样式</code>, 读取内联样式  
+<code>getComputedStyle(元素, 伪元素)</code>, window上的方法,读取正在显示的样式，例: <code>getComputedStyle(document.querySelector('p'), null).width</code>
+
+<code>Node.clientHeight</code>, <code>Node.clientWidth</code>, <strong>可见</strong>宽度和<strong>可见</strong>高度（content+padding），在有滚动条的时候，要去掉滚动条的区域;只读，不可修改  
+<code>Node.offsetHeight</code>, <code>Node.offsetWidth</code>, content + padding + border  
+<code>Node.scrollHeight</code>, <code>Node.scrollWidth</code>, 滚动区域的宽度和高度  
+<code>Node.offsetLeft</code>, <code>Node.offsetTop</code>, 获取相对其定位父元素的水平和垂直偏移量  
+<code>Node.scrollLeft</code>, <code>Node.scrollTop</code>, 获取滚动条的滚动距离
+<code>Node.addEventListener('click', funciton(){}, false)</code>, 第三个参数表示是否在捕获阶段触发事件  
+<code>Node.className</code>, 获取class  
+<code>Node.classList.add('className')</code>, 添加class  
+<code>Node.classList.remove('className')</code>, 移除class  
+<code>Node.classList.replace('oldClassName', 'newClassName')</code>, 替换class  
+
+!!!note
+    Node.scrollHeight - Node.scrollTop === Node.clientHeight, 表明滚动条到达底部
+
+事件属性：  
+<code>event.cancelBubble = true</code> <code>event.stopPropagation()</code>, 取消事件冒泡
+
+!!!note
+    事件委派: 将事件绑定给所有元素共同的祖先元素，通过事件冒泡来给所有子元素绑定事件，通过event.target来让指定的子元素触发事件
+
+## BOM
+
+### Window
+
+BOM对象可以通过Window获取， window.navigator
+
+### Navigator
+
+浏览器信息，可以用来识别不同浏览器, 主要使用 <code>navigator.userAgent</code>
+
+```js
+/* 以下在edge中测试 */
+navigator.appName // 'Netscape'
+
+navigator.userAgent // 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49'
+```
+
+### Location
+
+地址栏信息
+
+```js
+
+location = "http://www.baidu.com"
+//或
+location.assign("http://www.baidu.com")
+
+location.reload(true) //重新加载页面, true表示强制清空缓存
+
+location.replace(url) // 以给定的 URL 来替换当前的资源, 与assign()方法不同的是，调用replace()方法后，当前页面不会保存到会话历史中
+```
+
+### History
+
+操作浏览器历史记录前进后退
+
+- <code>history.length</code>
+- <code>history.back()</code>, 回退到上一个页面
+- <code>history.forward()</code>, 前进
+- <code>history.go()</code>, 跳转到指定页面, 接收整数为参数，1表示前进一个页面，-1表示向后一个页面
+
+### Screen
+
+用户屏幕信息
+
 
 ## Ajax
 
