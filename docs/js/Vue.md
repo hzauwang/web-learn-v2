@@ -3891,3 +3891,46 @@ axios.get(url).then(
 	}
 )
 ```
+
+### 15、通过vue-CLI开启代理服务器
+
+<strong>方式一</strong>  
+通过 <code>vue.config.js</code> 中的 <code>devServer.proxy</code> 选项来配置
+
+```js
+module.exports = {
+  devServer: {
+    proxy: 'http://localhost:4000' //后台服务器url
+  }
+}
+/* 首先本机开在localhost:8080 */
+/* 通过axios.get('http://localhost:8080/get_data')发送请求 */
+/* 代理服务器接收到请求后，会向http://localhost:4000/get_data发送请求 */
+/* 但在本地8080上有的资源，将优先获取本地，不会发送请求 */
+```
+
+<strong>方式二</strong>  
+
+```js
+module.exports = {
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:4000',
+        pathRewrite: { '^/api': '' }, // 代理服务器想后台请求时，将'/api'去掉
+        ws: true, // 用于支持websocket
+        changeOrigin: true // 控制请求头中的host值
+      },
+      '/foo': {
+        target: 'http://localhost:5000',
+        pathRewrite: { '^/foo': '' }
+      }
+    }
+  }
+}
+/* 更加灵活 */
+/* 通过axios.get('http://localhost:8080/api/get_data')发送请求 */
+/* 代理服务器会向http://localhost:4000/get_data发送请求 */
+/* 通过axios.get('http://localhost:8080/foo/get_data')发送请求 */
+/* 代理服务器会向http://localhost:5000/get_data发送请求 */
+```
