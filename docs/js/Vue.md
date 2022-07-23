@@ -3934,3 +3934,437 @@ module.exports = {
 /* 通过axios.get('http://localhost:8080/foo/get_data')发送请求 */
 /* 代理服务器会向http://localhost:5000/get_data发送请求 */
 ```
+
+### 16、vuex
+
+#### 安装配置
+
+vue2.x使用vuex3，vue3.x使用vuex4  
+安装：<code>npm i vuex@3</code>
+
+```js
+
+/* 1. 创建src/store/index.js */
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
+//actions--响应组件中的动作
+const actions = {}
+//mutations--操作数据
+const mutations = {}
+//state--存储数据
+const state = {}
+
+//创建并暴露store
+export default new Vuex.Store({
+  state,
+  mutations,
+  actions
+})
+
+/* 2.main.js */
+
+import store from './store'
+
+new Vue({
+  el: '#app',
+  store
+  /* ...... */
+})
+```
+
+#### 具体使用
+
+```js
+/* src/store/index.js */
+
+const actions = {
+  jia: function(context, value) { // >>>>>>> step2
+    context.commit('JIA', value) // >>>>>>> step3
+  },
+  jiaOdd: function(context, value) {
+    // 此处可获得state中的数据进行判断
+    if(context.state.sum % 2){
+      context.commit('JIAODD', value)
+    }
+
+    /* --- */
+    // 使用上下文中的dispatch可以继续分发到其他的action
+    context.dispatch('jia2', value)
+    /* --- */
+  }，
+  jia2: function() {
+
+  }
+}
+const mutations = {
+  JIA(state, value) { // >>>>>>> step4
+    state.sum += value
+  },
+  JIAODD(state, value) {
+    state.sum += value
+  },
+  JIAN(state, value) {
+    state.sum -= value
+  }
+}
+const state = {
+  sum: 0
+}
+
+export default new Vuex.Store({
+  state,
+  mutations,
+  actions
+})
+
+/* 某组件 */
+
+<template>
+  <div>
+    {{ $store.state.sum }} // >>>>>>> step5
+  </div>
+</template>
+/* ------ */
+methods: {
+  add() {
+    this.$store.dispatch('jia', this.data)  // >>>>>>> step1
+  },
+  addOdd() {
+    this.$store.dispatch('jiaOdd', this.data)
+  },
+  jian() {
+    // 跳过dispatch，直接提交
+    this.$store.commit('JIAN', this.data)
+  }
+}
+/* ------ */
+```
+
+#### getters
+
+用于将state中的数据进行加工, 类似于computed
+```js
+/* src/store/index.js */
+
+/* ------ */
+const getters = {
+  bigSum(state) {
+    return state.sum * 10
+  }
+}
+/* ------ */
+
+export default new Vuex.Store({
+  state,
+  mutations,
+  actions,
+  getters
+})
+
+/* 某组件 */
+
+this.$store.getters.bigSum
+```
+
+#### mapState和mapGetters
+
+```html
+<template>
+  <div>
+    {{ sum }}
+    {{ school }}
+    {{ bigSum }}
+  </div>
+</template>
+
+<script>
+  import { mapState, mapGetters } from 'vuex'
+  
+  /* ------ */
+  computed() {
+    // 1. 自己写计算属性
+    /* sum() {
+      return this.$store.state.sum
+    },
+    school() {
+      return this.$store.state.school
+    }, */
+    // 2. 借助mapState实现
+    // ...mapState({ sum: 'sum', school: 'school' })
+    // >>>>计算属性名与state读取的名一致时可简写为
+    ...mapState(['sum', 'school'])
+
+    // 3. 借助mapGetters实现
+    ...mapGetters(['bigSum'])
+
+    /* ****** */
+    bigSum() {
+      return this.$store.getters.bigSum
+    }
+  }
+  /* ------ */
+</script>
+```
+
+#### mapActions和mapMutations
+
+类似于mapState和mapGetters
+
+```html
+<!-- 某组件 -->
+<script>
+  import { mapActions, mapMutations } from 'vuex'
+
+  /* ------ */
+  methods: {
+    /* add() {
+      this.$store.dispatch('jia', this.data)
+    },
+    addOdd() {
+      this.$store.dispatch('jiaOdd', this.data)
+    }, */
+    // >>> 但在调用add时需要传入参数,如 @click=add(data) <<<
+    ...mapMutations({ add: 'jia', addOdd: 'jiaOdd' })
+    // 简写为数组时, 组件中调用的方法名需要与store中的Mutations中的一致
+    // ...mapMutations(['jia', 'jiaOdd'])
+
+    /* ****** */
+    /* jian() {
+      this.$store.commit('JIAN', this.data)
+    } */
+    ...mapActions({ jian: 'JIAN' })
+  }
+  /* ------ */
+</script>
+```
+
+#### vuex的模块化+namespace
+
+```js
+/* src/store/index.js */
+
+/* 功能A相关的配置 */
+const = A_Option: {
+  namespaced: true, //通过mapState等获取时，需要配置该属性
+  actions: {},
+  mutations: {},
+  state: {
+    name1: '',
+    name2: ''
+  },
+  getters: {}
+}
+
+/* 功能B相关的配置 */
+const = B_Option: {
+  namespaced: true,
+  actions: {},
+  mutations: {},
+  state: {},
+  getters: {}
+}
+
+export default new Vuex.Store({
+  modules: {
+    aAbout: A_Option,
+    bAbout: B_Option
+  }
+})
+
+/* 组件中 */
+this.$store.state.aAbout.name1
+
+...mapState('aAbout', ['name1', 'name2'])
+
+this.$store.getters['aAbout/bigSum']
+
+...mapGetters('aAbout', ['bigSum'])
+
+this.$store.dispatch('aAbout/jia', this.data)
+
+...mapMutations('aAbout', { add: 'jia', addOdd: 'jiaOdd' })
+
+this.$store.commit('aAbout/JIA', this.data)
+
+...mapActions('aAbout', ['JIA', 'JIAODD'])
+
+```
+
+### 17、vue-router
+
+#### 配置
+```js
+/* src/router/index.js */
+import VueRouter from 'vue-router'
+
+import About from '../components/About'
+import Home from '../components/Home'
+
+export default new VueRouter({
+  routes: [
+    {
+      path: '/about',
+      component: About
+    },
+    {
+      path: '/home',
+      component: Home
+    }
+  ]
+})
+
+/* main.js */
+
+import VueRouter from 'vue-router'
+
+import router from './router'
+
+Vue.use(VueRouter)
+
+new Vue({
+  el: '#app',
+  router
+  /* ...... */
+})
+```
+
+#### 使用
+
+```html
+<!-- active-class 配置活动的导航的样式类 -->
+<router-link active-class="active" to="/about">About</router-link>
+<router-link active-class="active" to="/home">Home</router-link>
+
+<router-view></router-view>
+```
+
+#### 嵌套路由
+
+```js
+/* src/router/index.js */
+import VueRouter from 'vue-router'
+
+import About from '../components/About'
+import Home from '../components/Home'
+import News from '../components/News'
+import Message from '../components/Message'
+
+export default new VueRouter({
+  routes: [
+    {
+      path: '/about',
+      component: About
+    },
+    {
+      path: '/home',
+      component: Home,
+      children: [ // children属性配置嵌套路由
+        {
+          path: 'news',
+          component: News
+        },
+        {
+          path: 'message',
+          component: Message
+        }
+      ]
+    }
+  ]
+})
+```
+
+```html
+<router-link active-class="active" to="/home/news">About</router-link>
+<router-link active-class="active" to="/home/message">Home</router-link>
+
+<router-view></router-view>
+```
+
+#### 路由query参数
+
+```html
+<script>
+  /* 获取传递的参数 */
+  this.$route.query.queryName
+</script>
+
+<!-- 传递 -->
+<router-link active-class="active" :to="`/about?id=${item.id}&title=${item.title}`">About</router-link>
+<router-link active-class="active" :to="{
+  path: '/about',
+  query: {
+    id: item.id,
+    title: item.title
+  }
+}">About</router-link>
+```
+
+#### 命名路由
+
+```js
+export default new VueRouter({
+  routes: [
+    {
+      name: 'guanyu',
+      path: '/about',
+      component: About
+    },
+    {
+      name: 'zhuye',
+      path: '/home',
+      component: Home
+    }
+  ]
+})
+```
+
+```html
+
+<router-link active-class="active" :to="{ name: 'guanyu' }">About</router-link>
+
+<router-link active-class="active" :to="{
+  path: 'guanyu',
+  query: {
+    id: item.id,
+    title: item.title
+  }
+}">About</router-link>
+```
+
+#### 路由params参数
+
+```js
+export default new VueRouter({
+  routes: [
+    {
+      path: '/about/:id/:title',
+      component: About
+    },
+    {
+      path: '/home',
+      component: Home
+    }
+  ]
+})
+```
+
+```html
+<router-link active-class="active" :to="`/about/${item.id}/${item.title}`">About</router-link>
+<!-- 必须使用name，不可使用path -->
+<router-link active-class="active" :to="{
+  name: 'guanyu',
+  params: {
+    id: item.id,
+    title: item.title
+  }
+}">About</router-link>
+
+<script>
+  /* 获取传递的参数 */
+  this.$route.params.id
+  this.$route.params.title
+</script>
+```
