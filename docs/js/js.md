@@ -275,6 +275,42 @@ Test.prototype.y = function() {
 }
 ```
 
+### 显式原型、隐式原型
+
+- 函数的prototype默认指向的是Object实例对象，但是Object的prototype不是  
+- 所有函数都是Function的实例，包括Function是它自身的实例
+
+```js
+function Fn() { // this.prototype = {}
+
+}
+console.log(Fn.prototype) // Fn的prototype为显式原型
+let fn = new Fn() // 实例对象的__proto__为隐式原型, this.__proto__ = Fn.prototype
+
+Fn.prototype === fn.__proto__ // true
+
+Object instanceof Function // true Object.__proto__ === Function.prototype
+Object instanceof Object // true Object.__proto__.__proto__ === Object.prototype
+Function instanceof Function // true Function.__proto__ === Function.prototype
+Function instanceof Object // Function.__proto__.__proto__ === Object.prototype
+
+/* 示例 */
+let F = function(){}
+
+Object.prototype.a = function(){
+    console.log('a')
+}
+Function.prototype.b = function(){
+    console.log('b')
+}
+let f = new F()
+
+f.a() // a F.prototype.__proto__.a
+f.b() // 报错 F.prototype.__proto__.__proto__是null
+F.a() // a Function.prototype.__proto__.a
+F.b() // b Function.prototype.b
+```
+
 ### 类
 
 构造函数  
@@ -482,6 +518,106 @@ function fun() {
 }
 
 fun(1,2,3) // { 0: 1, 1: 2, 2: 3}
+```
+
+### IIFE（立即执行函数表达式）
+
+- 隐藏实现  
+- 不会污染外部全局空间  
+
+```js
+(function() {
+  var a = 1
+  console.log(a)
+})()
+```
+
+### 闭包
+
+当一个嵌套的内部（子）函数引用了嵌套的外部（父）函数的变量（函数）时，就产生了闭包
+
+产生条件：1. 函数嵌套，2.内部函数引用了外部函数的数据（变量/函数）
+
+作用：1.函数内部的变量执行完后，仍然会在内存中（延长局部变量的生命周期）  
+2. 函数外部操作函数内部的数据
+
+闭包生命周期：1.产生，在嵌套函数内部函数定义执行完时就产生了（不是在调用）  
+2. 死亡，嵌套的内部函数成为垃圾对象时
+
+```js
+/* 1. */
+function fn1() {
+  //此时闭包就产生了（函数提升）
+  let a = 1
+  function fn2() {
+    a++
+    console.log(a)
+  }
+  return fn2
+}
+let f = fn1()
+f() // 2
+f() // 3
+f = null //死亡
+
+/* 2. */
+function showDelay(msg, time) {
+  setTimeout(function() {
+    alert(msg)
+  }, time)
+}
+
+showDelay('123', 2000)
+```
+
+自定义JS模块  
+1.方式一
+```js
+/* myModule.js */
+function myModule() {
+  let msg = 'something'
+  function doSomething() {
+    console.log('hhh ' + msg.toUpperCase())
+  }
+  function doOtherthing() {
+    console.log('hhh ' + msg.toLowerCase())
+  }
+
+  return { doSomething, doOtherthing }
+}
+```
+```html
+<!-- index.html -->
+<script src="myModule.js"></script>
+<script>
+let fn = myModule()
+
+fn.doSomething() // hhh SOMETHING
+fn.doOtherthing() // hhh something
+</script>
+```
+2.方式二
+```js
+/* myModule2.js */
+(function (window) {
+  let msg = 'something'
+  function doSomething() {
+    console.log('hhh ' + msg.toUpperCase())
+  }
+  function doOtherthing() {
+    console.log('hhh ' + msg.toLowerCase())
+  }
+
+  window.myModule2 = { doSomething, doOtherthing }
+})(window)
+```
+```html
+<!-- index.html -->
+<script src="myModule2.js"></script>
+<script>
+myModule2.doSomething() // hhh SOMETHING
+myModule2.doOtherthing() // hhh something
+</script>
 ```
 
 ## 加载JSON

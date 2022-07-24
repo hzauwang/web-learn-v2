@@ -4368,3 +4368,199 @@ export default new VueRouter({
   this.$route.params.title
 </script>
 ```
+
+#### props配置
+
+```js
+/* src/router/index.js */
+import VueRouter from 'vue-router'
+
+import About from '../components/About'
+import Home from '../components/Home'
+
+export default new VueRouter({
+  routes: [
+    {
+      path: '/about/:id/:title',
+      component: About,
+      // props的第一种写法, 值为对象, 该对象中的所有key-value都会以props的形式传给组件, 用处小，因为只能传固定值
+      /* props: {
+        a: 1，
+        b: 'hello'
+      } */
+      
+      //第二种，值为布尔值，为真则会将路由组件收到的params参数，以props的形式传给组件, 不能用于query
+      /* props: true */
+
+      //第三种，值为函数
+      props($route) {
+        return { id: $route.query.id, title: $route.query.title }
+      }
+
+    },
+    {
+      path: '/home',
+      component: Home
+    }
+  ]
+})
+```
+
+```html
+<!-- 组件中 -->
+
+<template>
+  {{ id }}
+</template>
+
+<script>
+  props: ['id', 'title']
+</script>
+```
+
+#### 编程式路由导航
+
+不借助router-link进行路由跳转
+
+```js
+this.$router.push({ // 会产生历史记录
+  path: 'guanyu',
+  query: {
+    id: item.id,
+    title: item.title
+  }
+})
+this.$router.replace({ // 只会保留最后一个历史记录
+  path: 'guanyu',
+  query: {
+    id: item.id,
+    title: item.title
+  }
+})
+
+// 以下类似于原生js的history对象
+this.$router.back() // 前进
+this.$router.forward() // 后退
+this.$router.go()
+```
+
+#### 缓存路由组件
+
+```html
+<router-link active-class="active" to="/home/news">About</router-link>
+<router-link active-class="active" to="/home/message">Home</router-link>
+
+<keep-alive :include="['News', 'Message']"> <!-- include为需要缓存的组件名, 一个传字符串，多个传数组 -->
+  <router-view></router-view>
+</keep-alive>
+```
+
+#### 路由组件中的两个新的生命周期钩子
+
+使用keep-alive时，组件不会被销毁，借用下面两个钩子函数实现某些功能
+
+```js
+activated() {
+
+},
+deactivated() {
+
+}
+```
+
+#### 路由守卫
+
+##### 前置路由守卫、后置路由守卫
+```js
+const router =  new VueRouter({
+  routes: [
+    {
+      name: 'guanyu',
+      path: '/about',
+      component: About,
+      meta: { // 添加自定义属性
+        isAuth: true // 是否授权,
+        title: '关于'
+      }
+    },
+    {
+      name: 'zhuye',
+      path: '/home',
+      component: Home
+    }
+  ]
+})
+
+// 全局前置路由守卫---每一次路由切换之前调用
+router.beforeEach((to, from, next) => {
+  if(to.meta.isAuth) {
+    next()
+  }
+})
+
+// 后置路由守卫
+router.afterEach((to, from) => {
+  document.title = to.meta.title || '我的网站'
+})
+
+export default router
+```
+
+##### 独享路由守卫
+```js
+// 独享路由守卫
+export default new VueRouter({
+  routes: [
+    {
+      name: 'guanyu',
+      path: '/about',
+      component: About,
+      beforeEnter: (to, from, next) => {
+        // ...
+      }
+    },
+    {
+      name: 'zhuye',
+      path: '/home',
+      component: Home
+    }
+  ]
+})
+```
+
+##### 组件路由守卫
+```js
+/* 组件路由守卫 */
+/* 在组件中配置以下方法 */
+
+// 通过路由规则进入组件时被调用
+beforeRouteEnter(to, from, next) {
+  // ...
+  next()
+},
+// 通过路由规则离开组件时被调用
+beforeRouteLeave(to, from, next) {
+  // ...
+  next()
+}
+```
+
+##### history和hash模式
+
+```js
+const router =  new VueRouter({
+  mode: 'history', // 默认为hash
+  routes: [
+    {
+      name: 'guanyu',
+      path: '/about',
+      component: About
+    },
+    {
+      name: 'zhuye',
+      path: '/home',
+      component: Home
+    }
+  ]
+})
+```
