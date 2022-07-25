@@ -26,6 +26,7 @@
 
 引用数据类型: Object
 
+
 ### <code>Symbol</code>:
 
 ```js
@@ -137,6 +138,49 @@ for (const i of TEST) {
 - undefined：定义了但没赋值  
 - null： 定义了且值为null， 可用于给某个对象变量赋初始值或回收不用的对象  
 
+
+### 数值扩展
+
+```js
+// 1.Number.EPSILON 是js表示的最小精度
+
+function equal(a, b) {
+  if (Math.abs(a - b) < Number.EPSILON) {
+    return true
+  } else {
+    return false
+  }
+}
+
+console.log(0.1 + 0.2 === 0.3) // false
+console.log(equal(0.1 + 0.2, 0.3)) // true
+
+// 2. 二进制和八进制
+let b = 0b1010 // 二进制
+let o = 0o777 // 八进制
+let d = 100
+let x = 0xff // 16进制
+
+// 3.Number.isFinite,检测一个数值是否为有限数
+console.log(Number.isFinite(100)) // true
+console.log(Number.isFinite(100 / 0)) // false
+
+// 4.Number.isNaN 检查一个数值是否为NaN
+console.log(Number.isNaN(123)) // false
+
+// 5. Number.parseInt(), NumberFloat()
+
+// 6. Number.isInteger 判断一个数是否为整数
+Number.isInteger(1.23) // false
+
+// 7. Math.trunc 将数字的小数部分抹掉
+Math.trunc(1.23) // 1
+
+// 7. Math.sign 判断一个数为正数、负数、还是0
+Math.sign(0) // 0
+Math.sign(2) // 1
+Math.sign(-2) // -1
+```
 
 ## 变量
 
@@ -390,21 +434,6 @@ Object.defineProperty(obj2, 'x', {
 })
 ```
 
-### <code>Object.assign()</code>
-<code>Object.assign()</code>方法将所有<strong>可枚举</strong>和<strong>自有</strong>属性从一个或多个源对象复制到目标对象，返回修改后的对象。  
-
-* 如果和target的已有属性重名，则会覆盖
-* 后续的source会覆盖前面的source的同名属性
-
-```js
-const target = { a: 1, b: 2 }
-const source = { b: 4, c: 5 }
-
-const returnedTarget = Object.assign(target, source)
-
-console.log(target) // { a: 1, b: 4, c: 5 }
-console.log(returnedTarget) // { a: 1, b: 4, c: 5 }
-```
 
 ### this
 关键字"this"指向了当前代码运行时的对象(the current object the code is being written inside)  
@@ -498,11 +527,16 @@ F.b() // b Function.prototype.b
 
 ### 类
 
-构造函数  
+#### 构造函数  
 ```JavaScript
 class Person{
-	name
+  //静态属性，属于类，但不属于实例对象
+	static name = '001'
+  static eat() {
+    console.log('hhh')
+  }
 
+  //构造方法,在new的时候执行
 	constructor(name) {
 		this.name = name
 	}
@@ -515,8 +549,28 @@ const xiaoming =  new Person('XiaoMing')
 xiaoming.introduceSelf() // Hi! I'm XiaoMing
 ```
 
-继承  
+#### 继承  
 ```JavaScript
+/* ES5的实现方法 */
+function Person(name) {
+  this.name = name
+}
+Person.prototype.introduceSelf = function() {
+  console.log(`Hi! I'm ${this.name}`)
+}
+
+function Professor(name, teaches) {
+  Person.call(this, name)
+  this.teaches = teaches
+}
+Professor.prototype = new Person()
+Professor.prototype.constructor = Professor
+Professor.prototype.grade = function() {
+  const grade = Math.floor(Math.random() * (5 - 1) + 1)
+	console.log(grade)
+}
+
+/* ES6的实现方法 */
 class Professor extends Person{
 	teaches
 
@@ -539,7 +593,7 @@ xiaodong.introduceSelf() // My name is XiaoDong, and I will be your XiaoMing pro
 xiaodong.grade() // some random grade
 ```
 
-封装  
+#### 封装  
 ```JavaScript
 class Student extends Person{
 	#year
@@ -574,6 +628,22 @@ summers.somePublicMethod() //You called me?
 summers.#somePrivateMethod() //属性 "#somePrivateMethod" 在类 "Student" 外部不可访问，因为它具有专用标识符。
 ```
 
+#### getter和setter设置
+```js
+class Phone {
+  get price() {
+    console.log('价格被读取了')
+  }
+
+  set price(newVal) {
+    console.log('价格被修改了')
+  }
+}
+
+let s = new Phone()
+s.price // '价格被读取了'
+s.price = 123 // '价格被修改了'
+```
 
 ### <code>Date()</code>
 
@@ -646,6 +716,51 @@ let bool = new Boolean(true)
 // 对基本数据类型调用属性和方法时，浏览器会临时使用包装类将其转换为对象，然后再调用属性和方法
 let s = 123
 s.tpString()
+```
+
+
+
+### 对象方法扩展
+
+#### <code>Object.is</code>，判断两个数是否完全相等
+
+```js
+Object.is(120, 121)
+// 和===的区别
+Object.is(NaN, NaN) // true
+NaN === NaN // false
+```
+
+#### <code>Object.assign()</code>
+<code>Object.assign()</code>方法将所有<strong>可枚举</strong>和<strong>自有</strong>属性从一个或多个源对象复制到目标对象，返回修改后的对象。  
+
+* 如果和target的已有属性重名，则会覆盖
+* 后续的source会覆盖前面的source的同名属性
+
+```js
+const target = { a: 1, b: 2 }
+const source = { b: 4, c: 5 }
+
+const returnedTarget = Object.assign(target, source)
+
+console.log(target) // { a: 1, b: 4, c: 5 }
+console.log(returnedTarget) // { a: 1, b: 4, c: 5 }
+```
+
+
+#### <code>Object.setPrototypeOf</code>设置原型对象, <code>Object.getPrototypeOf(school)</code>获取原型对象
+
+```js
+const school = {
+  name: 'wang'
+}
+const cities = {
+  xiaoqu: ['beijing', 'shanghai']
+}
+Object.setPrototypeOf(school, cities)
+school.__proto__ === cities // true
+
+Object.getPrototypeOf(school) // { xiaoqu: ['beijing', 'shanghai'] }
 ```
 
 ## function
@@ -1010,6 +1125,63 @@ function *gen() {
 
 let iterator = gen()
 iterator.next()
+```
+
+
+## Set 集合
+
+```js
+let s = new Set()
+console.log(typeof s) // object
+
+let s2 = new Set([1, 2, 3, 2])
+console.log(s2.size) // 3
+s2.add(5)
+s2.delete(1)
+s2.has(3) // true
+//清空
+s2.cleaer()
+//遍历
+for (const v of s2) {
+  console.log(v)
+}
+
+// 1.数组去重
+let result = [...new Set(arr)]
+// 2. arr和arr2的交集
+let result2 = [...new Set(arr).filter(item => new Set(arr2).has(item))]
+// 3. arr和arr2的并集
+let result3 = [...new Set([...arr, ...arr2])]
+// 4. arr-arr2(差集)
+let result4 = [...new Set(arr).filter(item => !new Set(arr2).has(item))]
+```
+
+
+## Map
+
+```js
+let m = new Map()
+
+m.set('name', 'wang')
+m.set('change', function() {
+  console.log('hello')
+})
+
+// size
+m.size
+
+// 删除
+m.delete('name')
+
+// 获取
+m.get('name')
+
+//清空
+m.clear()
+
+for (const v of m) {
+  console.log(v)
+}
 ```
 
 ## 加载JSON
