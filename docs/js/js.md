@@ -839,6 +839,29 @@ async function testFunction(person, delay) {
 使用<code>addEventListener('message', (message) => {})</code>接受信息
 使用<code>postMessage()</code>发送信息
 
+```js
+/* 主线程 */
+// 创建Worker实例对象
+let worker = new Worker('path/to/doSomething.js')
+//绑定接收消息的监听
+worker.onmessage = function(event) {
+  console.log(event.data)
+}
+//向分线程发送消息
+worker.postMessage(number)
+```
+```js
+/* 分线程, path/to/doSomething.js */
+function myFunction() {
+  // ...
+}
+let onmessage = function(event) {
+  let number = event.data
+  let result = myFunction(number)
+  postMessage(result)
+}
+```
+
 ## 序列动画
 
 [例子](../example/sequencing-animations/index.html)
@@ -1014,3 +1037,33 @@ localStorage.key(index) //得到某个索引的key
 ```
 
 使用<code>:invalid</code>伪类添加验证失败后的css样式
+
+## AJAX
+
+### HTTP
+
+#### 请求报文
+
+```
+请求行   GET、POST请求类型 / url / HTTP/1.1版本
+请求头   Host:
+        Cookie: 
+        Conten-type:
+        User-Agent: 
+        ***
+空行
+请求体  get请求是空的，post请求可以有内容
+```
+
+#### 响应报文
+
+```
+行  HTTP/1.1  200   OK
+头  Conten-type:
+    Conten-length:
+    ***
+空行
+体  <html>
+      ***
+    </html>
+```
