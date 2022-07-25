@@ -4,7 +4,6 @@
 * [W3school](https://www.w3school.com.cn/js/index.asp)  
 * [Mozilla 开发者社区](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript)  
 
-
 ## 视频教程  
 
 [黑马前端](https://www.bilibili.com/video/BV1Sy4y1C7ha)  
@@ -27,7 +26,7 @@
 
 引用数据类型: Object
 
-<code>Symbol</code>:
+### <code>Symbol</code>:
 
 ```js
 let a = Symbol('foo')
@@ -46,26 +45,206 @@ let obj = {
 
 Object.getOwnPropertySymbols(obj) // 仅获取对象中的symbol键
 Reflect.ownKeys(obj) // 获取所有键包括symbol
+
+// 不能与其他数据运算
 ```
 
-类型判断：  
+内置属性
+```js
+class Person{
+  static [Symbol.hasInstance](param) {
+    console.log(param)
+    console.log('检测类型')
+    return true //返回值为判断结果
+  }
+}
+let o = { name: 1, age: 2 }
+console.log(o instanceof Person) // { name: 1, age: 2 }  '检测类型'
+
+const arr = [1, 2, 3]
+const arr2 = [4, 5, 6]
+arr2[Symbol.isConcatSpreadable] = false
+console.log(arr.concat(arr2)) // [1, 2, 3, [4, 5, 6]]
+```
+
+#### 迭代器
+
+Symbol.iterator  
+工作原理：  
+
+- 创建一个指针对象，指向当前数据结构的起始位置  
+- 第一次调用对象的next方法，指针自动指向数据结构的第一个成员
+- 接下来调用next方法，指针会一直往后移动，直到指向最后一个成员
+- 每调用next方法返回一个包含value和done属性的对象  
+
+```js
+const TEST = [1, 2, 3, 4]
+
+for (const i of TEST) {
+  console.log(i) // 1 2 3 4
+}
+
+let iterator = TEST[Symbol.iterator]()
+console.log(iterator.next()) // {value: 1, done: false}
+console.log(iterator.next()) // {value: 2, done: false}
+console.log(iterator.next()) // {value: 3, done: false}
+console.log(iterator.next()) // {value: 4, done: false}
+console.log(iterator.next()) // {value: undefined, done: true}
+```
+
+应用  
+
+```js
+// 使用for...of遍历对象
+const TEST = {
+  name: 'wang',
+  someThing: [
+    'a',
+    'b',
+    'c',
+    'd'
+  ],
+  [Symbol.iterator]() {
+    let index = 0
+    return {
+      next: () => {
+        if (index < this.someThing.length) {
+          const result = { value: this.someThing[index], done: false }
+          index++
+          return result
+        } else {
+          return { value: undefined, done: true }
+        }
+      }
+    }
+  }
+}
+
+for (const i of TEST) {
+  console.log(i) // a b c d
+}
+```
+
+
+### 类型判断  
 
 - <code>typeof</code>: 可以判断undefined/number/string/boolean/function  
 - <code>instanceof</code>: 判断对象的具体类型  
 - <code>===</code>: undefined/null  
 
-undefined和null：
+### undefined和null
 
 - undefined：定义了但没赋值  
-- null： 定义了且值为null， 可用于给某个对象变量赋初始值或回收不用的对象
+- null： 定义了且值为null， 可用于给某个对象变量赋初始值或回收不用的对象  
 
 
-## 变量声明提前
+## 变量
+
+### var 声明变量提升
 
 使用<code>var</code>声明的变量，会在所有代码执行前被声明，但不会被赋值
 ```js
 console.log(a) //undefined
 var a = 1
+```
+
+### let 声明变量
+
+```js
+let a = 1, b = 2
+
+// 1.变量不能重复声明
+let a = 1
+let a = 2 //报错
+
+// 2.块级作用域
+// if else while for
+{
+  let test = 'a'
+}
+console.log(test) // 报错
+
+// 3.不存在变量提升
+console.log(test2) // 报错
+let test2 = 1
+
+// 4.不影响作用域链
+{
+  let mya = '123456'
+  function fn() {
+    console.log(mya)
+  }
+  fn() // 执行没有问题
+}
+```
+
+### const 声明常量
+
+```js
+// 1.必须赋初始值
+
+const A // 报错
+
+// 2.一般用大写
+
+// 3.常量不能修改
+
+// 4.块级作用域
+
+// 5.数组和对象的元素修改，不算对常量修改
+const TEAM = [1,2,3]
+TEAM.push(4) // 正常执行
+TEAM = [] // 报错
+```
+
+
+### 变量的解构赋值
+
+```js
+/* 数组 */
+const TEST = [1, 2, 3, 4]
+let [a, b, c, d] = TEST
+
+a // 1
+b // 2
+c // 3
+d // 4
+
+/* 对象 */
+const person = {
+  name: 'zhao',
+  age: 18,
+  say: function() {
+    console.log(this.name)
+  }
+}
+
+let {name, age, say} = person
+```
+
+
+## 扩展运算符
+
+```js
+const TEST = [1, 2, 3]
+function fn() {
+  console.log(arguments)
+}
+fn(TEST) // arguments.length == 1, arguments[0] == [1, 2, 3]
+fn(...TEST) // arguments.length == 3, arguments[0] == 1, arguments[1] == 2, ...
+
+// 1.数组的合并
+const TEST1 = [1, 2]
+const TEST2 = [3, 4]
+const RES1 = TEST1.concat(TEST2)
+const RES2 = [...TEST1, ...TEST2]
+
+// 2.数组的克隆
+const TEST3 = [...TEST1] // 里面有引用类型的话，也是浅拷贝
+
+// 3.伪数组转为真数组
+const divs = document.querySelectorAll('div')
+const divArr = [...divs]
 ```
 
 ## 字符串的一些方法
@@ -103,6 +282,12 @@ str.toLowerCase()
 
 部分方法查看<strong>正则表达式</strong>部分
 
+### 模板字符串
+
+```js
+const A = 1
+let str = `A是${A}`
+```
 
 ## 正则表达式
 
@@ -465,6 +650,27 @@ s.tpString()
 
 ## function
 
+### 函数参数初始值
+
+```js
+// 1. 具有默认值的初始值一般放在最后
+function add(a, b, c = 10) {
+  return a + b + c
+}
+
+// 2. 与解构赋值结合
+function connect({ host = "127.0.0.1", username, password, port }) {
+  console.log(host)
+  console.log(port)
+}
+connect({
+  host: 'localhost',
+  username: 'root',
+  password: 'root',
+  port: 3306
+})
+```
+
 ### call和apply
 
 ```js
@@ -518,6 +724,25 @@ function fun() {
 }
 
 fun(1,2,3) // { 0: 1, 1: 2, 2: 3}
+```
+
+
+### rest参数
+
+可以代替arguments
+```js
+function date(...args) {
+  console.log(args) //接收到的是数组
+}
+date('a', 'b', 'c')
+
+//rest参数必须放在最后
+function fn(a, b, ...args) {
+  console.log(a)
+  console.log(b)
+  console.log(args)
+}
+fn(1,2,3,4,5,6)
 ```
 
 ### IIFE（立即执行函数表达式）
@@ -639,6 +864,154 @@ myModule2.doOtherthing() // hhh something
     * 没有及时清理的计时器或回调函数
     * 闭包
 
+### 箭头函数
+
+```js
+let fn = (a, b) => {
+  return a + b
+}
+
+// 1. this是静态的，this始终指向函数声明时所在作用域下的this的值
+
+function getName() {
+  console.log(this.name)
+}
+let getName2 = () => {
+  console.log(this.name)
+}
+
+window.name = 'test name'
+const person = {
+  name: 'TEST NAME'
+}
+
+getName() // 'test name'
+getName2() // 'test name'
+
+getName.call(person) // 'TEST NAME'
+getName2.call(person) // 'test name'
+
+// 2. 不能作为构造实例化对象
+let Person = (name, age) => {
+  this.name = name
+  this.age = age
+}
+let person = new Person() // 报错
+
+// 3. 不能使用arguments
+
+// 4. 箭头函数的简写
+let add = n => n * n // 有且只有一个形参省略小括号，代码体只有一条语句省略大括号，此时return必须省略
+```
+
+
+## 生成器
+特殊的函数,用于异步编程
+
+```js
+// 函数代码的分隔符 yield
+function *gen() {
+  console.log(111)
+  yield 'hello'
+  console.log(222)
+  yield 'world'
+  console.log(333)
+}
+let iterator = gen()
+iterator.next() // 111
+iterator.next() // 222
+iterator.next() // 333
+
+//遍历
+for (const v of gen()) {
+  console.log('#' + v) // #hello  #world
+}
+
+//传参
+function *gen(args) {
+  console.log(args)
+  let one = yield 'hello'
+  console.log(one)
+  let two = yield 'world'
+  console.log(two)
+}
+let iterator = gen('AAA')
+iterator.next() // AAA
+// next方法也可以传参
+iterator.next('BBB') // BBB
+iterator.next('CCC') // CCC
+```
+
+### 实例1
+
+```js
+// 嵌套定时器
+function one() {
+  setTimeout(() => {
+    console.log(111)
+    iterator.next()
+  }, 1000);
+}
+function two() {
+  setTimeout(() => {
+    console.log(222)
+    iterator.next()
+  }, 2000);
+}
+function three() {
+  setTimeout(() => {
+    console.log(333)
+    iterator.next()
+  }, 3000);
+}
+
+function *gen() {
+  yield one()
+  yield two()
+  yield three()
+}
+
+let iterator = gen()
+iterator.next()
+```
+
+### 实例2
+
+```js
+function getUsers() {
+  setTimeout(() => {
+    let data = '用户数据'
+    iterator.next(data)
+  }, 1000);
+}
+
+function getOrders() {
+  setTimeout(() => {
+    let data = '订单数据'
+    iterator.next(data)
+  }, 1000);
+}
+
+function getGoods() {
+  setTimeout(() => {
+    let data = '商品数据'
+    iterator.next(data)
+  }, 1000);
+}
+
+function *gen() {
+  let users = yield getUsers()
+  console.log(users)
+  let orders = yield getOrders()
+  console.log(orders)
+  let goods = yield getGoods()
+  console.log(goods)
+}
+
+let iterator = gen()
+iterator.next()
+```
+
 ## 加载JSON
 
 ```js
@@ -721,6 +1094,23 @@ doOperation() // 6
 ### Promise
 
 #### 使用 Promise
+
+```js
+const p = new Promise(function(resolve, reject) {
+  setTimeout(() => {
+    let data = 'some data'
+    resolve(data) // 使用resolve后，这个Promise对象的状态为成功，调用then的第一个方法
+    let err = 'error'
+    reject(err) // 使用reject后，这个Promise对象的状态为失败，调用then的第二个方法
+  }, 1000);
+})
+
+p.then(function(value) {
+  console.log(value)
+}, function(reason) {
+  console.log(reason)
+})
+```
 ```js
 const fetchPromise = fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json')
 fetchPromise
@@ -744,6 +1134,29 @@ Promise 有三种状态:
 * 待定（pending）  
 * 已兑现（fulfilled）:<code>then()</code>将会被调用  
 * 已拒绝（rejected）:<code>catch()</code>将会被调用
+
+#### 封装ajax
+
+```js
+const p = new Promise((resolve, reject) => {
+  const xhr = new XMLHttpRequest()
+  xhr.open('GET', 'https://api.apiopen.top/api/sentences')
+  xhr.send()
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        resolve(xhr.response)
+      } else {
+        reject(xhr.status)
+      }
+    }
+  }
+}).then(function(value) {
+  console.log(value)
+}, function(error) {
+  console.error(error)
+})
+```
 
 #### 合并使用多个 Promise
 
@@ -1046,23 +1459,258 @@ localStorage.key(index) //得到某个索引的key
 
 ### XMLHttpRequest
 
+xhr的readystate的状态:  
+
+- 0 未初始化
+- 1 载入
+- 2 载入完成
+- 3 交互, 解析接收到的服务器端响应数据
+- 4 完成
+
+```html
+<button id="button1">get</button>
+<button id="button3">取消get</button>
+<output id="output1"></output>
+
+<button id="button2">post</button>
+<output id="output2"></output>
+<script>
+  /* GET请求 */
+  const button = document.querySelector('#button1')
+  const result = document.querySelector('#output1')
+
+  const button3 = document.querySelector('#button3')
+
+  let xhr = null
+  let isSending = false // 标识是否正在发送请求
+
+  button.addEventListener('click', function() {
+    if (isSending) { //如果正在发送，取消请求，发送一个新的
+      xhr.abort()
+    }
+    xhr = new XMLHttpRequest()
+    //修改表示变量的值
+    isSending = true
+
+    //超时设置,超过2s就取消
+    xhr.timeout = 2000
+    //超时回调
+    xhr.ontimeout = function() {
+      console.log('超时')
+    }
+    //网络异常
+    xhr.onerror = function() {
+      console.log('网络异常')
+    }
+
+    xhr.open('get', 'http://localhost:8888/server?t=' + Date.now()) // 加上时间戳解决缓存问题
+    xhr.send()
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
+        //修改表示变量的值
+        isSending = false
+
+        if (xhr.status >= 200 && xhr.status < 300) {
+          // 1. 响应行
+          console.log(xhr.status) // 状态码
+          console.log(xhr.statusText) // 状态字符串
+          console.log(xhr.getAllResponseHeaders()) // 所有响应头
+          console.log(xhr.response) //响应体
+          result.innerText = xhr.response
+        } else {
+
+        }
+      }
+    }
+  })
+
+  //取消请求
+  button3.addEventListener('click', function() {
+    xhr.abort()
+  })
+
+  /* POST请求 */
+  const button2 = document.querySelector('#button2')
+  const result2 = document.querySelector('#output2')
+
+  button2.addEventListener('click', function() {
+    const xhr = new XMLHttpRequest()
+    //设置响应体的类型为json，实现接受的数据自动转换
+    xhr.responseType = 'json'
+
+    xhr.open('POST', 'http://localhost:8888/json-server')
+    //设置请求头
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+    xhr.setRequestHeader('head', 'aaa') // 自定义请求头需要同时在服务器配置,如node.js中的express框架设置app.all()，同时添加response.setHeader('Access-Control-Allow-Headers', '*')
+
+    xhr.send('a=100&b=200&c=300')
+
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          let data = xhr.response
+          console.log(data)
+          result2.innerText = data.name
+        }
+      }
+    }
+  })
+</script>
+```
+
+### jQuery
+
 ```js
-let request = new XMLHttpRequest()
-request.open('GET', url)
-request.responseType = 'text'
-request.onload = function() {
-  console.log(request.response)
-}
-request.send()
+$.get(url, { a: 100, b: 200 }, funciton(data) {
+  console.log(data)
+}, 'json')
+
+$.post(url, { a: 100, b: 200 }, funciton(data) {
+  console.log(data)
+})
+
+$.ajax({
+  url: '',
+  data: { a: 100, b: 200 },
+  type: 'GET',
+  dataType: 'json',
+  success: function(data) {
+    console.log(data)
+  },
+  //超时时间
+  timeout: 2000,
+  error: function() {
+
+  },
+  // 头信息
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded'
+  }
+})
+```
+
+### axios
+
+```js
+// 配置baseURL
+axios.default.baseURL = "http://localhost:8888"
+axios.get('/server', {
+  params: {
+    id: 100
+  },
+  // 请求头
+  headers: {
+    name: 'hhh'
+  }
+}).then(value => {
+  console.log(value)
+})
+
+//第一个参数为url，第二个参数为请求体，第三个为其他选项
+axios.post('/server', {
+    username: 'admin',
+    password: 'admin'
+  },{
+    params: {
+      id: 100
+    },
+    // 请求头
+    headers: {
+      name: 'hhh'
+    }
+}).then(value => {
+  console.log(value)
+})
+
+axios({
+  method: 'POST',
+  // url
+  url: '/server',
+  // url 参数
+  params: {
+    id: 100
+  },
+  // 请求头
+  headers: {
+    name: 'hhh'
+  },
+  // 请求体
+  data{
+    username: 'admin',
+    password: 'admin'
+  }
+}).then(response => {
+  console.log(response.data)
+  console.log(response.status)
+})
 ```
 
 ### Fetch
-Fetch API 基本上是 XHR 的一个现代替代品
 
 ```js
-fetch(url).then((response) => {
+fetch(url, {
+  method: 'POST',
+  //请求头
+  headers: {
+    a: '123'
+  },
+  //请求体
+  body: {
+
+  }
+}).then(response => {
   return response.text()
+  // return response.json()
 }).then((text) => {
   console.log(text)
 })
 ```
+
+### 跨域
+
+同源： 协议、域名、端口号必须相同  
+违背同源就是跨域
+
+#### jsonp
+
+解决跨域的非官方方案，只支持get请求
+
+后端请求返回的必须是个js代码，如后端返回<code>"console.log('hello')"</code>
+```js
+function handle(data) {
+  console.log(data)
+}
+
+input.onblur = function() { // 向服务器发送请求
+  let username = this.value
+  const script = document.createElement('script')
+  script.src = 'http://localhost:8888/server'
+  document.body.appendChild(script)
+}
+
+// 服务器返回 handle('something'),则会执行handle函数
+```
+
+jQuery 发送jsonp
+
+```js
+$.getJSON(url + '?callback=?', function(data) {
+  console.log(data)
+})
+
+//node.js服务端接受callback参数
+let cb = request.query.callback
+
+response.send(`${cb}(${str})`)
+```
+
+#### CORS
+
+官方解决方案，在服务器中进行处理
+
+服务器添加响应头：
+
+<code>'Access-Control-Allow-Origin': '*'</code>  
+<code>'Access-Control-Allow-Headers': '*'</code>,允许自定义请求头  
+<code>'Access-Control-Allow-Method': '*'</code>,请求方法  
+
