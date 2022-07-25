@@ -969,30 +969,6 @@ location.replace(url) // 以给定的 URL 来替换当前的资源, 与assign()�
 用户屏幕信息
 
 
-## Ajax
-
-### XMLHttpRequest
-
-```js
-let request = new XMLHttpRequest()
-request.open('GET', url)
-request.responseType = 'text'
-request.onload = function() {
-  console.log(request.response)
-}
-request.send()
-```
-
-### Fetch
-Fetch API 基本上是 XHR 的一个现代替代品
-
-```js
-fetch(url).then((response) => {
-  return response.text()
-}).then((text) => {
-  console.log(text)
-})
-```
 
 ## 客户端存储
 
@@ -1066,4 +1042,27 @@ localStorage.key(index) //得到某个索引的key
 体  <html>
       ***
     </html>
+```
+
+### XMLHttpRequest
+
+```js
+let request = new XMLHttpRequest()
+request.open('GET', url)
+request.responseType = 'text'
+request.onload = function() {
+  console.log(request.response)
+}
+request.send()
+```
+
+### Fetch
+Fetch API 基本上是 XHR 的一个现代替代品
+
+```js
+fetch(url).then((response) => {
+  return response.text()
+}).then((text) => {
+  console.log(text)
+})
 ```
