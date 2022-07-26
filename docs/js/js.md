@@ -1359,6 +1359,28 @@ Promise.any([fetchPromise1, fetchPromise2, fetchPromise3])
 ### async 和 await
 
 ```js
+async function fn() {
+  // 只要返回的结果不是一个Promise类型的对象，那么返回的都是一个成功的Promise
+  //return
+
+  // 此时返回的结果是一个失败的Promise
+  //throw new Error('出错了')
+
+  // 返回Promise对象
+  return new Promise((resolve, reject) => {
+    // fn函数返回成功的Promise，且值为'成功'
+    resolve('成功')
+    // 相反
+    reject('失败')
+  })
+}
+const result = fn()
+result.then(value => {
+  console.log(value)
+}, reason => {
+  console.log(reason)
+})
+
 async function fetchProducts() {
   try {
     const response = await fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json')
@@ -1885,4 +1907,107 @@ response.send(`${cb}(${str})`)
 <code>'Access-Control-Allow-Origin': '*'</code>  
 <code>'Access-Control-Allow-Headers': '*'</code>,允许自定义请求头  
 <code>'Access-Control-Allow-Method': '*'</code>,请求方法  
+
+
+
+## 模块化
+
+- 防止命名冲突  
+- 代码复用
+- 高维护性
+
+ES6之前的模块化规范：
+- CommaonJS => NodeJS、Browserify
+- AMD => requireJS
+- CMD => seaJS
+
+### ES6模块化语法
+
+```js
+/* m1.js */
+// 分别暴露
+export let myA = '123'
+
+export function say() {
+  console.log('hello!')
+}
+```
+```js
+/* m2.js */
+// 统一暴露
+let myA = '123'
+
+function say() {
+  console.log('hello!')
+}
+
+export { myA, say }
+```
+```js
+/* m3.js */
+// 默认暴露
+export default {
+  myA: '123',
+  say: function() {
+    console.log('hello!')
+  }
+}
+```
+```html
+<!-- 第一种方式 -->
+<script type="module">
+  // 1.通用的导入方式
+  /* 引入m1.js */
+  import * as m1 from 'm1.js'
+  console.log(m1)
+  /* 引入m2.js */
+  import * as m2 from 'm2.js'
+  console.log(m2)
+  /* 引入m3.js */
+  import * as m3 from 'm3.js'
+  m3.default.say()
+
+  // 2. 解构赋值
+  /* 引入m1.js */
+  import { myA, say } from 'm1.js'
+  /* 引入m2.js */
+  import { myA as m2MyA, say as m2Say } from 'm2.js'
+  /* 引入m3.js */
+  import { default as m3 } from 'm3.js'
+
+  // 3.简便形式，针对默认暴露
+  import m3 from 'm3.js'
+</script>
+<!-- 第二种方式 -->
+<!-- 将import语句放在一个文件(app.js)中 -->
+<script src="app.js" type="module"></script>
+```
+
+### babel对ES6模块化代码转换
+
+```html
+<!--
+    1. 安装工具 babel-cli babel-preset-env browserify(webpack)
+    2. npx babel dir/of/js -d dist/js --presets=babel-preset-env
+    3. 打包 npx browserify dist/js/app.js -o dist/bundle.js
+-->
+```
+
+
+## ES7-ES11
+
+### ES7
+
+```js
+// includes
+const myArr = [1, 2, 3]
+console.log(myArr.includes(1)) // true
+
+// **
+console.log(2 ** 10) // Math.pow(2, 10)
+```
+
+### ES8
+
+[async和await](#async-await)
 
