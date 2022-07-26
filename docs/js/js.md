@@ -182,6 +182,24 @@ Math.sign(2) // 1
 Math.sign(-2) // -1
 ```
 
+### BigInt
+
+```js
+let n = 521n
+console.log(n, typeof n) // 521n 'bigint'
+
+let n = 123
+console.log(BigInt(n)) // 123n
+
+let max = Number.MAX_SAFE_INTEGER
+console.log(max) // 9007199254740991
+console.log(max + 1) // 9007199254740992
+console.log(max + 2) // 9007199254740992 无法继续增加
+
+console.log(BigInt(max) + BigInt(1)) // 9007199254740992n
+console.log(BigInt(max) + BigInt(2)) // 9007199254740993n
+```
+
 ## 变量
 
 ### var 声明变量提升
@@ -1336,6 +1354,17 @@ const p = new Promise((resolve, reject) => {
 const fetchPromise1 = fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json')
 const fetchPromise2 = fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/not-found')
 const fetchPromise3 = fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+
+Promise.allSettled([fetchPromise1, fetchPromise2, fetchPromise3])
+  .then(responses => {
+    for(const response of responses){
+      console.log(`${response.value}：${response.status}`)
+    }
+  })
+  .catch(error => {
+    console.error(`获取失败：${error}`)
+  })
+
 Promise.all([fetchPromise1, fetchPromise2, fetchPromise3])
   .then(responses => {
     for(const response of responses){
@@ -1917,7 +1946,7 @@ response.send(`${cb}(${str})`)
 - 高维护性
 
 ES6之前的模块化规范：
-- CommaonJS => NodeJS、Browserify
+- CommonJS => NodeJS、Browserify
 - AMD => requireJS
 - CMD => seaJS
 
@@ -2009,5 +2038,268 @@ console.log(2 ** 10) // Math.pow(2, 10)
 
 ### ES8
 
+#### async和await
 [async和await](#async-await)
 
+#### 对象方法扩展
+
+```js
+const myObj = {
+  name: 'wang',
+  age: 18
+}
+
+// 获取对象所有键
+Object.keys(myObj)
+// 对象所有值
+Object.values(myObj)
+// entries
+Object.entries(myObj) // [['name', 'wang'], ['age', 18]]
+// 创建map
+const m = new Map(Object.entries(myObj))
+m.get('name')
+// 对象属性的描述对象
+Object.getOwnPropertyDescriptors(myObj)
+
+// 第一个参数为原型对象
+const myObj2 = Object.create(null, {
+  name: {
+    value: 'wang',
+    // 是否可以删除
+    configurable: true,
+    // 是否可以修改
+    writable: true,
+    // 是否可枚举
+    enumerable: true
+  }
+})
+```
+
+### ES9
+
+#### 对象扩展
+```js
+// rest参数
+function connect({ host, port, ...user }) {
+  console.log(host)
+  console.log(port)
+  console.log(user)
+}
+
+connect({
+  host: '127.0.0.1',
+  port: 3306,
+  username: 'root',
+  password: 'root',
+  type: 'master'
+})
+
+// ...扩展运算符
+const myA = {
+  q: '123',
+  w: '456'
+}
+
+const myB = {
+  e: '789'
+}
+
+const all = { ...myA, ...myB } // 合并
+```
+
+#### 正则扩展
+
+命名捕获分组  
+```js
+let str = '<a href="http://localhost">hello</a>'
+
+//提取url与标签文本
+const reg = /<a href="(.*)">(.*)<\/a>/
+const result = reg.exec(str)
+console.log(result) // ['<a href="http://localhost">hello</a>', 'http://localhost', 'hello']
+
+
+const reg = /<a href="(?<url>.*)">(?<text>.*)<\/a>/
+const result = reg.exec(str)
+console.log(result) // result.groups.text == 'hello' result.groups.url == "http://localhost"
+```
+
+##### 反向断言
+
+```js
+// 正向断言
+let str = 'jadsaid13451dasdad545啦啦啦'
+
+// 提取后面的数字
+const reg = /\d+(?=啦)/
+
+const result = reg.exec(str)
+console.log(result) // result[0] == '545'
+
+// 反向断言
+
+const reg = /(?<=dad)\d+/
+const result = reg.exec(str)
+console.log(result) // result[0] == '545'
+```
+
+##### dotAll模式
+
+```js
+// 正则中的 . 表示除换行符以外的任意单个字符
+
+let str = `
+<ul>
+  <li>
+    <a>wang</a>
+    <p>20</p>
+  </li>
+  <li>
+    <a>zhang</a>
+    <p>22</p>
+  </li>
+</ul>`
+
+const reg = /<li>\s+<a>(.*?)<\/a>\s+<p>(.*?)<\/p>/
+const result = reg.exec(str)
+console.log(result)
+
+const reg2 = /<li>.*?<a>(.*?)<\/a>.*?<p>(.*?)<\/p>/gs // s 表示dotAll模式
+let result
+let data = []
+while(result = reg2.exec(str)) {
+  data.push({
+    name: result[1],
+    age: result[2]
+  })
+}
+```
+
+
+
+### ES10
+
+#### 对象的扩展方法 Object.fromEntries
+
+类似于Object.entries, 逆运算
+```js
+// 二维数组
+const result = Object.fromEntries([
+  ['name', 'wang'],
+  ['age', 18]
+])
+console.log(result) // {name: 'wang', age: 18}
+
+// Map
+const m = new Map()
+m.set('name', 'wang')
+const result = Object.fromEntries(m)
+console.log(result) // {name: 'wang'}
+```
+
+#### 字符串扩展
+
+<code>str.trimStart()</code>  
+<code>str.trimEnd()</code>  
+
+#### 数组扩展
+
+```js
+/* flat, 将多维数组转为低维数组 */
+
+// 2维转1维
+const arr = [1, 2, 3, 4, [5, 6]]
+console.log(arr.flat()) // [1, 2, 3, 4, 5, 6]
+// 3维转2维
+const arr2 = [1, 2, 3, 4, [5, 6, [7, 8, 9]]]
+console.log(arr2.flat()) // [1, 2, 3, 4, 5, 6, [7, 8, 9]]
+// 3维转1维,传入参数，该参数表示深度
+const arr3 = [1, 2, 3, 4, [5, 6, [7, 8, 9]]]
+console.log(arr2.flat(2)) // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+/* flatMap */
+const arr = [1, 2, 3, 4]
+const result = arr.map(item => [item * 10])
+console.log(result) // [[10], [20], [30], [40]]
+
+const result2 = arr.flatMap(item => [item * 10])
+console.log(result2) // [10, 20, 30, 40]
+```
+
+### ES11
+
+[私有属性](#_18)
+
+[Promise.allSettled](#promise_2)
+
+<code>String.prototype.matchAll</code>方法
+
+```js
+let str = `
+<ul>
+  <li>
+    <a>wang</a>
+    <p>20</p>
+  </li>
+  <li>
+    <a>zhang</a>
+    <p>22</p>
+  </li>
+</ul>`
+
+const reg = /<li>.*?<a>(.*?)<\/a>.*?<p>(.*?)<\/p>/gs
+const result = str.matchAll(reg)
+// for...of 提取结果
+for (const v of result) {
+  console.log(v)
+}
+// ...扩展运算符
+const arr = [...result]
+```
+
+可选链操作符
+
+```js
+function main(config) {
+  /* 判断是否传入参数 */
+  //const dbHost = config && config.db && config.db.host
+  const dbHost = config?.db?.host
+  console.log(dbHost)
+}
+main({
+  db: {
+    host: '132.168.1.100',
+    username: 'root'
+  },
+  cache: {
+    host: '132.168.1.200',
+    username: 'admin'
+  }
+})
+```
+
+动态import
+
+按需加载
+
+```js
+/* hello.js */
+export function hello() {
+  alert('hello')
+}
+/* app.js */
+const btn = document.querySelector('button')
+btn.addEventListener('click', function() {
+  import('./hello.js').then(module => {
+    module.hello()
+  })
+})
+```
+
+<code>globalThis</code>
+
+始终指向全局对象
+
+```js
+console.log(globalThis) // Window
+```
