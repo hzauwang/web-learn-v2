@@ -82,7 +82,7 @@
   window.onload = function() {
     document.querySelectorAll('.card-item').forEach(item => {
       item.addEventListener('click', function(){
-        window.location = this.getAttribute('data-href')
+        window.location += this.getAttribute('data-href')
       })
     })
   }
