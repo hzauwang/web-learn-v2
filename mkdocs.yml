@@ -25,6 +25,7 @@ nav:
   - JavaScript:
     - JavaScript: js/js.md
     - Node.js: js/nodejs.md
+    - Webpack: js/webpack.md
     - jQuery: js/jquery.md
     - Vue.js: js/Vue.md
     - ElementUI: js/element.md
