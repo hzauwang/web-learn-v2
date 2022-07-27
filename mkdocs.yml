@@ -24,6 +24,7 @@ nav:
     - Bootstrap3: html_css/bootstrap.md
   - JavaScript:
     - JavaScript: js/js.md
+    - Node.js: js/nodejs.md
     - jQuery: js/jquery.md
     - Vue.js: js/Vue.md
     - ElementUI: js/element.md

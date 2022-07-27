@@ -1,14 +1,89 @@
-# Welcome to Weblearn
+<style>
+  .card-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+  .card-item{
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #f6f6f6;
+  }
+  .card-item:hover{
+    background-color: #f1f1f1;
+  }
+  .card-header{
+    color: #4051B5;
+    font-weight: bold;
+  }
+</style>
 
-开发中！！！
+<div class="card-container">
+  <div class="card-item" data-href="/html_css/html/">
+    <div class="card-header">
+      About HTML
+    </div>
+    <div class="card-main">
+      HTML，即超文本标记语言（Hyper Text Markup Language）
+    </div>
+  </div>
+  <div class="card-item" data-href="/html_css/css/">
+    <div class="card-header">
+      About CSS
+    </div>
+    <div class="card-main">
+      层叠样式表（Cascading StyleSheet）
+    </div>
+  </div>
+  <div class="card-item" data-href="/js/js/">
+    <div class="card-header">
+      About JavaScript
+    </div>
+    <div class="card-main">
+      JavaScript 是 Web 的编程语言
+    </div>
+  </div>
+  <div class="card-item" data-href="/js/Vue/">
+    <div class="card-header">
+      About Vue.js
+    </div>
+    <div class="card-main">
+      Vue.js 是一套构建用户界面的渐进式框架。
+    </div>
+  </div>
+  <div class="card-item" data-href="/php/php/">
+    <div class="card-header">
+      About PHP
+    </div>
+    <div class="card-main">
+      PHP 是一种通用开源脚本语言
+    </div>
+  </div>
+  <div class="card-item" data-href="/mysql/mysql/">
+    <div class="card-header">
+      About MySQL
+    </div>
+    <div class="card-main">
+      MySQL 是一个关系型数据库管理系统
+    </div>
+  </div>
+  <div class="card-item" data-href="/linux/linux/">
+    <div class="card-header">
+      About Linux
+    </div>
+    <div class="card-main">
+      Linux是一套免费使用和自由传播的类Unix操作系统
+    </div>
+  </div>
+</div>
 
----
-1. [html](html_css/html.md)/[css](html_css/css.md): 学习后即可制作静态页面  
-2. [JavaScript](js/js.md): 结合 html+css 制作动态页面  
-3. [bootstrap](html_css/bootstrap.md): 组件UI库, 可用来快速开发前端页面  
-4. [php](php/php.md): 服务器端脚本语言  
-5. [MySQL](mysql/mysql.md): 数据库管理系统  
-6. [ThinkPHP](php/tp.md): PHP框架  
-7. [VUE](js/Vue.md): JavaScript框架  
-8. [element](js/element.md): 基于VUE的UI组件库  
-9. [jbrowse](more/jbrowse1.md)、[blast](more/blast.md) 等网页工具介绍。
+<script>
+  window.onload = function() {
+    document.querySelectorAll('.card-item').forEach(item => {
+      item.addEventListener('click', function(){
+        window.location = this.getAttribute('data-href')
+      })
+    })
+  }
+</script>
