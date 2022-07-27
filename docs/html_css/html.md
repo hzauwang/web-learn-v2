@@ -82,6 +82,59 @@
 <meta name="refresh" content="3;url=http://www.mydomain.com">
 ```
 
+## 语义化标签
+
+### hgroup
+```html
+<!-- 将一组相关的标题放入hgroup -->
+<hgroup>
+  <h1></h1>
+  <h2></h2>
+</hgroup>
+```
+
+### em
+表示语音语调的加重
+
+### strong
+表示强调
+
+### blockquota
+表示长引用
+
+### q
+表示短引用
+
+### header
+表示网页的头部
+
+### main
+网页的主体(一个页面只有一个)
+
+### footer
+网页的底部
+
+### nav
+网页中的导航
+
+### aside
+和主体相关的其他内容(侧边栏)
+
+### article
+表示独立的文章
+
+### section
+表示独立的区块，上面的标签都不能表示时使用section
+
+### 定义列表
+```html
+<dl>
+  <dt>结构</dt>
+  <dd>结构表示网页的结构,......</dd>
+  <dd>结构用来规定网页中......</dd>
+</dl>
+```
+
 ## html5的新特性
 
 ### 新增选择器
@@ -156,7 +209,11 @@
 
 ```html
 <!-- 视频 -->
-<video width="320" height="240" controls>
+<!-- 
+  autoplay 自动播放 
+  loop 循环播放
+-->
+<video width="320" height="240" controls autoplay loop>
   <source src="movie.mp4" type="video/mp4">
   <source src="movie.ogg" type="video/ogg">
   您的浏览器不支持Video标签。
@@ -199,7 +256,7 @@ Notification.requestPermission(function(status) {
 })
 ```
 
-### 语意化标签
+### 语义化标签
 
 * &lt;header&gt;  
 * &lt;nav&gt;  
