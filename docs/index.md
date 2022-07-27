@@ -44,6 +44,22 @@
       JavaScript 是 Web 的编程语言
     </div>
   </div>
+  <div class="card-item" data-href="/js/nodejs/">
+    <div class="card-header">
+      About Node.js
+    </div>
+    <div class="card-main">
+      Node.js 是运行在服务端的 JavaScript
+    </div>
+  </div>
+  <div class="card-item" data-href="/js/webpack/">
+    <div class="card-header">
+      About Webpack
+    </div>
+    <div class="card-main">
+      Webpack 是一个前端资源加载/打包工具。
+    </div>
+  </div>
   <div class="card-item" data-href="/js/Vue/">
     <div class="card-header">
       About Vue.js
