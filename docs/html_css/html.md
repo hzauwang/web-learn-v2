@@ -30,9 +30,6 @@
 ## 代码编辑
 
 代码编辑器可以使用[Visual Studio Code](https://code.visualstudio.com/),可以安装插件以支持各种编程语言(js、python、R等)语法高亮以及可以安装[remote-ssh](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)以进行ssh远程连接等。
-    
-!!! note
-    了解基础标签的用法即可，后续学习将会一直使用，在此期间可以继续熟悉其用法。
 
 ## html标签的类型（head， body，!Doctype） 他们的作用是什么
 
@@ -48,6 +45,42 @@
 
 * 文档主体，页面上显示的内容都包括在这里
 * 支持 html 的全局属性和事件属性
+
+## 字符编码
+
+- 编码，字符转换为二进制码
+- 解码，二进制码转为字符
+- 字符集(charset)，编码和解码采用的规则，常用的字符集
+    - ASCII
+    - ISO88591
+    - GB2312
+    - GBK
+    - UTF-8
+
+```html
+<meta charset="utf-8">
+```
+
+## 实体(转义字符)
+
+```html
+<!-- 
+  &实体名; 
+  &nbsp; 空格
+  &gt; 大于
+  &lt; 小于
+  &copy; 版权符号
+-->
+```
+
+## meta标签
+
+```html
+<meta name="keywords" content="keyword1,keyword2">
+<meta name="description" content="some description">
+<!-- 网站重定向, 3表示3秒后跳转 -->
+<meta name="refresh" content="3;url=http://www.mydomain.com">
+```
 
 ## html5的新特性
 
