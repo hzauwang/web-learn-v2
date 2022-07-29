@@ -24,10 +24,12 @@ nav:
     - Bootstrap3: html_css/bootstrap.md
   - JavaScript:
     - JavaScript: js/js.md
+    - axios: js/axios.md
     - Node.js: js/nodejs.md
     - Webpack: js/webpack.md
     - jQuery: js/jquery.md
     - Vue.js: js/Vue.md
+    - 编程题: js/programming.md
     - ElementUI: js/element.md
     - Quasar: js/quasar.md
     - Echarts(基本图): js/echarts.md

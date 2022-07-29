@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.27.2/axios.js"></script>
+</head>
+
+<body>
+  <button>GET</button>
+  <button>POST</button>
+  <button>PUT</button>
+  <button>DELETE</button>
+
+  <script>
+    // https://api.apiopen.top/api/sentences
+    window.onload = function() {
+      const btns = document.querySelectorAll('button')
+
+      // 声明全局变量
+      let cancel = null
+
+      btns[0].addEventListener('click', function() {
+        // 检测上一次的请求是否完成
+        cancel !== null ? cancel() : undefined
+
+        axios({
+          method: 'GET',
+          url: '/json-server',
+          baseURL: 'http://localhost:8888',
+          //baseURL: 'https://api.apiopen.top/api',
+          // 添加属性
+          cancelToken: new axios.CancelToken(function executor (c) {
+            // 将c赋值给cancel
+            cancel = c
+          })
+        }).then(response => {
+          // cancel初始化
+          cancel = null
+          console.log(response.data.result)
+        })
+      })
+
+      btns[1].addEventListener('click', function() {
+        cancel()
+      })
+    }
+  </script>
+</body>
+
+</html>
