@@ -44,6 +44,14 @@
       JavaScript 是 Web 的编程语言
     </div>
   </div>
+  <div class="card-item" data-href="/js/axios/">
+    <div class="card-header">
+      About axios
+    </div>
+    <div class="card-main">
+      基于promise 的 HTTP 库
+    </div>
+  </div>
   <div class="card-item" data-href="/js/nodejs/">
     <div class="card-header">
       About Node.js
@@ -98,7 +106,9 @@
   window.onload = function() {
     document.querySelectorAll('.card-item').forEach(item => {
       item.addEventListener('click', function(){
-        window.location += this.getAttribute('data-href')
+        let url = this.getAttribute('data-href').split('')
+        url.shift()
+        window.location += url.join('')
       })
     })
   }
