@@ -24,6 +24,12 @@
 
 [使用css3实现加载中动态样式](../more/user_inter.md#css3)
 
+## 实现方式
+
+- 内联样式（行内样式）：标签中的style属性设置
+- 内部样式：head中的style标签中
+- 外部样式：link引入外部css文件
+
 ## 优先级
 
 * 一个元素选择器不是很具体 — 会选择页面上该类型的所有元素 — 所以它的优先级就会低一些。
@@ -47,6 +53,16 @@ h1 {
 ```
 
 ## 选择器
+
+### 复合选择器
+
+#### 交集选择器
+选择器1选择器2选择器3{}  
+注意：交集选择器中如果有元素选择器，必须元素选择器开头
+
+#### 选择器分组（并集选择器）
+选择器1,选择器2{}
+
 ### 全局选择器
 
 全局选择器，是由一个星号（*）代指的，它选中了文档中的所有内容（或者是父元素中的所有内容，比如，它紧随在其他元素以及邻代运算符之后的时候）。
@@ -101,8 +117,45 @@ h1 {
 ### 伪类和伪元素
 <code>article p:first-child::first-line</code>表示选择一个<code>&lt;article&gt;</code>元素里面的第一个<code>&lt;p&gt;</code>元素的第一行。  
 其中，伪类为单冒号，伪元素为双冒号。
+
+#### 伪类选择器
+
+- <code>:first-child</code>  
+- <code>:last-child</code>  
+- <code>:nth-child</code>, 选择第n个子元素
+    - 特殊值：
+        - n: 第n个，n的范围0到正无穷
+        - 2n(或even): 选择偶数位的元素
+        - 2n+1(或odd): 奇数位
+
+以上这些伪类都是根据所有的子元素排序
+
+- <code>:first-of-type</code>  
+- <code>:last-of-type</code>  
+- <code>:nth-of-type</code>  
+  
+以上这些伪类是在同类型元素的排序
+
+- <code>:not()</code>, 例 <code>ul>li:not(:nth-of-type(3)){}</code> 表示除了第三个li不选，其他都选中
+
+超链接的伪类：
+
+1. 没有访问过的链接, <code>:link</code>
+2. 访问过的链接, <code>:visited</code> , 只能改变颜色  
+3. 鼠标移入, <code>:hover</code>  
+4. 鼠标点击, <code>:active</code>
+
+#### 伪元素选择器
+
+- <code>::first-letter</code>, 第一个字母  
+- <code>::first-line</code>
+- <code>::selection</code>, 选中的元素  
+- <code>::after</code>, 结合content使用
+- <code>::before</code>
+
+
 !!! note
-  <code>::before</code>和<code>::after</code>通过使用 CSS 将内容插入到文档中。
+    <code>::before</code>和<code>::after</code>通过使用 CSS 将内容插入到文档中。
 
 <div id="css-page-2">
   <p class="box">Content in the box in my HTML page.</p>
@@ -121,10 +174,89 @@ h1 {
 
 * 后代选择器 <code>.box p</code>
 * 子代关系选择器 <code>article > p</code>
-* 邻接兄弟 <code>p + img</code>
-* 通用兄弟(选中一个元素的兄弟元素，即使它们不直接相邻) <code>p ~ img</code>
+* 邻接（下一个）兄弟 <code>p + img</code>
+* 通用兄弟(选中一个元素的下方兄弟元素，即使它们不直接相邻) <code>p ~ img</code>
+
+### 选择器的权重
+
+- 内联样式  1, 0, 0, 0  
+- id选择器  0, 1, 0, 0  
+- 类和伪类选择器  0, 0, 1, 0  
+- 元素选择器  0, 0, 0, 1  
+- 统配选择器 0, 0, 0, 0  
+- 继承的样式 没有优先级  
+
+比较优先级时，需要将所有的选择器的优先级进行相加计算  
+分组(并集)选择器的优先级分开计算  
+选择器的累加不会超过其最大的数量级，类选择器再高也不会超过ID选择器  
+如果优先级相同, 后面的覆盖前面的  
+!important, 或获取到最高的优先级
+
+## 单位
+
+- px 像素  
+- % 相对于父元素属性的百分比  
+- em 相对于自身元素的字体大小来计算，1em = 1 font-size  
+- rem 相对于根元素(html)的字体大小计算
+
+
+## 文档流(normal flow)
+
+网页是多层结构，通过css分别为每一层设置样式，用户只能看到最顶一层，最底下一层称为文档流  
+
+元素在文档流中的特点：  
+
+- 块元素
+    - 独占一行  
+    - 自上向下
+    - 宽度为父元素的100%
+    - 默认高度是内容撑开
+- 行内元素
+    - 只占自身大小
+    - 自左向右水平排列
+    - 默认宽度和高度是内容撑开
 
 ## 盒模型
+
+### 水平方向的布局
+
+元素在其父元素中水平方向的位置有以下几个属性共同决定
+
+- margin-left
+- border-left
+- padding-left
+- width
+- padding-right
+- border-right
+- margin-right
+
+- 上述加起来等于其父元素的内容区的宽度，如果加起来不等于父元素的宽度，则称为过渡约束，等式会自动调整， 调整的情况：
+    - 如果这七个值没有auto，则浏览器会自动调整margin-right的值
+- 这七个值有三个可以设置为auto，width、margin-left、margin-right
+    - 如果某个值为auto，则会自动调整auto的值使等式成立
+    - 一个宽度和一个外边距为auto，则宽度会最大，外边距为0
+    - 三个值为auto，则外边距都是0，宽度最大
+    - 两个外边距为auto，宽度固定值，将外边距设置为相同的值
+
+### 垂直方向的布局
+
+overflow: 
+
+- visible, 默认值, 子元素会溢出
+- hidden, 溢出的内容会被裁剪
+- scroll, 生成滚动条
+- auto, 根据需要生成滚动条
+
+垂直外边距的重叠
+
+- <strong>相邻</strong>的<strong>垂直</strong>方向的外边距会发生重叠现象
+- 兄弟元素
+    - 兄弟元素间的相邻垂直外边距会取最大值(两者都是正值)
+    - 特殊情况：
+        - 如果相邻的外边距一正一负，则取两者的和
+        - 如果相邻的外边距都是负值，则取绝对值较大的
+- 父子元素
+    - 父子元素间相邻外边距，子元素的外边距会传递给父元素(上外边距)
 
 ### 块级盒子和内联盒子
 
