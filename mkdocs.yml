@@ -24,9 +24,11 @@ nav:
     - Bootstrap3: html_css/bootstrap.md
   - JavaScript:
     - JavaScript: js/js.md
+    - Promise: js/promise.md
     - axios: js/axios.md
     - Node.js: js/nodejs.md
     - Webpack: js/webpack.md
+    - TypeScript: js/typescript.md
     - jQuery: js/jquery.md
     - Vue.js: js/Vue.md
     - 编程题: js/programming.md
@@ -43,7 +45,9 @@ nav:
   - PHP:
     - PHP: php/php.md
     - ThinkPHP: php/tp.md
-  - MySQL: mysql/mysql.md
+  - Database:
+    - MySQL: db/mysql.md
+    - MongoDB: db/mongodb.md
   - Linux: linux/linux.md
   - More: 
     - 异常检测、提交反馈: more/user_inter.md

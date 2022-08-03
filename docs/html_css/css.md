@@ -198,7 +198,7 @@ h1 {
 - % 相对于父元素属性的百分比  
 - em 相对于自身元素的字体大小来计算，1em = 1 font-size  
 - rem 相对于根元素(html)的字体大小计算
-
+- vw 表示视口的宽度，100vw等于一个视口的宽度
 
 ## 文档流(normal flow)
 
@@ -372,7 +372,92 @@ overflow:
 </nav>
 ```
 
-## 渐变背景
+### 轮廓，阴影，圆角
+
+<code>outline</code> 用来设置元素的轮廓线，用法和border类似，与border不同的是，轮廓不会影响到可见框的大小。
+
+<code>box-shadow: 10px 10px 20px black;</code> 设置阴影效果，不会影响页面布局, 前两个参数是偏移量, 第三个是阴影的模糊半径，越大越模糊
+
+<code>border-top-left-radius: 50px 100px;</code>, 设置两个不同的值圆角可以显示为椭圆; <code>border-radius: 20px / 40px;</code>设置椭圆
+
+## 背景
+
+### 背景
+
+```css
+*{
+  /* 
+  背景图片小于元素，则图片会自动平铺
+  背景图片大于元素，部分北京无法显示
+  */
+  background-image: url("path/to/img");
+
+  /* 
+  背景的重复方式
+  repeat 默认值 背景沿着x轴y轴方向重复
+  repeat-x 沿x轴重复
+  repeat-y 
+  no-repeat 不重复
+  */
+  background-repeat: no-repeat;
+
+  /* 
+  背景图片的位置
+    - 通过top left bottom right center 设置, 必须指定两个值，只写一个第二个是center
+    - 通过偏移量设置
+  */
+  background-position: center center;
+  background-position: 10px 10px;
+
+  /* 
+  背景的范围
+    - background-clip 裁剪范围
+      - border-box 默认值，背景会出现在边框的下方
+      - padding-box 背景出现在内容区和内边距
+      - content-box 背景出现在内容区
+    - background-origin 背景图片偏移量计算的原点，配合background-position使用
+      - padding-box 默认值，从内边距处开始计算
+      - content-box 内容区开始计算
+      - border-box 从边框处开始计算
+  */
+  background-clip: content-box;
+  background-origin: padding-box;
+  
+  /*
+    background-size 背景图片的大小
+    第一个值为宽度 第二个为高度
+    可设置百分比
+    设置为cover 表示图片比例不变，将元素铺满
+    contain 图片比例不变，但图片完整显示
+  */
+  background-size: 100% auto;
+  background-size: cover;
+
+  /* 
+  背景图片是否会跟随元素移动
+    - scroll
+    - fixed 固定在页面中
+  */
+  background-attachment: scroll;
+}
+```
+
+### 渐变背景
+
+```css
+*{
+  /* to ... 设定渐变方向 */
+  background-image: linear-gradient(to top right,red,yellow);
+  /* xxxdeg deg表示度数 */
+  /* xxxturn 圈 */
+  background-image: linear-gradient(50deg,red,yellow);
+
+  background-image: repeating-linear-gradient(red,yellow);
+
+  /* 径向渐变 */
+  background-image: radial-gradient(red,yellow);
+}
+```
 [在线CSS渐变生成器](https://cssgradient.io/)
 
 ## 调整图片大小
@@ -383,7 +468,62 @@ overflow:
 ## 样式化表格
 
 * <code>table-layout: fixed;</code>, 根据列标题的宽度来规定列的宽度。  
+* <code>border-spacing</code>, 单元格边框的距离
 * <code>border-collapse: collapse;</code>, 让边框合为一条。  
+
+## 字体
+
+<code>serif</code>: 带衬线  
+<code>sans-serif</code>: 非衬线  
+<code>monospace</code>: 等宽字体  
+
+```css
+/* 将服务器中的字体提供给用户 */
+@font-face{
+  /* 指定字体名字 */
+  font-family: 'myFont';
+  src: url(path/to/fontFile.ttf) format("truetype");
+}
+/* 使用字体 */
+p{
+  font-family: 'myFont';
+}
+```
+
+字体属性简写:  
+<code>font: 字体大小/行高 字体族</code>
+
+### 图标字体(iconfont)
+
+#### font awesome
+
+1. 下载[font awesome](https://fontawesome.com/)
+2. 将css和webfonts目录移至项目中
+3. 页面中引入all.css
+4. 使用
+    ```html
+    <i class="fas fa-bell" style="color:red;"></i>
+    <i class="fab fa-accessible-icon" style="font-size:20px;"></i>
+    ```
+
+#### iconfont
+
+[https://www.iconfont.cn/](https://www.iconfont.cn/)
+
+## 文本样式
+
+```css
+text-align: center; /* 水平对齐 */
+vertical-align: middle; /* 垂直对齐 */
+text-decoration: underline; /* 文本修饰，可以用来加下划线或删除线 */
+/* 
+  设置页面空白：
+    nowrap 不换行
+    pre 保留空白 
+*/
+white-space: nowrap;
+text-overflow: ellipsis; /* 文本溢出内容显示为省略号，配合overflow为hidden使用 */
+```
 
 ## CSS排版
 
@@ -391,6 +531,102 @@ overflow:
 在没有改变默认布局规则情况下的页面元素布局方式。
 
 ### 弹性盒子<code>display: flex;</code>
+
+```less
+@a:#bfa;
+
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul{
+  width: 800px;
+  height: 200px;
+  border: 10px solid red;
+  display: flex;
+  /* 
+    flex-direction
+      - row 默认值
+      - row-reverse 右向左
+      - column
+      - column-reverse
+      主轴：元素的排列方向
+      侧轴: 与主轴垂直方向
+      
+    flex-wrap 是否自动换行
+      - nowrap 默认值
+      - wrap
+      - wrap-reverse 辅轴反方向换行
+
+    justify-content 主轴元素如何排列
+      - flex-start 默认值 元素沿着主轴起边排列
+      - flex-end
+      - center
+      - space-around 空白分配到元素两侧
+      - space-evenly 空白分配到元素单侧
+      - space-between 空白分配到元素间
+
+    align-items 元素之间对齐方式
+      - stretch 默认值 将元素的长度设置为相同的值
+      - flex-start 元素不会拉伸，沿着辅轴起边对齐
+      - flex-end
+      - center 居中对齐
+      - baseline 基线对齐
+
+    align-content 辅轴空白空间的分配
+
+  */
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: baseline;
+  align-content: center;
+}
+
+li{
+  width: 100px;
+  background-color: @a;
+  font-size: 50px;
+  text-align: center;
+  line-height: $width;
+
+  /* 
+    flex-grow 伸展系数 默认值为0
+      - 父元素有多余空间时，子元素如何伸展
+      - 父元素的剩余空间，按照比例进行分配
+    flex-shrink 收缩系数
+      - 父元素的空间不足以容纳子元素时，如何对子元素收缩
+    flex-basis 元素在主轴上的基础长度，主轴时横向的，该值指定的是元素的宽度，否则指定的是高度
+      - auto 默认值  
+    简写 flex 增长 缩减 基础
+      - initial 默认值 相当于 '0 1 auto'
+      - auto '1 1 auto'
+      - none '0 0 auto' 没有弹性
+    order 元素顺序
+  */
+  // flex-grow: 1;
+  // flex-shrink: 0;
+  // flex-basis: 250px;
+  flex: 1 1 auto;
+  order: 3;
+
+  &:nth-child(2){
+    background-color: pink;
+    // flex-grow: 2;
+    // flex-shrink: 2;
+    order: 1;
+  }
+
+  &:nth-child(3){
+    background-color: orange;
+    // flex-grow: 3;
+    // flex-shrink: 3;
+    order: 2;
+  }
+}
+```
 
 #### 例子  
 <div id="css-page-6">
@@ -608,6 +844,95 @@ p::first-letter {
 }
 ```
 
+#### 高度塌陷
+
+子元素浮动后，将会无法撑起父元素的高度，导致父元素的高度丢失
+
+#### BFC, Block Formatter Context (块级格式化环境)
+
+- css中的隐含属性，可以为一个元素开启BFC。开启BFC，该元素会变成一个独立的布局区域。  
+- 元素开启BFC后的特点：
+    - 开启BFC后的元素不会被浮动元素覆盖
+    - 开启BFC的元素子元素和父元素外边距不会重叠
+    - 开启BFC的元素可以包含浮动的子元素
+- 可以通过特殊方式开启BFC
+    - 设置元素浮动
+    - 将元素设为行内块元素
+    - 将元素的overflow设置为非visible的值
+        - overflow: hidden或auto
+
+#### clear
+
+清除浮动元素对当前元素所产生的影响  
+可选值：
+
+- left 清除左浮动元素对当前元素的影响
+- right 清除右浮动元素对当前元素的影响
+- both 清除两侧中最大影响的那侧
+
+原理：设置清除浮动后，浏览器会自动为元素添加上外边距，以使其位置不受其他元素的影响
+
+- 使用 <code>clear</code> 和 <code>::after</code>处理高度塌陷问题
+```html
+<style>
+  .box1{
+    border: 1px solid red;
+  }
+  .box2{
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    float: left;
+  }
+  .box1::after {
+    clear: both;
+    display: block;
+    content: '';
+  }
+</style>
+<div class="box1">
+  <div class="box2"></div>
+</div>
+```
+- 处理外边距重叠问题
+```html
+<style>
+  .box1 {
+    background-color: yellowgreen;
+  }
+
+  .box2 {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    margin-top: 50px;
+  }
+
+  .box1::before {
+    content: '';
+    display: table;
+  }
+</style>
+<div class="box1">
+  <div class="box2"></div>
+</div>
+``` 
+
+综合以上代码, 使用 <code>clearfix</code> 解决高度塌陷和外边距重叠问题
+```html
+<style>
+  .clearfix::before,
+  .clearfix::after{
+    content: '';
+    display: table;
+    clear: both;
+  }
+</style>
+<div class="clearfix">
+  <div class="box2"></div>
+</div>
+```
+
 ### 定位<code>position</code>
 
 #### 相对定位<code>position: relative;</code>
@@ -647,6 +972,12 @@ p::first-letter {
 是相对位置和固定位置的混合体，它允许被定位的元素表现得像相对定位一样，直到它滚动到某个阈值点（例如，从视口顶部起 1​​0 像素）为止，此后它就变得固定了。
 
 查看[例子](../example/position_sticky.html)
+
+#### z-index
+
+对于开启了定位的元素，可以通过z-index指定元素的层级
+
+祖先元素层级再高，也不会盖住后代元素
 
 ### 多列布局
 <code>column-count: 3;</code> 将创建指定数量的列  
@@ -695,5 +1026,210 @@ p::first-letter {
   body {
     color: blue;
   }
+}
+```
+
+## animation
+
+### 过渡
+通过过渡(transition)可以指定一个属性发生变化时的切换方式
+
+```css
+*{
+  /* 
+    transition-property 指定要执行过渡的属性, 所有属性用all
+  */
+  transition-property: width, height;
+
+  /* transition-duration 过渡效果的持续时间, 单位 1s 1000ms */
+  transition-duration: 2s;
+
+  /* 
+    过渡执行方式 
+    可选值: ease 默认值; linear 匀速; ease-in 加速; ease-out 减速
+  */
+  transition-timing-function: ease;
+
+  /* 过渡时间的延迟 */
+  transition-delay: 2s;
+
+  /* 设置所有相关属性 */
+  transition: margin-left 2s steps(3);
+}
+```
+
+### 动画
+
+```css
+/* 关键帧 */
+@keyframes test{
+  /* 动画开始位置,from可以替换为0% */
+  from{
+    margin-left: 0;
+  }
+
+  /* 可以设置其他百分比 */
+
+  /* 动画结束位置,to可以替换为100% */
+  to{
+    margin-left: 700px;
+  }
+}
+
+.box{
+  animation-name: test;
+  animation-duration: 2s;
+  /* 动画执行次数 */
+  animation-iteration-count: infinite;
+  /* 动画运行的方向,alternate表示从from到to，再从to到from */
+  animation-direction: alternate;
+  /* 动画运行状态,可以设置为running和paused */
+  animation-play-state: paused;
+  /* forwards表示动画执行完毕停在to的位置，而不是元素原来的位置 */
+  animation-fill-mode: forwards;
+}
+```
+
+### 变形
+
+变形不会影响页面布局
+```css
+.box{
+  /* 实现水平垂直居中 */
+  transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+```
+
+### 缩放
+
+```css
+.box{
+  /* 
+    scaleX() 水平方向缩放
+    scaleY() 垂直方向缩放
+    scale() 双方向缩放
+  */
+  transform: scaleX(2);
+}
+```
+
+## less
+
+```less
+// 引入
+@import 'syntax2.less';
+
+// less 单行注释
+.box1{
+  background-color: #bfa;
+
+  .box2{
+    background-color: #ff0;
+
+    .box3{
+      background-color: orange;
+    }
+  }
+}
+
+// 变量
+@a:100px;
+@b:#bfa;
+@c:box6;
+
+.box5{
+  width: @a;
+  color: @b;
+}
+
+// 作为类名或者值的一部分使用变量
+.@{c}{
+  width: @a;
+  background-color: url("@{c}/1.png");
+}
+
+
+@d:200px;
+@d:300px;
+
+div{
+  width: @d; // 300px
+  height: @e; // 335px
+}
+
+@e:335px;
+
+div{
+  width: @e;
+  height: $width; //使用width中的值
+}
+
+// 子元素选择器
+.box11{
+  >.box21{
+    color: red;
+  }
+  //& 表示外层的父元素
+  &:hover{
+    color: #bfa;
+  }
+}
+
+.p1{
+  width: 100px;
+  height: 200px;
+}
+//:extend() 对当前选择器扩展指定选择器的样式
+.p2:extend(.p1){
+  color: red;
+}
+
+.p3{
+  // 直接对指定样式引用，相当于将p1的样式在这里复制
+  .p1();
+}
+
+//相当于创建了一个函数(mixins)
+.p4(){
+  width: 100px;
+  height: 100px;
+  background-color: #bfa;
+}
+
+.p5{
+  .p4;
+}
+
+// 设置参数
+.test(@w:300px){
+  width: @w;
+  height: 100px;
+}
+div{
+  .test(100px);
+}
+div{
+  .test(@w:200px);
+}
+
+span{
+  color: average(red,yellow);
+}
+
+body{
+  width: 100px;
+  height: 100px;
+  background-color: @b;
+  &:hover{
+    background-color: darken(@b, 10%);
+  }
+}
+
+// 数值可以运算
+div{
+  width: @a + @a + 100px;
 }
 ```

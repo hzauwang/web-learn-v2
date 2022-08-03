@@ -44,6 +44,14 @@
       JavaScript 是 Web 的编程语言
     </div>
   </div>
+  <div class="card-item" data-href="/js/promise/">
+    <div class="card-header">
+      About Promise
+    </div>
+    <div class="card-main">
+      更加优雅地书写复杂的异步任务
+    </div>
+  </div>
   <div class="card-item" data-href="/js/axios/">
     <div class="card-header">
       About axios
@@ -68,6 +76,14 @@
       Webpack 是一个前端资源加载/打包工具。
     </div>
   </div>
+  <div class="card-item" data-href="/js/typescript/">
+    <div class="card-header">
+      About TypeScript
+    </div>
+    <div class="card-main">
+      TypeScript 是一种给 JavaScript 添加特性的语言扩展。
+    </div>
+  </div>
   <div class="card-item" data-href="/js/Vue/">
     <div class="card-header">
       About Vue.js
@@ -84,12 +100,20 @@
       PHP 是一种通用开源脚本语言
     </div>
   </div>
-  <div class="card-item" data-href="/mysql/mysql/">
+  <div class="card-item" data-href="/db/mysql/">
     <div class="card-header">
       About MySQL
     </div>
     <div class="card-main">
       MySQL 是一个关系型数据库管理系统
+    </div>
+  </div>
+  <div class="card-item" data-href="/db/mongodb/">
+    <div class="card-header">
+      About MongoDB
+    </div>
+    <div class="card-main">
+      MongoDB是一个基于分布式文件存储的数据库
     </div>
   </div>
   <div class="card-item" data-href="/linux/linux/">
