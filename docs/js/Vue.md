@@ -1,7 +1,4 @@
-# Vue 2.x
-
 Vue：一个渐进式的 JavaScript 框架，它的核心库只关注视图层。
-
 
 ### 1、安装
 
@@ -4563,4 +4560,70 @@ const router =  new VueRouter({
     }
   ]
 })
+```
+
+### 笔记
+
+#### 路由传递参数(对象写法)path是否可以与params参数一起使用?  
+
+传参时，可以使用name和path跳转，但是path不能与params参数一起使用。
+
+#### 如何指定params参数可传可不传?
+
+如果在路由参数中使用params进行占位, 但不使用params，那么url会出现问题。  
+解决方法：<code>path: '/search/:keyword?'</code>
+
+#### 如果指定name与params配置, 但params中数据是一个"", 无法跳转
+
+解决1: 不指定params  
+解决2: 指定params参数值为undefined  
+
+#### 路由组件能不能传递props数据?
+
+在vue-router中进行配置
+```js
+//props的第一种写法, 值为对象, 该对象中的所有key-value都会以props的形式传给组件, 用处小，因为只能传固定值
+props: {
+  a: 1,
+  b: 'hello'
+}
+
+//第二种，值为布尔值，为真则会将路由组件收到的params参数，以props的形式传给组件, 不能用于query
+props: true
+
+//第三种，值为函数
+props($route) {
+  return { id: $route.query.id, title: $route.query.title }
+}
+```
+
+#### 编程式路由跳转到当前路由(参数不变), 会抛出NavigationDuplicated的警告错误
+
+最新的vue-router引入了promise
+
+解决1: 在跳转时指定成功或失败的回调函数, 通过catch处理错误  
+```js
+this.$router.push({
+  path: '/search',
+  query: {
+    keyword: this.keyword
+  }
+},() => {}, () => {})
+```
+解决2: 修正Vue原型上的push和replace方法
+```js
+/* router/index.js */
+let originPush = VueRouter.prototype.push
+VueRouter.prototype.push = function (location, onComplete, onAbort) {
+  if (onComplete && onAbort) {
+    originPush.call(this, location, onComplete, onAbort)
+  } else {
+    originPush.call(
+      this,
+      location,
+      () => {},
+      () => {}
+    )
+  }
+}
 ```
