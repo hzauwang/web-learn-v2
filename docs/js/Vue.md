@@ -4564,6 +4564,8 @@ const router =  new VueRouter({
 
 ### 笔记
 
+[api](http://39.98.123.211:8510/swagger-ui.html#!/sku256283203421015349202550921475/listUsingPOST)
+
 #### 路由传递参数(对象写法)path是否可以与params参数一起使用?  
 
 传参时，可以使用name和path跳转，但是path不能与params参数一起使用。
@@ -4627,3 +4629,53 @@ VueRouter.prototype.push = function (location, onComplete, onAbort) {
   }
 }
 ```
+
+#### 卡顿、节流、防抖
+
+当用户行为过快，导致浏览器反应不过来，如果当前回调函数中有大量业务，有可能出现卡顿现象。
+
+防抖：  
+前面所有的触发都被取消，最后一次执行在规定时间之后触发，也就是连续快速的触发，只会执行一次。
+
+节流：  
+在规定的间隔时间返回内不会重复触发，只有大于这个时间间隔才会触发，把频繁触发变为少量触发
+
+[lodash](https://www.lodashjs.com/)插件中封装了函数的防抖和节流
+
+```js
+let input = document.querySelector('input')
+
+/* 防抖 */
+input.addEventListener('input', _.debounce(function() {
+  console.log('发送请求')
+}, 1000))
+
+/* 节流 */
+input.addEventListener('input', _.throttle(function() {
+  console.log('发送请求')
+}, 1000))
+```
+
+#### mock.js
+
+[Moke.js](http://mockjs.com/) 生成随机数据，拦截Ajax请求
+
+```js
+/* 准备好返回的json文件 */
+import banner from './banner.json'
+/* 第一个参数是请求地址，第二个是返回的数据 */
+Mock.mock('/mock/banner', { code: 200, data: banner })
+```
+
+#### swiper轮播图
+
+[Swiper](https://www.swiper.com.cn/)
+
+#### 父子组件通信
+
+1. props  
+2. 自定义事件  
+3. 全局事件总线
+4. pubsub-js
+5. 插槽
+6. vuex
