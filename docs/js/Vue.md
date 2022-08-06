@@ -4674,8 +4674,69 @@ Mock.mock('/mock/banner', { code: 200, data: banner })
 #### 父子组件通信
 
 1. props  
+    使用场景:[父子通信]  
+    传递数据类型:  
+    1:可能是函数  -----------实质子组件想给父亲传递数据  
+    2:可能不是函数-----------实质就是父亲给子组件传递数据  
 2. 自定义事件  
-3. 全局事件总线
+    自定义事件   $emit  $on[简写@]  
+    事件: 原生DOM事件----【click|mouseenter........】  
+    事件: 自定义事件-----[子给父传递数据]  
+3. 全局事件总线  
+    $bus 全局事件总线----【万能】  
+    组件实例的原型的原型指向的Vue.prototype  
 4. pubsub-js
-5. 插槽
-6. vuex
+5. vuex  
+    Vuex[仓库]  -----数据非持久化----万能的  
+      核心概念：5  
+      state   
+      mutations  
+      actions   
+      getters   
+      modules  
+6. 插槽  
+    默认插槽  
+    具名插槽  
+    作用域插槽:子组件的数据来源于父组件，但是子组件的自己的结构有父亲决定。  
+
+#### sync修饰符
+
+```html
+<child :money.sync="money"></child>
+```
+1. 父组件给子组件传递了一个props money  
+2. 给子组件绑定了自定义事件，事件名称为 update:money  
+
+#### $attrs 和 $listeners
+
+使用<code>$attrs</code>获取父组件传递的props数据，但是子组件通过props接收了属性后，$attrs中无法获取  
+
+```html
+<child attr1="1" attr2="2"></child>
+
+<!-- 
+  在子组件中, 使用v-bind(不能使用':', 只能用v-bind)以及$attrs绑定父组件在子组件
+  上添加的所有的props(除了使用props接收的)  
+-->
+<template>
+  <div v-bind="$attrs"></div>
+</template>
+```
+
+使用<code>$listeners</code>获取到父组件给子组件传递的自定义事件
+
+```html
+<!-- 
+  给子组件绑定一个叫click的自定义事件
+  可以添加.native修饰符使得子组件添加一个原生click事件
+  除此之外在子组件中使用v-on和$listeners将自定义事件绑定到子组件中的dom元素上
+-->
+<child @click="console.log(123)"></child>
+
+<!-- 
+  在子组件中
+-->
+<template>
+  <div v-on="$listeners"></div>
+</template>
+```
