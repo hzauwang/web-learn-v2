@@ -1,7 +1,4 @@
-# Vue 2.x
-
 Vue：一个渐进式的 JavaScript 框架，它的核心库只关注视图层。
-
 
 ### 1、安装
 
@@ -4563,4 +4560,183 @@ const router =  new VueRouter({
     }
   ]
 })
+```
+
+### 笔记
+
+[api](http://39.98.123.211:8510/swagger-ui.html#!/sku256283203421015349202550921475/listUsingPOST)
+
+#### 路由传递参数(对象写法)path是否可以与params参数一起使用?  
+
+传参时，可以使用name和path跳转，但是path不能与params参数一起使用。
+
+#### 如何指定params参数可传可不传?
+
+如果在路由参数中使用params进行占位, 但不使用params，那么url会出现问题。  
+解决方法：<code>path: '/search/:keyword?'</code>
+
+#### 如果指定name与params配置, 但params中数据是一个"", 无法跳转
+
+解决1: 不指定params  
+解决2: 指定params参数值为undefined  
+
+#### 路由组件能不能传递props数据?
+
+在vue-router中进行配置
+```js
+//props的第一种写法, 值为对象, 该对象中的所有key-value都会以props的形式传给组件, 用处小，因为只能传固定值
+props: {
+  a: 1,
+  b: 'hello'
+}
+
+//第二种，值为布尔值，为真则会将路由组件收到的params参数，以props的形式传给组件, 不能用于query
+props: true
+
+//第三种，值为函数
+props($route) {
+  return { id: $route.query.id, title: $route.query.title }
+}
+```
+
+#### 编程式路由跳转到当前路由(参数不变), 会抛出NavigationDuplicated的警告错误
+
+最新的vue-router引入了promise
+
+解决1: 在跳转时指定成功或失败的回调函数, 通过catch处理错误  
+```js
+this.$router.push({
+  path: '/search',
+  query: {
+    keyword: this.keyword
+  }
+},() => {}, () => {})
+```
+解决2: 修正Vue原型上的push和replace方法
+```js
+/* router/index.js */
+let originPush = VueRouter.prototype.push
+VueRouter.prototype.push = function (location, onComplete, onAbort) {
+  if (onComplete && onAbort) {
+    originPush.call(this, location, onComplete, onAbort)
+  } else {
+    originPush.call(
+      this,
+      location,
+      () => {},
+      () => {}
+    )
+  }
+}
+```
+
+#### 卡顿、节流、防抖
+
+当用户行为过快，导致浏览器反应不过来，如果当前回调函数中有大量业务，有可能出现卡顿现象。
+
+防抖：  
+前面所有的触发都被取消，最后一次执行在规定时间之后触发，也就是连续快速的触发，只会执行一次。
+
+节流：  
+在规定的间隔时间返回内不会重复触发，只有大于这个时间间隔才会触发，把频繁触发变为少量触发
+
+[lodash](https://www.lodashjs.com/)插件中封装了函数的防抖和节流
+
+```js
+let input = document.querySelector('input')
+
+/* 防抖 */
+input.addEventListener('input', _.debounce(function() {
+  console.log('发送请求')
+}, 1000))
+
+/* 节流 */
+input.addEventListener('input', _.throttle(function() {
+  console.log('发送请求')
+}, 1000))
+```
+
+#### mock.js
+
+[Moke.js](http://mockjs.com/) 生成随机数据，拦截Ajax请求
+
+```js
+/* 准备好返回的json文件 */
+import banner from './banner.json'
+/* 第一个参数是请求地址，第二个是返回的数据 */
+Mock.mock('/mock/banner', { code: 200, data: banner })
+```
+
+#### swiper轮播图
+
+[Swiper](https://www.swiper.com.cn/)
+
+#### 父子组件通信
+
+1. props  
+    使用场景:[父子通信]  
+    传递数据类型:  
+    1:可能是函数  -----------实质子组件想给父亲传递数据  
+    2:可能不是函数-----------实质就是父亲给子组件传递数据  
+2. 自定义事件  
+    自定义事件   $emit  $on[简写@]  
+    事件: 原生DOM事件----【click|mouseenter........】  
+    事件: 自定义事件-----[子给父传递数据]  
+3. 全局事件总线  
+    $bus 全局事件总线----【万能】  
+    组件实例的原型的原型指向的Vue.prototype  
+4. pubsub-js
+5. vuex  
+    Vuex[仓库]  -----数据非持久化----万能的  
+      核心概念：5  
+      state   
+      mutations  
+      actions   
+      getters   
+      modules  
+6. 插槽  
+    默认插槽  
+    具名插槽  
+    作用域插槽:子组件的数据来源于父组件，但是子组件的自己的结构有父亲决定。  
+
+#### sync修饰符
+
+```html
+<child :money.sync="money"></child>
+```
+1. 父组件给子组件传递了一个props money  
+2. 给子组件绑定了自定义事件，事件名称为 update:money  
+
+#### $attrs 和 $listeners
+
+使用<code>$attrs</code>获取父组件传递的props数据，但是子组件通过props接收了属性后，$attrs中无法获取  
+
+```html
+<child attr1="1" attr2="2"></child>
+
+<!-- 
+  在子组件中, 使用v-bind(不能使用':', 只能用v-bind)以及$attrs绑定父组件在子组件
+  上添加的所有的props(除了使用props接收的)  
+-->
+<template>
+  <div v-bind="$attrs"></div>
+</template>
+```
+
+使用<code>$listeners</code>获取到父组件给子组件传递的自定义事件
+
+```html
+<!-- 
+  给子组件绑定一个叫click的自定义事件
+  可以添加.native修饰符使得子组件添加一个原生click事件
+  除此之外在子组件中使用v-on和$listeners将自定义事件绑定到子组件中的dom元素上
+-->
+<child @click="console.log(123)"></child>
+
+<!-- 
+  在子组件中
+-->
+<template>
+  <div v-on="$listeners"></div>
+</template>
 ```
