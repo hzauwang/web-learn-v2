@@ -21,6 +21,7 @@ nav:
   - HTML/CSS:
     - HTML: html_css/html.md
     - CSS: html_css/css.md
+    - HTTP协议: html_css/http.md
     - Bootstrap3: html_css/bootstrap.md
   - JavaScript:
     - JavaScript: js/js.md
@@ -34,14 +35,16 @@ nav:
     - 编程题: js/programming.md
     - ElementUI: js/element.md
     - Quasar: js/quasar.md
-    - Echarts(基本图): js/echarts.md
-    - amCharts(地图): js/amcharts.md
-    - plotly.js(小提琴图): js/plotly.md
-    - Highcharts(基因结构图): js/highcharts.md
-    - Phylotree.js(绘制进化树): js/phylotree.md
-    - Cytoscape.js(网络图): js/cytoscape.md
-    - gtex-viz(带聚类树的热图): js/gtex_viz.md
-    - BioCircos.js(eQTL的circos图): js/biocircos.md
+    - 数据可视化:
+      - 数据可视化: js/visualization.md
+      - Echarts(基本图): js/echarts.md
+      - amCharts(地图): js/amcharts.md
+      - plotly.js(小提琴图): js/plotly.md
+      - Highcharts(基因结构图): js/highcharts.md
+      - Phylotree.js(绘制进化树): js/phylotree.md
+      - Cytoscape.js(网络图): js/cytoscape.md
+      - gtex-viz(带聚类树的热图): js/gtex_viz.md
+      - BioCircos.js(eQTL的circos图): js/biocircos.md
   - PHP:
     - PHP: php/php.md
     - ThinkPHP: php/tp.md

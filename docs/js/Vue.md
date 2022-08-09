@@ -4740,3 +4740,30 @@ Mock.mock('/mock/banner', { code: 200, data: banner })
   <div v-on="$listeners"></div>
 </template>
 ```
+
+#### 清理数据的方法
+
+Object.assign合并对象  
+this._data可以操作data当中的响应数据  
+this.$options.data()可以获取配置对象，配置对象的data函数执行，返回一个空的响应式数据  
+即将组件中的data初始值重新赋给当前data  
+```js
+Object.assign(this._data, this.$options.data())
+```
+
+#### 深度选择器
+
+1. scoped vue通过属性选择器给需要的元素添加样式  
+2. 子组件的根标签会添加上父组件一样的属性标签  
+3. 如果父组件添加了scoped，而且还想影响到子组件，可以使用深度选择器，实现样式穿透
+    
+    ```css
+    /* 父组件使用深度选择器影响子组件样式 */
+    >>>h3{
+      color: red;
+    }
+    ```
+
+      * &gt;&gt;&gt; 用于css  
+      * /deep/ 用于less  
+      * ::v-deep 用于scss  
