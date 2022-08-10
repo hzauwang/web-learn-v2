@@ -259,6 +259,23 @@ TEAM.push(4) // 正常执行
 TEAM = [] // 报错
 ```
 
+!!!note
+    关于变量声明和函数声明的详细说明[https://mp.weixin.qq.com/s/MlKRNfK3blGJA7bfXzdsNg](https://mp.weixin.qq.com/s/MlKRNfK3blGJA7bfXzdsNg)
+
+例子： 
+```js
+var a = 0
+if(true){
+  console.log(a, window.a)
+  a = 10
+  console.log(a, window.a)
+  function a(){}
+  console.log(a, window.a)
+  a = 20
+  console.log(a, window.a)
+}
+console.log(a, window.a)
+```
 
 ### 变量的解构赋值
 

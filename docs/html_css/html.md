@@ -9,6 +9,53 @@
 
 ![rendering](../images/html_css_rendering.svg)
 
+### Critical Rendering Path（CRP）
+1. 构建DOM
+    * 将HTML解析为许多tokens
+    * 将tokens解析为object
+    * 将object组合为DOM树
+2. 构建CSSOM
+    * 解析css文件，构建CSSOM树
+3. 构建Render Tree
+    * 结合DOM和CSSOM构建Render树
+4. Layout
+    * 计算出元素相对于viewport的相对位置
+5. Paint
+    * 将render tree转换为像素显示
+
+上面的过程不是依次进行的，存在一定交叉
+
+#### 构建DOM
+HTML很大的时候，一个RTT（Round-Trip time，往返时延）只得到一部分，浏览器会根据这部分进行构建DOM，并不会等到收到整个文档才开始。<strong>而CSSOM需要等到所有字节收到才开始构建。</strong>
+![DOM解析](../images/dom%E8%A7%A3%E6%9E%90.png)
+
+#### 构建CSSOM
+HTML遇到link标签时，会请求css文件，css文件就位时便开始解析（如果是行内style则直接解析），这一过程和构建DOM同时进行  
+上面构建的并不是完整的CSSOM树，除此之外还有浏览器的默认样式，称为user agent styles
+
+#### 构建Render Tree
+这一步只构建需要在屏幕上显示的部分，对于<code>display: none;</code>的元素也无需构建
+
+!!!note
+    <code>display: none;</code>告诉浏览器这个元素无需出现在render tree中，但是<code>visibility: hidden;</code>只是隐藏了这个元素，但是元素还占空间，会影响到后面的layout，因此仍需要出现在render tree中。
+
+具体步骤：
+
+1. 浏览器从DOM树开始遍历，找到每一个可见节点
+2. 对于每一个可见节点，在CSSOM上找到匹配的样式并应用
+3. 生成render tree
+
+#### Layout
+这一步计算元素相对于viewport的位置和大小，根据计算出的信息，输出元素的box model
+
+#### Paint
+浏览器将每一个节点以像素显示在屏幕上，最终看到页面。
+
+#### 引入js
+1. 解析HTML构建DOM时，遇到JavaScript会被堵塞
+2. JavaScript执行会被CSSOM构建阻塞，JavaScript必须等到CSSOM构建完成后才会执行
+3. 使用异步脚本，脚本的网络请求优先级降低，网络请求期间不阻塞DOM构建，直到请求完成后开始执行
+
 ## 在线学习网站  
 
 * [菜鸟教程](https://www.runoob.com/)  
