@@ -1030,6 +1030,54 @@ p::first-letter {
 }
 ```
 
+## 空间转换
+实现鼠标悬浮立方体旋转效果
+```html
+<style>
+  ul {
+    display: flex;
+    list-style: none;
+  }
+
+  li {
+    width: 80px;
+    height: 50px;
+    transform-style: preserve-3d;
+    position: relative;
+    transition: all .5s;
+  }
+
+  li:hover {
+    transform: rotateX(-90deg);
+  }
+
+  li>a {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  li>a:first-child {
+    background-color: pink;
+    transform: rotateX(90deg) translateZ(25px);
+  }
+
+  li>a:last-child {
+    background-color: skyblue;
+    transform: translateZ(25px);
+  }
+</style>
+<ul>
+  <li><a href="javascript:;">首页</a><a href="javascript:;">Home</a></li>
+  <li><a href="javascript:;">登录</a><a href="javascript:;">Login</a></li>
+  <li><a href="javascript:;">注册</a><a href="javascript:;">Register</a></li>
+</ul>
+```
+
 ## animation
 
 ### 过渡

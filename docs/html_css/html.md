@@ -108,6 +108,16 @@ HTML遇到link标签时，会请求css文件，css文件就位时便开始解析
 <meta charset="utf-8">
 ```
 
+## SEO 搜索引擎优化
+让网站在搜索引擎上的排名靠前
+SEO三大标签
+```html
+<title>.......</title>
+<meta name="description" content="......">
+<meta name="keywords" content="keyword1,keyword2...">
+```
+
+
 ## 实体(转义字符)
 
 ```html
