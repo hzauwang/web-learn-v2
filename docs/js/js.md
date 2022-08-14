@@ -1576,6 +1576,13 @@ window.onresize = funciton() {
 !!!note
     事件委派: 将事件绑定给所有元素共同的祖先元素，通过事件冒泡来给所有子元素绑定事件，通过event.target来让指定的子元素触发事件
 
+dom加载完毕后执行的事件
+```js
+document.addEventListener('DOMContentLoaded', function() {
+  console.log(123)
+})
+```
+
 ## BOM
 
 ### Window
