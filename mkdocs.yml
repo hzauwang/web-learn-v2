@@ -19,9 +19,9 @@ markdown_extensions:
 nav:
   - Home: index.md
   - HTML/CSS:
+    - HTTP协议: html_css/http.md
     - HTML: html_css/html.md
     - CSS: html_css/css.md
-    - HTTP协议: html_css/http.md
     - Bootstrap3: html_css/bootstrap.md
   - JavaScript:
     - JavaScript: js/js.md

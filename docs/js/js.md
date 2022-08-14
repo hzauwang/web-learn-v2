@@ -259,6 +259,23 @@ TEAM.push(4) // 正常执行
 TEAM = [] // 报错
 ```
 
+!!!note
+    关于变量声明和函数声明的详细说明[https://mp.weixin.qq.com/s/MlKRNfK3blGJA7bfXzdsNg](https://mp.weixin.qq.com/s/MlKRNfK3blGJA7bfXzdsNg)
+
+例子： 
+```js
+var a = 0
+if(true){
+  console.log(a, window.a)
+  a = 10
+  console.log(a, window.a)
+  function a(){}
+  console.log(a, window.a)
+  a = 20
+  console.log(a, window.a)
+}
+console.log(a, window.a)
+```
 
 ### 变量的解构赋值
 
@@ -1558,6 +1575,13 @@ window.onresize = funciton() {
 
 !!!note
     事件委派: 将事件绑定给所有元素共同的祖先元素，通过事件冒泡来给所有子元素绑定事件，通过event.target来让指定的子元素触发事件
+
+dom加载完毕后执行的事件
+```js
+document.addEventListener('DOMContentLoaded', function() {
+  console.log(123)
+})
+```
 
 ## BOM
 

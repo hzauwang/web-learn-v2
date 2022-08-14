@@ -852,6 +852,7 @@ p::first-letter {
 
 - css中的隐含属性，可以为一个元素开启BFC。开启BFC，该元素会变成一个独立的布局区域。  
 - 元素开启BFC后的特点：
+    - 解决外边距重叠
     - 开启BFC后的元素不会被浮动元素覆盖
     - 开启BFC的元素子元素和父元素外边距不会重叠
     - 开启BFC的元素可以包含浮动的子元素
@@ -1027,6 +1028,54 @@ p::first-letter {
     color: blue;
   }
 }
+```
+
+## 空间转换
+实现鼠标悬浮立方体旋转效果
+```html
+<style>
+  ul {
+    display: flex;
+    list-style: none;
+  }
+
+  li {
+    width: 80px;
+    height: 50px;
+    transform-style: preserve-3d;
+    position: relative;
+    transition: all .5s;
+  }
+
+  li:hover {
+    transform: rotateX(-90deg);
+  }
+
+  li>a {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  li>a:first-child {
+    background-color: pink;
+    transform: rotateX(90deg) translateZ(25px);
+  }
+
+  li>a:last-child {
+    background-color: skyblue;
+    transform: translateZ(25px);
+  }
+</style>
+<ul>
+  <li><a href="javascript:;">首页</a><a href="javascript:;">Home</a></li>
+  <li><a href="javascript:;">登录</a><a href="javascript:;">Login</a></li>
+  <li><a href="javascript:;">注册</a><a href="javascript:;">Register</a></li>
+</ul>
 ```
 
 ## animation
