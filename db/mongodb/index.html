@@ -1,0 +1,1730 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.0">
+    
+    
+      
+        <title>MongoDB - Web learn</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Web learn" class="md-header__button md-logo" aria-label="Web learn" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Web learn
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MongoDB
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../html_css/http/" class="md-tabs__link">
+        HTML/CSS
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../js/js/" class="md-tabs__link">
+        JavaScript
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../php/php/" class="md-tabs__link">
+        PHP
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../mysql/" class="md-tabs__link md-tabs__link--active">
+        Database
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../linux/linux/" class="md-tabs__link">
+      Linux
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../more/user_inter/" class="md-tabs__link">
+        More
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Web learn" class="md-nav__button md-logo" aria-label="Web learn" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Web learn
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          HTML/CSS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="HTML/CSS" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          HTML/CSS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../html_css/http/" class="md-nav__link">
+        HTTP协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../html_css/html/" class="md-nav__link">
+        HTML
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../html_css/css/" class="md-nav__link">
+        CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../html_css/bootstrap/" class="md-nav__link">
+        Bootstrap3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          JavaScript
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JavaScript" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          JavaScript
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/js/" class="md-nav__link">
+        JavaScript
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/promise/" class="md-nav__link">
+        Promise
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/axios/" class="md-nav__link">
+        axios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/nodejs/" class="md-nav__link">
+        Node.js
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/webpack/" class="md-nav__link">
+        Webpack
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/typescript/" class="md-nav__link">
+        TypeScript
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/jquery/" class="md-nav__link">
+        jQuery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/Vue/" class="md-nav__link">
+        Vue.js
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/programming/" class="md-nav__link">
+        编程题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/element/" class="md-nav__link">
+        ElementUI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/quasar/" class="md-nav__link">
+        Quasar
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_12" type="checkbox" id="__nav_3_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_12">
+          数据可视化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据可视化" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_12">
+          <span class="md-nav__icon md-icon"></span>
+          数据可视化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/visualization/" class="md-nav__link">
+        数据可视化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/echarts/" class="md-nav__link">
+        Echarts(基本图)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/amcharts/" class="md-nav__link">
+        amCharts(地图)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/plotly/" class="md-nav__link">
+        plotly.js(小提琴图)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/highcharts/" class="md-nav__link">
+        Highcharts(基因结构图)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/phylotree/" class="md-nav__link">
+        Phylotree.js(绘制进化树)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/cytoscape/" class="md-nav__link">
+        Cytoscape.js(网络图)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/gtex_viz/" class="md-nav__link">
+        gtex-viz(带聚类树的热图)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/biocircos/" class="md-nav__link">
+        BioCircos.js(eQTL的circos图)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          PHP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="PHP" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          PHP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/php/" class="md-nav__link">
+        PHP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/tp/" class="md-nav__link">
+        ThinkPHP
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Database
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Database" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Database
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mysql/" class="md-nav__link">
+        MySQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          MongoDB
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        MongoDB
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    基本操作
+  </a>
+  
+    <nav class="md-nav" aria-label="基本操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    插入文档
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    查询文档
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    修改文档
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    删除文档
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    练习
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sort" class="md-nav__link">
+    sort
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    投影
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mongoose" class="md-nav__link">
+    Mongoose
+  </a>
+  
+    <nav class="md-nav" aria-label="Mongoose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    基本操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#document" class="md-nav__link">
+    Document的方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/linux/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          More
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="More" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          More
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../more/user_inter/" class="md-nav__link">
+        异常检测、提交反馈
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../more/jbrowse1/" class="md-nav__link">
+        JBrowse1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../more/jbrowse2/" class="md-nav__link">
+        JBrowse2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../more/blast/" class="md-nav__link">
+        Blast
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../more/gbrowse/" class="md-nav__link">
+        GBrowse_syn
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    基本操作
+  </a>
+  
+    <nav class="md-nav" aria-label="基本操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    插入文档
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    查询文档
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    修改文档
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    删除文档
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    练习
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sort" class="md-nav__link">
+    sort
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    投影
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mongoose" class="md-nav__link">
+    Mongoose
+  </a>
+  
+    <nav class="md-nav" aria-label="Mongoose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    基本操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#document" class="md-nav__link">
+    Document的方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+  <h1>MongoDB</h1>
+
+<p>MongoDB的数据模型是面向文档的，所谓文档是一种类似于JSON的结构(BSON)。</p>
+<p>具体使用查看<a href="https://www.mongodb.com/docs/manual/">官方文档</a></p>
+<h2 id="_1">基本操作<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
+<div class="highlight"><pre><span></span><code><span class="cm">/* 显示所有数据库 */</span><span class="w"></span>
+<span class="k">show</span><span class="w"> </span><span class="n">dbs</span><span class="w"></span>
+
+<span class="n">use</span><span class="w"> </span><span class="err">数据库名</span><span class="w"></span>
+<span class="cm">/* 显示当前所处的数据库 */</span><span class="w"></span>
+<span class="n">db</span><span class="w"></span>
+<span class="cm">/* 显示数据库中所有集合 */</span><span class="w"></span>
+<span class="k">show</span><span class="w"> </span><span class="n">collections</span><span class="w"></span>
+</code></pre></div>
+<h3 id="_2">插入文档<a class="headerlink" href="#_2" title="Permanent link">#</a></h3>
+<p>当向集合中插入文档时，如果没有指定_id，数据库会自动生成</p>
+<p><code>db.collection.insertOne(doc)</code> 插入单个文档<br />
+例子：</p>
+<p><div class="highlight"><pre><span></span><code><span class="n">db</span><span class="p">.</span><span class="n">students</span><span class="p">.</span><span class="n">insertOne</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">name</span><span class="p">:</span><span class="ss">&quot;wang&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">age</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">gender</span><span class="p">:</span><span class="ss">&quot;male&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="err">}</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<code>db.collection.insertMany()</code> 插入多个文档  </p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="n">db</span><span class="p">.</span><span class="n">students</span><span class="p">.</span><span class="n">insertMany</span><span class="p">([</span><span class="w"></span>
+<span class="w">    </span><span class="err">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">name</span><span class="p">:</span><span class="ss">&quot;wang&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">age</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">gender</span><span class="p">:</span><span class="ss">&quot;male&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="err">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">name</span><span class="p">:</span><span class="ss">&quot;zhao&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">age</span><span class="p">:</span><span class="mi">22</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">gender</span><span class="p">:</span><span class="ss">&quot;male&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">])</span><span class="w"></span>
+</code></pre></div>
+<h3 id="_3">查询文档<a class="headerlink" href="#_3" title="Permanent link">#</a></h3>
+<p><code>db.collection.find()</code> 查找集合中所有符合条件的文档,返回数组<br />
+例子:  </p>
+<div class="highlight"><pre><span></span><code><span class="n">db</span><span class="p">.</span><span class="n">students</span><span class="p">.</span><span class="n">find</span><span class="p">()</span><span class="w"></span>
+
+<span class="n">db</span><span class="p">.</span><span class="n">students</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="err">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;wang&quot;</span><span class="w"></span>
+<span class="err">}</span><span class="p">)</span><span class="w"></span>
+
+<span class="n">db</span><span class="p">.</span><span class="n">students</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="err">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;wang&quot;</span><span class="w"></span>
+<span class="err">}</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="cm">/* 可以添加索引，指定第几条 */</span><span class="w"></span>
+
+<span class="n">db</span><span class="p">.</span><span class="n">students</span><span class="p">.</span><span class="n">find</span><span class="p">().</span><span class="k">count</span><span class="p">()</span><span class="w"> </span><span class="cm">/* 所有结果的数量 */</span><span class="w"></span>
+</code></pre></div>
+<p><code>db.collection.findOne()</code> 查找第一个,返回文档对象</p>
+<h3 id="_4">修改文档<a class="headerlink" href="#_4" title="Permanent link">#</a></h3>
+<p><code>db.collection.updateOne(查询条件, 新对象)</code></p>
+<ul>
+<li>$set 修改文档中的指定属性</li>
+<li>$unset 删除文档的指定属性</li>
+</ul>
+<p>例子:<br />
+<div class="highlight"><pre><span></span><code><span class="n">db</span><span class="p">.</span><span class="n">students</span><span class="p">.</span><span class="n">updateOne</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="err">{</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;wang&quot;</span><span class="err">}</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="err">$</span><span class="k">set</span><span class="p">:</span><span class="err">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;wang2&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="w"></span>
+<span class="w">  </span><span class="err">}</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+</code></pre></div></p>
+<p><code>db.collection.updateMany(查询条件, 新对象)</code></p>
+<p><code>db.collection.replaceOne()</code> 替换文档</p>
+<h3 id="_5">删除文档<a class="headerlink" href="#_5" title="Permanent link">#</a></h3>
+<p><code>db.collection.deleteMany()</code><br />
+<code>db.collection.deleteOne()</code><br />
+<code>db.collection.drop()</code><br />
+<code>db.dropDatabase()</code> 删除数据库  </p>
+<div class="highlight"><pre><span></span><code><span class="n">db</span><span class="p">.</span><span class="n">students</span><span class="p">.</span><span class="n">deleteMany</span><span class="p">(</span><span class="err">{</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;wang&quot;</span><span class="err">}</span><span class="p">)</span><span class="w"></span>
+
+<span class="cm">/* 清空集合,性能差 */</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">students</span><span class="p">.</span><span class="n">deleteMany</span><span class="p">(</span><span class="err">{}</span><span class="p">)</span><span class="w"></span>
+<span class="cm">/* 以下语句可以删除集合 */</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">students</span><span class="p">.</span><span class="k">drop</span><span class="p">()</span><span class="w"></span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>一般使用一个字段来表示是否删除(逻辑删除)，而不是直接使用delete方法</p>
+</div>
+<h2 id="_6">练习<a class="headerlink" href="#_6" title="Permanent link">#</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">use</span><span class="w"> </span><span class="n">my_test</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">insertOne</span><span class="p">(</span><span class="err">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">username</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;wang&#39;</span><span class="w"></span>
+<span class="err">}</span><span class="p">)</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">find</span><span class="p">()</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">insertOne</span><span class="p">(</span><span class="err">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">username</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;zhang&#39;</span><span class="w"></span>
+<span class="err">}</span><span class="p">)</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">find</span><span class="p">().</span><span class="k">count</span><span class="p">()</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="err">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">username</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;wang&#39;</span><span class="w"></span>
+<span class="err">}</span><span class="p">)</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">updateOne</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="err">{</span><span class="n">username</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;wang&#39;</span><span class="err">}</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="err">$</span><span class="k">set</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">address</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;shanxi&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="w"></span>
+<span class="w">  </span><span class="err">}</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">replaceOne</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="err">{</span><span class="n">username</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;zhang&#39;</span><span class="err">}</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="err">{</span><span class="n">username</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;zhang2&#39;</span><span class="err">}</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">updateOne</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="err">{</span><span class="n">username</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;wang&#39;</span><span class="err">}</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="err">$</span><span class="n">unset</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">address</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="w"></span>
+<span class="w">  </span><span class="err">}</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">updateOne</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="err">{</span><span class="n">username</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;wang&#39;</span><span class="err">}</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="err">$</span><span class="k">set</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">hobby</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">cities</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;beijing&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;shanghai&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;shenzhen&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="n">movies</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;sanguo&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;hero&#39;</span><span class="p">]</span><span class="w"></span>
+<span class="w">      </span><span class="err">}</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="w"></span>
+<span class="w">  </span><span class="err">}</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">updateOne</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="err">{</span><span class="n">username</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;zhang2&#39;</span><span class="err">}</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="err">$</span><span class="k">set</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">hobby</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">movies</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;movie1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;movie2&#39;</span><span class="p">]</span><span class="w"></span>
+<span class="w">      </span><span class="err">}</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="w"></span>
+<span class="w">  </span><span class="err">}</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="cm">/* 内嵌文档查询时必须使用引号 */</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="err">{</span><span class="s1">&#39;hobby.movies&#39;</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;hero&#39;</span><span class="err">}</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="cm">/* $push向数组中添加一个新的元素 */</span><span class="w"></span>
+<span class="cm">/* $addToSet 也是向数组中添加一个新元素, 如果数组中已经存在该元素, 则不会添加 */</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">updateOne</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="err">{</span><span class="n">username</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;zhang2&#39;</span><span class="err">}</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="err">$</span><span class="n">push</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">      </span><span class="s1">&#39;hobby.movies&#39;</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;new movie&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="w"></span>
+<span class="w">  </span><span class="err">}</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">deleteOne</span><span class="p">(</span><span class="err">{</span><span class="s1">&#39;hobby.cities&#39;</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;beijing&#39;</span><span class="err">}</span><span class="p">)</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="k">drop</span><span class="p">()</span><span class="w"></span>
+
+<span class="cm">/* 插入多条数据 */</span><span class="w"></span>
+<span class="n">var</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="k">for</span><span class="p">(</span><span class="n">var</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">20000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="err">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">arr</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="err">{</span><span class="n">num</span><span class="p">:</span><span class="w"> </span><span class="n">i</span><span class="err">}</span><span class="p">)</span><span class="w"></span>
+<span class="err">}</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">numbers</span><span class="p">.</span><span class="n">insertMany</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">numbers</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="err">{</span><span class="n">num</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="err">}</span><span class="p">)</span><span class="w"></span>
+<span class="cm">/* x&gt;=500 */</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">numbers</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="err">{</span><span class="n">num</span><span class="p">:</span><span class="w"> </span><span class="err">{$</span><span class="n">gte</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="err">}}</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="cm">/* x&lt;30 */</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">numbers</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="err">{</span><span class="n">num</span><span class="p">:</span><span class="w"> </span><span class="err">{$</span><span class="n">lt</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="err">}}</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="cm">/* 50&gt;x&gt;40 */</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">numbers</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">num</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">      </span><span class="err">$</span><span class="n">gt</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="err">$</span><span class="n">lt</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="w"></span>
+<span class="w">  </span><span class="err">}</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="cm">/* x&lt;10 || x&gt;19990 */</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">numbers</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="err">$</span><span class="k">or</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">      </span><span class="err">{</span><span class="n">num</span><span class="p">:</span><span class="w"> </span><span class="err">{$</span><span class="n">lt</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="err">}}</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="err">{</span><span class="n">num</span><span class="p">:</span><span class="w"> </span><span class="err">{$</span><span class="n">gt</span><span class="p">:</span><span class="w"> </span><span class="mi">19990</span><span class="err">}}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="w">  </span><span class="err">}</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="cm">/* 大于19990的增加0.1 */</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">numbers</span><span class="p">.</span><span class="n">updateMany</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="err">{</span><span class="n">num</span><span class="p">:</span><span class="w"> </span><span class="err">{$</span><span class="n">gt</span><span class="p">:</span><span class="w"> </span><span class="mi">19990</span><span class="err">}}</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="err">$</span><span class="n">inc</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">num</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="w"></span>
+<span class="w">  </span><span class="err">}</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="cm">/* 前十条数据 */</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">numbers</span><span class="p">.</span><span class="n">find</span><span class="p">().</span><span class="k">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<span class="cm">/* 11条到20条 */</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">numbers</span><span class="p">.</span><span class="n">find</span><span class="p">().</span><span class="n">skip</span><span class="p">(</span><span class="mi">10</span><span class="p">).</span><span class="k">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<span class="cm">/* 21到30 */</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">numbers</span><span class="p">.</span><span class="n">find</span><span class="p">().</span><span class="n">skip</span><span class="p">(</span><span class="mi">20</span><span class="p">).</span><span class="k">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<span class="cm">/* skip((页码 - 1) * 每页的条数).limit(每页的条数) */</span><span class="w"></span>
+<span class="cm">/* skip 和 limit 的顺序对结果没有影响 */</span><span class="w"></span>
+</code></pre></div>
+<h2 id="sort">sort<a class="headerlink" href="#sort" title="Permanent link">#</a></h2>
+<div class="highlight"><pre><span></span><code><span class="cm">/* 1表示升序 -1表示降序 */</span><span class="w"></span>
+<span class="cm">/* limit skip sort的顺序对结果没有影响 */</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">numbers</span><span class="p">.</span><span class="n">find</span><span class="p">().</span><span class="n">sort</span><span class="p">(</span><span class="err">{</span><span class="n">num</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">num2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="err">}</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h2 id="_7">投影<a class="headerlink" href="#_7" title="Permanent link">#</a></h2>
+<div class="highlight"><pre><span></span><code><span class="cm">/* 第二个参数，类似于MySQL指定字段 */</span><span class="w"></span>
+<span class="n">db</span><span class="p">.</span><span class="n">numbers</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="err">{}</span><span class="p">,</span><span class="w"> </span><span class="err">{</span><span class="nb">number</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">_id</span><span class="p">:</span><span class="mi">0</span><span class="err">}</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h2 id="mongoose">Mongoose<a class="headerlink" href="#mongoose" title="Permanent link">#</a></h2>
+<p>通过node来操作MongoDB<br />
+<a href="http://mongoosejs.net/">官网</a></p>
+<p><code>npm i mongoose --save</code></p>
+<h3 id="_8">基本操作<a class="headerlink" href="#_8" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">mongoose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongoose&#39;</span><span class="p">)</span><span class="w"></span>
+
+<span class="cm">/* </span>
+<span class="cm">  mongodb://ip地址:端口号/数据库名</span>
+<span class="cm">  端口号为27017则可以省略</span>
+<span class="cm">*/</span><span class="w"></span>
+<span class="nx">mongoose</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s1">&#39;mongodb://localhost/test&#39;</span><span class="p">)</span><span class="w"></span>
+
+<span class="cm">/* </span>
+<span class="cm">  mongoose对象中的connection表示的是数据库连接，通过监视它的状态，可以监听数据库的连接和断开</span>
+<span class="cm">*/</span><span class="w"></span>
+<span class="nx">mongoose</span><span class="p">.</span><span class="nx">connection</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s1">&#39;open&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;数据库连接了&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+<span class="nx">mongoose</span><span class="p">.</span><span class="nx">connection</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s1">&#39;close&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;数据库关闭了&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+
+<span class="cm">/* </span>
+<span class="cm">  创建Schema对象</span>
+<span class="cm">*/</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">Schema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">stuSchema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Schema</span><span class="p">({</span><span class="w"></span>
+<span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">age</span><span class="o">:</span><span class="w"> </span><span class="nb">Number</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">gender</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">default</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;female&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nx">address</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+
+<span class="cm">/* </span>
+<span class="cm">  通过Schema来创建Model</span>
+<span class="cm">  第一个是集合名, 第二个是创建的Schema对象</span>
+<span class="cm">  mongoose将会自动将集合名改为复数，下列语句创建了students的集合</span>
+<span class="cm">*/</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">StuModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">stuSchema</span><span class="p">)</span><span class="w"></span>
+
+<span class="cm">/* </span>
+<span class="cm">  插入文档</span>
+<span class="cm">*/</span><span class="w"></span>
+<span class="nx">StuModel</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;wang&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">age</span><span class="o">:</span><span class="w"> </span><span class="mf">18</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">gender</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;male&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">address</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;shanxi&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;插入成功&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="nx">StuModel</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span><span class="w"></span>
+<span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;zhang&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">age</span><span class="o">:</span><span class="w"> </span><span class="mf">23</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">gender</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;male&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">address</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;shanxi&#39;</span><span class="w"></span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;插入成功&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+
+<span class="cm">/* </span>
+<span class="cm">  查询</span>
+<span class="cm">    - Model.find(conditions, [projection], [options], [callback])</span>
+<span class="cm">      - conditions 查询条件</span>
+<span class="cm">      - projection 投影 { name: 1, _id: 0 }和&#39;name -_id&#39;效果一致</span>
+<span class="cm">      - options 查询选项(skip, limit)</span>
+<span class="cm">      - callback</span>
+<span class="cm">    - Model.findById()</span>
+<span class="cm">    - Model.findOne()</span>
+<span class="cm">  返回的doc是Model的实例 (doc instanceof StuModel) === true</span>
+<span class="cm">*/</span><span class="w"></span>
+<span class="nx">StuModel</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;wang&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="s1">&#39;name -_id&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">skip</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">limit</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">docs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;查询成功&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">docs</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="cm">/* </span>
+<span class="cm">  修改</span>
+<span class="cm">    - Model.update() //废弃</span>
+<span class="cm">    - Model.updateMany()</span>
+<span class="cm">    - Model.updateOne()</span>
+<span class="cm">    - Model.replaceOne()</span>
+<span class="cm">*/</span><span class="w"></span>
+<span class="nx">StuModel</span><span class="p">.</span><span class="nx">updateMany</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;wang&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">$set</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">age</span><span class="o">:</span><span class="w"> </span><span class="mf">20</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;修改成功&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="cm">/* </span>
+<span class="cm">  删除</span>
+<span class="cm">    - Model.remove() // 废弃</span>
+<span class="cm">    - Model.deleteOne()</span>
+<span class="cm">    - Model.deleteMany()</span>
+<span class="cm">*/</span><span class="w"></span>
+<span class="nx">StuModel</span><span class="p">.</span><span class="nx">deleteMany</span><span class="p">({},</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;删除成功&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+
+<span class="cm">/* </span>
+<span class="cm">  统计文档数量</span>
+<span class="cm">    - Model.count()</span>
+<span class="cm">*/</span><span class="w"></span>
+<span class="nx">StuModel</span><span class="p">.</span><span class="nx">count</span><span class="p">({},</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">count</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">count</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+
+<span class="cm">/* </span>
+<span class="cm">  断开连接</span>
+<span class="cm">*/</span><span class="w"></span>
+<span class="c1">//mongoose.disconnect()</span><span class="w"></span>
+</code></pre></div>
+<h3 id="document">Document的方法<a class="headerlink" href="#document" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">mongoose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongoose&#39;</span><span class="p">)</span><span class="w"></span>
+
+<span class="nx">mongoose</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s1">&#39;mongodb://localhost/test&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="nx">mongoose</span><span class="p">.</span><span class="nx">connection</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s1">&#39;open&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;数据库连接了&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+<span class="nx">mongoose</span><span class="p">.</span><span class="nx">connection</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s1">&#39;close&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;数据库关闭了&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">Schema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">stuSchema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Schema</span><span class="p">({</span><span class="w"></span>
+<span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">age</span><span class="o">:</span><span class="w"> </span><span class="nb">Number</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">gender</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">default</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;female&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nx">address</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">StuModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">stuSchema</span><span class="p">)</span><span class="w"></span>
+
+<span class="cm">/* </span>
+<span class="cm">  Document和集合中的文档一一对应，Document是Model的实例，通过Model查询到的结果都是Document</span>
+<span class="cm">*/</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">stu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">StuModel</span><span class="p">({</span><span class="w"></span>
+<span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;liu&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">age</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">gender</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;female&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">address</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;unknown&#39;</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+
+<span class="nx">stu</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;保存成功&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+
+<span class="nx">StuModel</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;wang&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">doc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">doc</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="w"> </span><span class="nx">$set</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">age</span><span class="o">:</span><span class="w"> </span><span class="mf">28</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;修改成功&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">})</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+</code></pre></div>
+
+
+
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../mysql/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MySQL" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              MySQL
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../linux/linux/" class="md-footer__link md-footer__link--next" aria-label="Next: Linux" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Linux
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "search.highlight", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+    
+  </body>
+</html>

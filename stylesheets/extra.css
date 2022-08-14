@@ -1,0 +1,163 @@
+#css-page .main-heading {
+  color: red;
+}
+
+#css-page h1 {
+  color: blue;
+}
+
+#css-page-1 li[class^="a"] {
+  background-color: yellow;
+}
+
+#css-page-1 li[class^="a" i] {
+  color: red;
+}
+
+#css-page-2 .box::after {
+  content: " ➥"
+}
+
+#css-page-3 .box {
+  border: 5px solid rebeccapurple;
+  background-color: lightgray;
+  padding: 40px;
+  margin: 40px;
+  width: 300px;
+  height: 150px;
+  box-sizing: content-box;
+}
+
+#css-page-3 .alternate {
+  box-sizing: border-box;
+}
+
+#css-page-4 .one {
+  margin-bottom: 50px;
+}
+
+#css-page-4 .two {
+  margin-top: 30px;
+}
+
+#css-page-5 .links-list a {
+  display: inline-block;
+  background-color: rgb(179, 57, 81);
+  color: #fff;
+  text-decoration: none;
+  padding: 1em 2em;
+}
+
+#css-page-5 .links-list a:hover {
+  background-color: rgb(66, 28, 40);
+  color: #fff;
+}
+
+#css-page-5 ul {
+  display: flex;
+  list-style: none;
+  border: 1px solid black;
+}
+
+#css-page-5 li {
+  margin: 5px;
+}
+
+#css-page-6 header {
+  background: purple;
+  height: 100px;
+}
+
+#css-page-6 h1 {
+  text-align: center;
+  color: white;
+  line-height: 100px;
+  margin: 0;
+}
+
+#css-page-6 article {
+  padding: 10px;
+  margin: 10px;
+  background: aqua;
+  flex: 200px;
+}
+
+#css-page-6 section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#css-page-7 .container>div {
+  border-radius: 5px;
+  padding: 10px;
+  background-color: rgb(207, 232, 220);
+  border: 2px solid rgb(79, 185, 227);
+}
+
+#css-page-7 .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+#css-page-7 .first-div{
+  grid-column: 1/3;
+  grid-row: 1/3;
+}
+
+#css-page-8 p {
+  width: 400px;
+  margin: 0 auto;
+}
+
+#css-page-8 p::first-line {
+  text-transform: uppercase;
+}
+
+#css-page-8 p::first-letter {
+  font-size: 3em;
+  border: 1px solid black;
+  background: red;
+  float: left;
+  padding: 2px;
+  margin-right: 4px;
+}
+
+#css-page-9 body,
+#css-page-10 body {
+  width: 500px;
+  margin: 0 auto;
+}
+
+#css-page-9 p,
+#css-page-10 p {
+  background: aqua;
+  border: 3px solid blue;
+  padding: 10px;
+  margin: 10px;
+}
+
+#css-page-9 span,
+#css-page-10 span {
+  background: red;
+  border: 1px solid black;
+}
+
+#css-page-9 .positioned {
+  position: relative;
+  background: yellow;
+  top: 30px;
+  left: 30px;
+}
+
+#css-page-10 {
+  position: relative;
+}
+
+#css-page-10 .positioned {
+  position: absolute;
+  background: yellow;
+  top: 30px;
+  left: 30px;
+}

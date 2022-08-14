@@ -1,0 +1,3480 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.0">
+    
+    
+      
+        <title>CSS - Web learn</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Web learn" class="md-header__button md-logo" aria-label="Web learn" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Web learn
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CSS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../http/" class="md-tabs__link md-tabs__link--active">
+        HTML/CSS
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../js/js/" class="md-tabs__link">
+        JavaScript
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../php/php/" class="md-tabs__link">
+        PHP
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../db/mysql/" class="md-tabs__link">
+        Database
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../linux/linux/" class="md-tabs__link">
+      Linux
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../more/user_inter/" class="md-tabs__link">
+        More
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Web learn" class="md-nav__button md-logo" aria-label="Web learn" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Web learn
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          HTML/CSS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="HTML/CSS" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          HTML/CSS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../http/" class="md-nav__link">
+        HTTP协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../html/" class="md-nav__link">
+        HTML
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          CSS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        CSS
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    在线学习网站
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    视频教程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    电子书
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#htmlcss" class="md-nav__link">
+    HTML/CSS训练
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    代码编辑
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#css3" class="md-nav__link">
+    使用css3实现加载中动态样式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    实现方式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    优先级
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    选择器
+  </a>
+  
+    <nav class="md-nav" aria-label="选择器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    复合选择器
+  </a>
+  
+    <nav class="md-nav" aria-label="复合选择器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    交集选择器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    选择器分组（并集选择器）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    全局选择器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    属性选择器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    大小写不敏感
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    伪类和伪元素
+  </a>
+  
+    <nav class="md-nav" aria-label="伪类和伪元素">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    伪类选择器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    伪元素选择器
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    关系选择器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    选择器的权重
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    单位
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#normal-flow" class="md-nav__link">
+    文档流(normal flow)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    盒模型
+  </a>
+  
+    <nav class="md-nav" aria-label="盒模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    水平方向的布局
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    垂直方向的布局
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    块级盒子和内联盒子
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    内部和外部显示类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    替代盒模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    外边距折叠
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#display-inline-block" class="md-nav__link">
+    display: inline-block
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    轮廓，阴影，圆角
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    背景
+  </a>
+  
+    <nav class="md-nav" aria-label="背景">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    背景
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    渐变背景
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    调整图片大小
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    样式化表格
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    字体
+  </a>
+  
+    <nav class="md-nav" aria-label="字体">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iconfont" class="md-nav__link">
+    图标字体(iconfont)
+  </a>
+  
+    <nav class="md-nav" aria-label="图标字体(iconfont)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#font-awesome" class="md-nav__link">
+    font awesome
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iconfont_1" class="md-nav__link">
+    iconfont
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    文本样式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#css" class="md-nav__link">
+    CSS排版
+  </a>
+  
+    <nav class="md-nav" aria-label="CSS排版">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    正常布局流
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#display-flex" class="md-nav__link">
+    弹性盒子display: flex;
+  </a>
+  
+    <nav class="md-nav" aria-label="弹性盒子display: flex;">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    例子
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    属性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#display-grid" class="md-nav__link">
+    网格布局display: grid;
+  </a>
+  
+    <nav class="md-nav" aria-label="网格布局display: grid;">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    例子
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    属性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    浮动
+  </a>
+  
+    <nav class="md-nav" aria-label="浮动">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    高度塌陷
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bfc-block-formatter-context" class="md-nav__link">
+    BFC, Block Formatter Context (块级格式化环境)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clear" class="md-nav__link">
+    clear
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position" class="md-nav__link">
+    定位position
+  </a>
+  
+    <nav class="md-nav" aria-label="定位position">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#position-relative" class="md-nav__link">
+    相对定位position: relative;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position-absolute" class="md-nav__link">
+    绝对定位position: absolute;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position-fixed" class="md-nav__link">
+    固定定位position: fixed;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position-sticky" class="md-nav__link">
+    粘性定位position: sticky;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#z-index" class="md-nav__link">
+    z-index
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    多列布局
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    媒体查询
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    空间转换
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#animation" class="md-nav__link">
+    animation
+  </a>
+  
+    <nav class="md-nav" aria-label="animation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    过渡
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    动画
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    变形
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    缩放
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#less" class="md-nav__link">
+    less
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bootstrap/" class="md-nav__link">
+        Bootstrap3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          JavaScript
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JavaScript" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          JavaScript
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/js/" class="md-nav__link">
+        JavaScript
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/promise/" class="md-nav__link">
+        Promise
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/axios/" class="md-nav__link">
+        axios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/nodejs/" class="md-nav__link">
+        Node.js
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/webpack/" class="md-nav__link">
+        Webpack
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/typescript/" class="md-nav__link">
+        TypeScript
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/jquery/" class="md-nav__link">
+        jQuery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/Vue/" class="md-nav__link">
+        Vue.js
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/programming/" class="md-nav__link">
+        编程题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/element/" class="md-nav__link">
+        ElementUI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/quasar/" class="md-nav__link">
+        Quasar
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_12" type="checkbox" id="__nav_3_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_12">
+          数据可视化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据可视化" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_12">
+          <span class="md-nav__icon md-icon"></span>
+          数据可视化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/visualization/" class="md-nav__link">
+        数据可视化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/echarts/" class="md-nav__link">
+        Echarts(基本图)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/amcharts/" class="md-nav__link">
+        amCharts(地图)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/plotly/" class="md-nav__link">
+        plotly.js(小提琴图)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/highcharts/" class="md-nav__link">
+        Highcharts(基因结构图)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/phylotree/" class="md-nav__link">
+        Phylotree.js(绘制进化树)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/cytoscape/" class="md-nav__link">
+        Cytoscape.js(网络图)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/gtex_viz/" class="md-nav__link">
+        gtex-viz(带聚类树的热图)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/biocircos/" class="md-nav__link">
+        BioCircos.js(eQTL的circos图)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          PHP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="PHP" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          PHP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/php/" class="md-nav__link">
+        PHP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/tp/" class="md-nav__link">
+        ThinkPHP
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Database
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Database" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Database
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../db/mysql/" class="md-nav__link">
+        MySQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../db/mongodb/" class="md-nav__link">
+        MongoDB
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/linux/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          More
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="More" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          More
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../more/user_inter/" class="md-nav__link">
+        异常检测、提交反馈
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../more/jbrowse1/" class="md-nav__link">
+        JBrowse1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../more/jbrowse2/" class="md-nav__link">
+        JBrowse2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../more/blast/" class="md-nav__link">
+        Blast
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../more/gbrowse/" class="md-nav__link">
+        GBrowse_syn
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    在线学习网站
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    视频教程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    电子书
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#htmlcss" class="md-nav__link">
+    HTML/CSS训练
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    代码编辑
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#css3" class="md-nav__link">
+    使用css3实现加载中动态样式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    实现方式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    优先级
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    选择器
+  </a>
+  
+    <nav class="md-nav" aria-label="选择器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    复合选择器
+  </a>
+  
+    <nav class="md-nav" aria-label="复合选择器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    交集选择器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    选择器分组（并集选择器）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    全局选择器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    属性选择器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    大小写不敏感
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    伪类和伪元素
+  </a>
+  
+    <nav class="md-nav" aria-label="伪类和伪元素">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    伪类选择器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    伪元素选择器
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    关系选择器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    选择器的权重
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    单位
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#normal-flow" class="md-nav__link">
+    文档流(normal flow)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    盒模型
+  </a>
+  
+    <nav class="md-nav" aria-label="盒模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    水平方向的布局
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    垂直方向的布局
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    块级盒子和内联盒子
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    内部和外部显示类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    替代盒模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    外边距折叠
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#display-inline-block" class="md-nav__link">
+    display: inline-block
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    轮廓，阴影，圆角
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    背景
+  </a>
+  
+    <nav class="md-nav" aria-label="背景">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    背景
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    渐变背景
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    调整图片大小
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    样式化表格
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    字体
+  </a>
+  
+    <nav class="md-nav" aria-label="字体">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iconfont" class="md-nav__link">
+    图标字体(iconfont)
+  </a>
+  
+    <nav class="md-nav" aria-label="图标字体(iconfont)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#font-awesome" class="md-nav__link">
+    font awesome
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iconfont_1" class="md-nav__link">
+    iconfont
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    文本样式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#css" class="md-nav__link">
+    CSS排版
+  </a>
+  
+    <nav class="md-nav" aria-label="CSS排版">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    正常布局流
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#display-flex" class="md-nav__link">
+    弹性盒子display: flex;
+  </a>
+  
+    <nav class="md-nav" aria-label="弹性盒子display: flex;">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    例子
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    属性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#display-grid" class="md-nav__link">
+    网格布局display: grid;
+  </a>
+  
+    <nav class="md-nav" aria-label="网格布局display: grid;">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    例子
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    属性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    浮动
+  </a>
+  
+    <nav class="md-nav" aria-label="浮动">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    高度塌陷
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bfc-block-formatter-context" class="md-nav__link">
+    BFC, Block Formatter Context (块级格式化环境)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clear" class="md-nav__link">
+    clear
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position" class="md-nav__link">
+    定位position
+  </a>
+  
+    <nav class="md-nav" aria-label="定位position">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#position-relative" class="md-nav__link">
+    相对定位position: relative;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position-absolute" class="md-nav__link">
+    绝对定位position: absolute;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position-fixed" class="md-nav__link">
+    固定定位position: fixed;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position-sticky" class="md-nav__link">
+    粘性定位position: sticky;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#z-index" class="md-nav__link">
+    z-index
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    多列布局
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    媒体查询
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    空间转换
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#animation" class="md-nav__link">
+    animation
+  </a>
+  
+    <nav class="md-nav" aria-label="animation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    过渡
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    动画
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    变形
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    缩放
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#less" class="md-nav__link">
+    less
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h2 id="_1">在线学习网站<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="https://www.runoob.com/">菜鸟教程</a>  </li>
+<li><a href="https://www.w3school.com.cn/h.asp">W3school</a>  </li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web">Mozilla 开发者社区</a>  </li>
+</ul>
+<h2 id="_2">视频教程<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
+<p><a href="https://www.bilibili.com/video/BV14J4114768">黑马前端</a>  </p>
+<h2 id="_3">电子书<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
+<p><a href="https://pan.baidu.com/s/1EeKVMuZWzvHCDw7I6EO0mw">Head First HTML与CSS</a> (提取码: eplw)  </p>
+<h2 id="htmlcss">HTML/CSS训练<a class="headerlink" href="#htmlcss" title="Permanent link">#</a></h2>
+<p><a href="https://chinese.freecodecamp.org/learn/responsive-web-design/">freeCodeCamp</a>  </p>
+<h2 id="_4">代码编辑<a class="headerlink" href="#_4" title="Permanent link">#</a></h2>
+<p>代码编辑器可以使用<a href="https://code.visualstudio.com/">Visual Studio Code</a>,可以安装插件以支持各种编程语言(js、python、R等)语法高亮以及可以安装<a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">remote-ssh</a>以进行ssh远程连接等。</p>
+<h2 id="css3">使用css3实现加载中动态样式<a class="headerlink" href="#css3" title="Permanent link">#</a></h2>
+<p><a href="../../more/user_inter/#css3">使用css3实现加载中动态样式</a></p>
+<h2 id="_5">实现方式<a class="headerlink" href="#_5" title="Permanent link">#</a></h2>
+<ul>
+<li>内联样式（行内样式）：标签中的style属性设置</li>
+<li>内部样式：head中的style标签中</li>
+<li>外部样式：link引入外部css文件</li>
+</ul>
+<h2 id="_6">优先级<a class="headerlink" href="#_6" title="Permanent link">#</a></h2>
+<ul>
+<li>一个元素选择器不是很具体 — 会选择页面上该类型的所有元素 — 所以它的优先级就会低一些。</li>
+<li>一个类选择器稍微具体点 — 它会选择该页面中有特定 class 属性值的元素 — 所以它的优先级就要高一点。</li>
+</ul>
+<div id="css-page">
+  <h1 class="main-heading">This is my heading.</h1>
+</div>
+
+<p><div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">main-heading</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">red</span><span class="p">;</span><span class="w"> </span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="nt">h1</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">blue</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">h1</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;main-heading&quot;</span><span class="p">&gt;</span>This is my heading.<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</code></pre></div></p>
+<h2 id="_7">选择器<a class="headerlink" href="#_7" title="Permanent link">#</a></h2>
+<h3 id="_8">复合选择器<a class="headerlink" href="#_8" title="Permanent link">#</a></h3>
+<h4 id="_9">交集选择器<a class="headerlink" href="#_9" title="Permanent link">#</a></h4>
+<p>选择器1选择器2选择器3{}<br />
+注意：交集选择器中如果有元素选择器，必须元素选择器开头</p>
+<h4 id="_10">选择器分组（并集选择器）<a class="headerlink" href="#_10" title="Permanent link">#</a></h4>
+<p>选择器1,选择器2{}</p>
+<h3 id="_11">全局选择器<a class="headerlink" href="#_11" title="Permanent link">#</a></h3>
+<p>全局选择器，是由一个星号（*）代指的，它选中了文档中的所有内容（或者是父元素中的所有内容，比如，它紧随在其他元素以及邻代运算符之后的时候）。</p>
+<div class="highlight"><pre><span></span><code><span class="o">*</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>使用全局选择器，让选择器更易读. <code>article :first-child</code> 与 <code>article *:first-child</code> 相同, 表示选中任何<code>article</code>元素的第一子元素, <code>article:first-child</code>表示选择了作为其他元素的第一子元素的<code>article</code>元素。</p>
+</div>
+<h3 id="_12">属性选择器<a class="headerlink" href="#_12" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>示例</th>
+<th>具体元素</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[attr]</code></td>
+<td>a[title]</td>
+<td>&lt;a title&gt;</td>
+<td>匹配带有一个名为attr的属性的元素——方括号里的值。</td>
+</tr>
+<tr>
+<td><code>[attr=value]</code></td>
+<td>a[href="https://example.com"]</td>
+<td>&lt;a href="https://example.com"&gt;</td>
+<td>匹配带有一个名为attr的属性的元素，其值正为value——引号中的字符串。</td>
+</tr>
+<tr>
+<td><code>[attr~=value]</code></td>
+<td>p[class~="special"]</td>
+<td>&lt;p class=" … special … "&gt;</td>
+<td>匹配带有一个名为attr的属性的元素，其值正为value，或者匹配带有一个attr属性的元素，其值有一个或者更多，至少有一个和value匹配。<br>注意，在一列中的好几个值，是用空格隔开的。</td>
+</tr>
+<tr>
+<td><code>[attr|=value]</code></td>
+<td>div[lang|="zh"]</td>
+<td>&lt;div lang="zh-…"&gt;</td>
+<td>匹配带有一个名为attr的属性的元素，其值可正为value，或者开始为value，后面紧随着一个连字符。</td>
+</tr>
+<tr>
+<td><code>[attr^=value]</code></td>
+<td>li[class^="box-"]</td>
+<td>&lt;li class="box-…"&gt;</td>
+<td>匹配带有一个名为attr的属性的元素，其值开头为value子字符串。</td>
+</tr>
+<tr>
+<td><code>[attr$=value]</code></td>
+<td>li[class$="-box"]</td>
+<td>&lt;li class="…-box"&gt;</td>
+<td>匹配带有一个名为attr的属性的元素，其值结尾为value子字符串。</td>
+</tr>
+<tr>
+<td><code>[attr*=value]</code></td>
+<td>li[class*="box"]</td>
+<td>&lt;li class="…box…"&gt;</td>
+<td>匹配带有一个名为attr的属性的元素，其值的字符串中的任何地方，至少出现了一次value子字符串。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_13">大小写不敏感<a class="headerlink" href="#_13" title="Permanent link">#</a></h3>
+<div id="css-page-1">
+  <ul>
+      <li class="a">Item 1</li>
+      <li class="A">Item 2</li>
+      <li class="Ab">Item 3</li>
+  </ul>
+</div>
+
+<p><div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">li</span><span class="o">[</span><span class="nt">class</span><span class="o">^=</span><span class="s2">&quot;a&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">yellow</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="nt">li</span><span class="o">[</span><span class="nt">class</span><span class="o">^=</span><span class="s2">&quot;a&quot;</span><span class="w"> </span><span class="nt">i</span><span class="o">]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">red</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;a&quot;</span><span class="p">&gt;</span>Item 1<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;A&quot;</span><span class="p">&gt;</span>Item 2<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;Ab&quot;</span><span class="p">&gt;</span>Item 3<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</code></pre></div></p>
+<h3 id="_14">伪类和伪元素<a class="headerlink" href="#_14" title="Permanent link">#</a></h3>
+<p><code>article p:first-child::first-line</code>表示选择一个<code>&lt;article&gt;</code>元素里面的第一个<code>&lt;p&gt;</code>元素的第一行。<br />
+其中，伪类为单冒号，伪元素为双冒号。</p>
+<h4 id="_15">伪类选择器<a class="headerlink" href="#_15" title="Permanent link">#</a></h4>
+<ul>
+<li><code>:first-child</code>  </li>
+<li><code>:last-child</code>  </li>
+<li><code>:nth-child</code>, 选择第n个子元素<ul>
+<li>特殊值：<ul>
+<li>n: 第n个，n的范围0到正无穷</li>
+<li>2n(或even): 选择偶数位的元素</li>
+<li>2n+1(或odd): 奇数位</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>以上这些伪类都是根据所有的子元素排序</p>
+<ul>
+<li><code>:first-of-type</code>  </li>
+<li><code>:last-of-type</code>  </li>
+<li><code>:nth-of-type</code>  </li>
+</ul>
+<p>以上这些伪类是在同类型元素的排序</p>
+<ul>
+<li><code>:not()</code>, 例 <code>ul&gt;li:not(:nth-of-type(3)){}</code> 表示除了第三个li不选，其他都选中</li>
+</ul>
+<p>超链接的伪类：</p>
+<ol>
+<li>没有访问过的链接, <code>:link</code></li>
+<li>访问过的链接, <code>:visited</code> , 只能改变颜色  </li>
+<li>鼠标移入, <code>:hover</code>  </li>
+<li>鼠标点击, <code>:active</code></li>
+</ol>
+<h4 id="_16">伪元素选择器<a class="headerlink" href="#_16" title="Permanent link">#</a></h4>
+<ul>
+<li><code>::first-letter</code>, 第一个字母  </li>
+<li><code>::first-line</code></li>
+<li><code>::selection</code>, 选中的元素  </li>
+<li><code>::after</code>, 结合content使用</li>
+<li><code>::before</code></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>::before</code>和<code>::after</code>通过使用 CSS 将内容插入到文档中。</p>
+</div>
+<div id="css-page-2">
+  <p class="box">Content in the box in my HTML page.</p>
+</div>
+<p><div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">box</span><span class="p">::</span><span class="nd">after</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">content</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot; ➥&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;box&quot;</span><span class="p">&gt;</span>Content in the box in my HTML page.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></div>
+<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements#参考节">伪类和伪元素的参考列表</a></p>
+<h3 id="_17">关系选择器<a class="headerlink" href="#_17" title="Permanent link">#</a></h3>
+<ul>
+<li>后代选择器 <code>.box p</code></li>
+<li>子代关系选择器 <code>article &gt; p</code></li>
+<li>邻接（下一个）兄弟 <code>p + img</code></li>
+<li>通用兄弟(选中一个元素的下方兄弟元素，即使它们不直接相邻) <code>p ~ img</code></li>
+</ul>
+<h3 id="_18">选择器的权重<a class="headerlink" href="#_18" title="Permanent link">#</a></h3>
+<ul>
+<li>内联样式  1, 0, 0, 0  </li>
+<li>id选择器  0, 1, 0, 0  </li>
+<li>类和伪类选择器  0, 0, 1, 0  </li>
+<li>元素选择器  0, 0, 0, 1  </li>
+<li>统配选择器 0, 0, 0, 0  </li>
+<li>继承的样式 没有优先级  </li>
+</ul>
+<p>比较优先级时，需要将所有的选择器的优先级进行相加计算<br />
+分组(并集)选择器的优先级分开计算<br />
+选择器的累加不会超过其最大的数量级，类选择器再高也不会超过ID选择器<br />
+如果优先级相同, 后面的覆盖前面的<br />
+!important, 或获取到最高的优先级</p>
+<h2 id="_19">单位<a class="headerlink" href="#_19" title="Permanent link">#</a></h2>
+<ul>
+<li>px 像素  </li>
+<li>% 相对于父元素属性的百分比  </li>
+<li>em 相对于自身元素的字体大小来计算，1em = 1 font-size  </li>
+<li>rem 相对于根元素(html)的字体大小计算</li>
+<li>vw 表示视口的宽度，100vw等于一个视口的宽度</li>
+</ul>
+<h2 id="normal-flow">文档流(normal flow)<a class="headerlink" href="#normal-flow" title="Permanent link">#</a></h2>
+<p>网页是多层结构，通过css分别为每一层设置样式，用户只能看到最顶一层，最底下一层称为文档流  </p>
+<p>元素在文档流中的特点：  </p>
+<ul>
+<li>块元素<ul>
+<li>独占一行  </li>
+<li>自上向下</li>
+<li>宽度为父元素的100%</li>
+<li>默认高度是内容撑开</li>
+</ul>
+</li>
+<li>行内元素<ul>
+<li>只占自身大小</li>
+<li>自左向右水平排列</li>
+<li>默认宽度和高度是内容撑开</li>
+</ul>
+</li>
+</ul>
+<h2 id="_20">盒模型<a class="headerlink" href="#_20" title="Permanent link">#</a></h2>
+<h3 id="_21">水平方向的布局<a class="headerlink" href="#_21" title="Permanent link">#</a></h3>
+<p>元素在其父元素中水平方向的位置有以下几个属性共同决定</p>
+<ul>
+<li>margin-left</li>
+<li>border-left</li>
+<li>padding-left</li>
+<li>width</li>
+<li>padding-right</li>
+<li>border-right</li>
+<li>
+<p>margin-right</p>
+</li>
+<li>
+<p>上述加起来等于其父元素的内容区的宽度，如果加起来不等于父元素的宽度，则称为过渡约束，等式会自动调整， 调整的情况：</p>
+<ul>
+<li>如果这七个值没有auto，则浏览器会自动调整margin-right的值</li>
+</ul>
+</li>
+<li>这七个值有三个可以设置为auto，width、margin-left、margin-right<ul>
+<li>如果某个值为auto，则会自动调整auto的值使等式成立</li>
+<li>一个宽度和一个外边距为auto，则宽度会最大，外边距为0</li>
+<li>三个值为auto，则外边距都是0，宽度最大</li>
+<li>两个外边距为auto，宽度固定值，将外边距设置为相同的值</li>
+</ul>
+</li>
+</ul>
+<h3 id="_22">垂直方向的布局<a class="headerlink" href="#_22" title="Permanent link">#</a></h3>
+<p>overflow: </p>
+<ul>
+<li>visible, 默认值, 子元素会溢出</li>
+<li>hidden, 溢出的内容会被裁剪</li>
+<li>scroll, 生成滚动条</li>
+<li>auto, 根据需要生成滚动条</li>
+</ul>
+<p>垂直外边距的重叠</p>
+<ul>
+<li><strong>相邻</strong>的<strong>垂直</strong>方向的外边距会发生重叠现象</li>
+<li>兄弟元素<ul>
+<li>兄弟元素间的相邻垂直外边距会取最大值(两者都是正值)</li>
+<li>特殊情况：<ul>
+<li>如果相邻的外边距一正一负，则取两者的和</li>
+<li>如果相邻的外边距都是负值，则取绝对值较大的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>父子元素<ul>
+<li>父子元素间相邻外边距，子元素的外边距会传递给父元素(上外边距)</li>
+</ul>
+</li>
+</ul>
+<h3 id="_23">块级盒子和内联盒子<a class="headerlink" href="#_23" title="Permanent link">#</a></h3>
+<ol>
+<li>一个被定义成块级的（block）盒子会表现出以下行为  <ul>
+<li>盒子会在内联的方向上扩展并占据父容器在该方向上的所有可用空间，在绝大数情况下意味着盒子会和父容器一样宽  </li>
+<li>每个盒子都会换行  </li>
+<li>width 和 height 属性可以发挥作用  </li>
+<li>内边距（padding）, 外边距（margin）和 边框（border）会将其他元素从当前盒子周围“推开”  </li>
+</ul>
+</li>
+<li>一个盒子对外显示为 inline，那么他的行为如下  <ul>
+<li>盒子不会产生换行。  </li>
+<li>width 和 height 属性将不起作用。  </li>
+<li>垂直方向的内边距、外边距以及边框会被应用但是不会把其他处于 inline 状态的盒子推开。  </li>
+<li>水平方向的内边距、外边距以及边框会被应用且会把其他处于 inline 状态的盒子推开。  </li>
+</ul>
+</li>
+</ol>
+<h3 id="_24">内部和外部显示类型<a class="headerlink" href="#_24" title="Permanent link">#</a></h3>
+<p><code>display: flex</code> 外部显示类型是 <code>block</code>，但是内部显示类型修改为 <code>flex</code><br />
+<code>display: inline-flex</code> 外部显示类型是 <code>inline</code>，但是内部显示类型修改为 <code>flex</code></p>
+<h3 id="_25">替代盒模型<a class="headerlink" href="#_25" title="Permanent link">#</a></h3>
+<p><img alt="盒模型" src="../../images/box-model.png" /><br />
+1. 标准盒模型<br />
+  在标准模型中，如果你给盒设置 width 和 height，实际设置的是 content box。 padding 和 border 再加上设置的宽高一起决定整个盒子的大小。<br />
+2. 替代（IE）盒模型
+  使用<code>box-sizing: border-box</code>来实现，替代模型中所有宽度都是可见宽度，内容宽度是该宽度减去边框和填充部分。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>下方示例可以看到，上面的box实际宽度为390（300 + 40 * 2 + 5 * 2），下面的box宽度为300</p>
+</div>
+<div id="css-page-3">
+  <div class="box">I use the standard box model.</div>
+  <div class="box alternate">I use the alternate box model.</div>
+</div>
+<p><div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">box</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="kc">rebeccapurple</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">lightgray</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">.</span><span class="nc">alternate</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">box-sizing</span><span class="p">:</span><span class="w"> </span><span class="kc">border-box</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;box&quot;</span><span class="p">&gt;</span>I use the standard box model.<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;box alternate&quot;</span><span class="p">&gt;</span>I use the alternate box model.<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div></p>
+<h3 id="_26">外边距折叠<a class="headerlink" href="#_26" title="Permanent link">#</a></h3>
+<p>顶部段落的页 margin-bottom为 50px，第二段的margin-top 为 30px，框之间的实际外边距是 50px，而不是两个外边距的总和。</p>
+<div id="css-page-4">
+  <div class="container">
+    <p class="one">I am paragraph one.</p>
+    <p class="two">I am paragraph two.</p>
+  </div>
+</div>
+
+<p><div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">one</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">margin-bottom</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">.</span><span class="nc">two</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;one&quot;</span><span class="p">&gt;</span>I am paragraph one.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;two&quot;</span><span class="p">&gt;</span>I am paragraph two.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div></p>
+<h3 id="display-inline-block">display: inline-block<a class="headerlink" href="#display-inline-block" title="Permanent link">#</a></h3>
+<ul>
+<li>设置width 和height 属性会生效。  </li>
+<li>padding, margin, 以及border 会推开其他元素。</li>
+</ul>
+<div id="css-page-5">
+  <nav>
+    <ul class="links-list">
+      <li><a href="">Link one</a></li>
+      <li><a href="">Link two</a></li>
+      <li><a href="">Link three</a></li>
+    </ul>
+  </nav>
+</div>
+
+<p><div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">links-list</span><span class="w"> </span><span class="nt">a</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">inline-block</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nb">rgb</span><span class="p">(</span><span class="mi">179</span><span class="p">,</span><span class="mi">57</span><span class="p">,</span><span class="mi">81</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#fff</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">text-decoration</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">em</span><span class="w"> </span><span class="mi">2</span><span class="kt">em</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">.</span><span class="nc">links-list</span><span class="w"> </span><span class="nt">a</span><span class="p">:</span><span class="nd">hover</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nb">rgb</span><span class="p">(</span><span class="mi">66</span><span class="p">,</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#fff</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;links-list&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>Link one<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>Link two<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>Link three<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+</code></pre></div></p>
+<h3 id="_27">轮廓，阴影，圆角<a class="headerlink" href="#_27" title="Permanent link">#</a></h3>
+<p><code>outline</code> 用来设置元素的轮廓线，用法和border类似，与border不同的是，轮廓不会影响到可见框的大小。</p>
+<p><code>box-shadow: 10px 10px 20px black;</code> 设置阴影效果，不会影响页面布局, 前两个参数是偏移量, 第三个是阴影的模糊半径，越大越模糊</p>
+<p><code>border-top-left-radius: 50px 100px;</code>, 设置两个不同的值圆角可以显示为椭圆; <code>border-radius: 20px / 40px;</code>设置椭圆</p>
+<h2 id="_28">背景<a class="headerlink" href="#_28" title="Permanent link">#</a></h2>
+<h3 id="_29">背景<a class="headerlink" href="#_29" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="o">*</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c">/* </span>
+<span class="c">  背景图片小于元素，则图片会自动平铺</span>
+<span class="c">  背景图片大于元素，部分北京无法显示</span>
+<span class="c">  */</span><span class="w"></span>
+<span class="w">  </span><span class="k">background-image</span><span class="p">:</span><span class="w"> </span><span class="nb">url</span><span class="p">(</span><span class="s2">&quot;path/to/img&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="c">/* </span>
+<span class="c">  背景的重复方式</span>
+<span class="c">  repeat 默认值 背景沿着x轴y轴方向重复</span>
+<span class="c">  repeat-x 沿x轴重复</span>
+<span class="c">  repeat-y </span>
+<span class="c">  no-repeat 不重复</span>
+<span class="c">  */</span><span class="w"></span>
+<span class="w">  </span><span class="k">background-repeat</span><span class="p">:</span><span class="w"> </span><span class="kc">no-repeat</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="c">/* </span>
+<span class="c">  背景图片的位置</span>
+<span class="c">    - 通过top left bottom right center 设置, 必须指定两个值，只写一个第二个是center</span>
+<span class="c">    - 通过偏移量设置</span>
+<span class="c">  */</span><span class="w"></span>
+<span class="w">  </span><span class="k">background-position</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">background-position</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="c">/* </span>
+<span class="c">  背景的范围</span>
+<span class="c">    - background-clip 裁剪范围</span>
+<span class="c">      - border-box 默认值，背景会出现在边框的下方</span>
+<span class="c">      - padding-box 背景出现在内容区和内边距</span>
+<span class="c">      - content-box 背景出现在内容区</span>
+<span class="c">    - background-origin 背景图片偏移量计算的原点，配合background-position使用</span>
+<span class="c">      - padding-box 默认值，从内边距处开始计算</span>
+<span class="c">      - content-box 内容区开始计算</span>
+<span class="c">      - border-box 从边框处开始计算</span>
+<span class="c">  */</span><span class="w"></span>
+<span class="w">  </span><span class="k">background-clip</span><span class="p">:</span><span class="w"> </span><span class="kc">content-box</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">background-origin</span><span class="p">:</span><span class="w"> </span><span class="kc">padding-box</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="c">/*</span>
+<span class="c">    background-size 背景图片的大小</span>
+<span class="c">    第一个值为宽度 第二个为高度</span>
+<span class="c">    可设置百分比</span>
+<span class="c">    设置为cover 表示图片比例不变，将元素铺满</span>
+<span class="c">    contain 图片比例不变，但图片完整显示</span>
+<span class="c">  */</span><span class="w"></span>
+<span class="w">  </span><span class="k">background-size</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">background-size</span><span class="p">:</span><span class="w"> </span><span class="kc">cover</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="c">/* </span>
+<span class="c">  背景图片是否会跟随元素移动</span>
+<span class="c">    - scroll</span>
+<span class="c">    - fixed 固定在页面中</span>
+<span class="c">  */</span><span class="w"></span>
+<span class="w">  </span><span class="k">background-attachment</span><span class="p">:</span><span class="w"> </span><span class="kc">scroll</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="_30">渐变背景<a class="headerlink" href="#_30" title="Permanent link">#</a></h3>
+<p><div class="highlight"><pre><span></span><code><span class="o">*</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c">/* to ... 设定渐变方向 */</span><span class="w"></span>
+<span class="w">  </span><span class="k">background-image</span><span class="p">:</span><span class="w"> </span><span class="nb">linear-gradient</span><span class="p">(</span><span class="kc">to</span><span class="w"> </span><span class="kc">top</span><span class="w"> </span><span class="kc">right</span><span class="p">,</span><span class="kc">red</span><span class="p">,</span><span class="kc">yellow</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="c">/* xxxdeg deg表示度数 */</span><span class="w"></span>
+<span class="w">  </span><span class="c">/* xxxturn 圈 */</span><span class="w"></span>
+<span class="w">  </span><span class="k">background-image</span><span class="p">:</span><span class="w"> </span><span class="nb">linear-gradient</span><span class="p">(</span><span class="mi">50</span><span class="kt">deg</span><span class="p">,</span><span class="kc">red</span><span class="p">,</span><span class="kc">yellow</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">background-image</span><span class="p">:</span><span class="w"> </span><span class="nb">repeating-linear-gradient</span><span class="p">(</span><span class="kc">red</span><span class="p">,</span><span class="kc">yellow</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="c">/* 径向渐变 */</span><span class="w"></span>
+<span class="w">  </span><span class="k">background-image</span><span class="p">:</span><span class="w"> </span><span class="nb">radial-gradient</span><span class="p">(</span><span class="kc">red</span><span class="p">,</span><span class="kc">yellow</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<a href="https://cssgradient.io/">在线CSS渐变生成器</a></p>
+<h2 id="_31">调整图片大小<a class="headerlink" href="#_31" title="Permanent link">#</a></h2>
+<ul>
+<li><code>max-width: 100%</code>,允许图片尺寸上小于但不大于盒子。  </li>
+<li>使用<code>object-fit</code>后替换元素可以以多种方式被调整到合乎盒子的大小。  </li>
+</ul>
+<h2 id="_32">样式化表格<a class="headerlink" href="#_32" title="Permanent link">#</a></h2>
+<ul>
+<li><code>table-layout: fixed;</code>, 根据列标题的宽度来规定列的宽度。  </li>
+<li><code>border-spacing</code>, 单元格边框的距离</li>
+<li><code>border-collapse: collapse;</code>, 让边框合为一条。  </li>
+</ul>
+<h2 id="_33">字体<a class="headerlink" href="#_33" title="Permanent link">#</a></h2>
+<p><code>serif</code>: 带衬线<br />
+<code>sans-serif</code>: 非衬线<br />
+<code>monospace</code>: 等宽字体  </p>
+<div class="highlight"><pre><span></span><code><span class="c">/* 将服务器中的字体提供给用户 */</span><span class="w"></span>
+<span class="p">@</span><span class="k">font-face</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c">/* 指定字体名字 */</span><span class="w"></span>
+<span class="w">  </span><span class="nt">font-family</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;myFont&#39;</span><span class="o">;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">src</span><span class="o">:</span><span class="w"> </span><span class="nt">url</span><span class="o">(</span><span class="nt">path</span><span class="o">/</span><span class="nt">to</span><span class="o">/</span><span class="nt">fontFile</span><span class="p">.</span><span class="nc">ttf</span><span class="o">)</span><span class="w"> </span><span class="nt">format</span><span class="o">(</span><span class="s2">&quot;truetype&quot;</span><span class="o">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="c">/* 使用字体 */</span><span class="w"></span>
+<span class="nt">p</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;myFont&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>字体属性简写:<br />
+<code>font: 字体大小/行高 字体族</code></p>
+<h3 id="iconfont">图标字体(iconfont)<a class="headerlink" href="#iconfont" title="Permanent link">#</a></h3>
+<h4 id="font-awesome">font awesome<a class="headerlink" href="#font-awesome" title="Permanent link">#</a></h4>
+<ol>
+<li>下载<a href="https://fontawesome.com/">font awesome</a></li>
+<li>将css和webfonts目录移至项目中</li>
+<li>页面中引入all.css</li>
+<li>使用
+    <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fas fa-bell&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color:red;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fab fa-accessible-icon&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;font-size:20px;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
+</code></pre></div></li>
+</ol>
+<h4 id="iconfont_1">iconfont<a class="headerlink" href="#iconfont_1" title="Permanent link">#</a></h4>
+<p><a href="https://www.iconfont.cn/">https://www.iconfont.cn/</a></p>
+<h2 id="_34">文本样式<a class="headerlink" href="#_34" title="Permanent link">#</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nt">text-align</span><span class="o">:</span><span class="w"> </span><span class="nt">center</span><span class="o">;</span><span class="w"> </span><span class="c">/* 水平对齐 */</span><span class="w"></span>
+<span class="nt">vertical-align</span><span class="o">:</span><span class="w"> </span><span class="nt">middle</span><span class="o">;</span><span class="w"> </span><span class="c">/* 垂直对齐 */</span><span class="w"></span>
+<span class="nt">text-decoration</span><span class="o">:</span><span class="w"> </span><span class="nt">underline</span><span class="o">;</span><span class="w"> </span><span class="c">/* 文本修饰，可以用来加下划线或删除线 */</span><span class="w"></span>
+<span class="c">/* </span>
+<span class="c">  设置页面空白：</span>
+<span class="c">    nowrap 不换行</span>
+<span class="c">    pre 保留空白 </span>
+<span class="c">*/</span><span class="w"></span>
+<span class="nt">white-space</span><span class="o">:</span><span class="w"> </span><span class="nt">nowrap</span><span class="o">;</span><span class="w"></span>
+<span class="nt">text-overflow</span><span class="o">:</span><span class="w"> </span><span class="nt">ellipsis</span><span class="o">;</span><span class="w"> </span><span class="c">/* 文本溢出内容显示为省略号，配合overflow为hidden使用 */</span><span class="w"></span>
+</code></pre></div>
+<h2 id="css">CSS排版<a class="headerlink" href="#css" title="Permanent link">#</a></h2>
+<h3 id="_35">正常布局流<a class="headerlink" href="#_35" title="Permanent link">#</a></h3>
+<p>在没有改变默认布局规则情况下的页面元素布局方式。</p>
+<h3 id="display-flex">弹性盒子<code>display: flex;</code><a class="headerlink" href="#display-flex" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nv">@a</span><span class="o">:</span><span class="p">#</span><span class="nn">bfa</span><span class="o">;</span><span class="w"></span>
+
+<span class="o">*</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">list-style</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="nt">ul</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="kc">red</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="c">/* </span>
+<span class="c">    flex-direction</span>
+<span class="c">      - row 默认值</span>
+<span class="c">      - row-reverse 右向左</span>
+<span class="c">      - column</span>
+<span class="c">      - column-reverse</span>
+<span class="c">      主轴：元素的排列方向</span>
+<span class="c">      侧轴: 与主轴垂直方向</span>
+
+<span class="c">    flex-wrap 是否自动换行</span>
+<span class="c">      - nowrap 默认值</span>
+<span class="c">      - wrap</span>
+<span class="c">      - wrap-reverse 辅轴反方向换行</span>
+
+<span class="c">    justify-content 主轴元素如何排列</span>
+<span class="c">      - flex-start 默认值 元素沿着主轴起边排列</span>
+<span class="c">      - flex-end</span>
+<span class="c">      - center</span>
+<span class="c">      - space-around 空白分配到元素两侧</span>
+<span class="c">      - space-evenly 空白分配到元素单侧</span>
+<span class="c">      - space-between 空白分配到元素间</span>
+
+<span class="c">    align-items 元素之间对齐方式</span>
+<span class="c">      - stretch 默认值 将元素的长度设置为相同的值</span>
+<span class="c">      - flex-start 元素不会拉伸，沿着辅轴起边对齐</span>
+<span class="c">      - flex-end</span>
+<span class="c">      - center 居中对齐</span>
+<span class="c">      - baseline 基线对齐</span>
+
+<span class="c">    align-content 辅轴空白空间的分配</span>
+
+<span class="c">  */</span><span class="w"></span>
+<span class="w">  </span><span class="k">flex-direction</span><span class="p">:</span><span class="w"> </span><span class="kc">row</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">flex-wrap</span><span class="p">:</span><span class="w"> </span><span class="kc">nowrap</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">justify-content</span><span class="p">:</span><span class="w"> </span><span class="kc">space-between</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">align-items</span><span class="p">:</span><span class="w"> </span><span class="kc">baseline</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">align-content</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="nt">li</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="o">@</span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">line-height</span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="k">width</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="c">/* </span>
+<span class="c">    flex-grow 伸展系数 默认值为0</span>
+<span class="c">      - 父元素有多余空间时，子元素如何伸展</span>
+<span class="c">      - 父元素的剩余空间，按照比例进行分配</span>
+<span class="c">    flex-shrink 收缩系数</span>
+<span class="c">      - 父元素的空间不足以容纳子元素时，如何对子元素收缩</span>
+<span class="c">    flex-basis 元素在主轴上的基础长度，主轴时横向的，该值指定的是元素的宽度，否则指定的是高度</span>
+<span class="c">      - auto 默认值  </span>
+<span class="c">    简写 flex 增长 缩减 基础</span>
+<span class="c">      - initial 默认值 相当于 &#39;0 1 auto&#39;</span>
+<span class="c">      - auto &#39;1 1 auto&#39;</span>
+<span class="c">      - none &#39;0 0 auto&#39; 没有弹性</span>
+<span class="c">    order 元素顺序</span>
+<span class="c">  */</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// flex-grow: 1;</span>
+<span class="w">  </span><span class="c1">// flex-shrink: 0;</span>
+<span class="w">  </span><span class="c1">// flex-basis: 250px;</span>
+<span class="w">  </span><span class="k">flex</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">order</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">&amp;:nth-child(2)</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">pink</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// flex-grow: 2;</span>
+<span class="w">    </span><span class="c1">// flex-shrink: 2;</span>
+<span class="w">    </span><span class="k">order</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">&amp;:nth-child(3)</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">orange</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// flex-grow: 3;</span>
+<span class="w">    </span><span class="c1">// flex-shrink: 3;</span>
+<span class="w">    </span><span class="k">order</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h4 id="_36">例子<a class="headerlink" href="#_36" title="Permanent link">#</a></h4>
+<div id="css-page-6">
+  <header>
+      <h1>Sample flexbox example</h1>
+    </header>
+    <section>
+      <article>
+        <h2>First article</h2>
+        <p>p1</p>
+      </article>
+      <article>
+        <h2>Second article</h2>
+        <p>p2</p>
+      </article>
+      <article>
+        <h2>Third article</h2>
+        <p>p3</p>
+        <p>p4</p>
+      </article>
+      <article>
+        <h2>Fourth article</h2>
+        <p>p5</p>
+      </article>
+      <article>
+        <h2>Fifth article</h2>
+        <p>p6</p>
+      </article>
+      <article>
+        <h2>Six article</h2>
+        <p>p7</p>
+        <p>p8</p>
+      </article>
+      <article>
+        <h2>Seventh article</h2>
+        <p>p9</p>
+        <p>p10</p>
+      </article>
+    </section>
+</div>
+<p>html:</p>
+<p><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Sample flexbox example<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">section</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>First article<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>p1<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Second article<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>p2<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Third article<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>p3<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>p4<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Fourth article<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>p5<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Fifth article<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>p6<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Six article<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>p7<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>p8<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Seventh article<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>p9<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>p10<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+</code></pre></div>
+css:
+<div class="highlight"><pre><span></span><code><span class="nt">section</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">flex-wrap</span><span class="p">:</span><span class="w"> </span><span class="kc">wrap</span><span class="p">;</span><span class="c">/* 溢出的元素将被移到下一行 */</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="nt">article</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">flex</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="c">/* 每个元素的宽度至少是 200px */</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+<h4 id="_37">属性<a class="headerlink" href="#_37" title="Permanent link">#</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>可使用F12开发者工具在上述例子上更改css属性</p>
+</div>
+<ul>
+<li><code>flex: 1 200px;</code>: 每个 flex 项将首先给出 200px 的可用空间，然后，剩余的可用空间将根据分配的比例共享  </li>
+<li><code>justify-content: space-around;</code>: justify-content控制 flex 项在主轴上的位置  </li>
+<li><code>align-items: center;</code>: align-items控制交叉轴上的位置  </li>
+<li><code>order</code>:<ul>
+<li>所有 flex 项默认的 order 值是 0。</li>
+<li>order 值大的 flex 项比 order 值小的在显示顺序中更靠后。</li>
+<li>可以为负数。</li>
+</ul>
+</li>
+</ul>
+<h3 id="display-grid">网格布局<code>display: grid;</code><a class="headerlink" href="#display-grid" title="Permanent link">#</a></h3>
+<h4 id="_38">例子<a class="headerlink" href="#_38" title="Permanent link">#</a></h4>
+<div id="css-page-7">
+  <div class="container">
+      <div class="first-div">One</div>
+      <div>Two</div>
+      <div>Three</div>
+      <div>Four</div>
+      <div>Five</div>
+      <div>Six</div>
+      <div>Seven</div>
+  </div>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;first-div&quot;</span><span class="p">&gt;</span>One<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Two<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Three<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Four<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Five<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Six<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Seven<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">container</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="k">grid</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="nf">repeat</span><span class="p">(</span><span class="kc">auto</span><span class="nv">-fill</span><span class="p">,</span><span class="w"> </span><span class="nf">minmax</span><span class="p">(</span><span class="mi">200</span><span class="kt">px</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="p">));</span><span class="w"></span>
+<span class="w">  </span><span class="n">grid-gap</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">grid-auto-rows</span><span class="p">:</span><span class="w"> </span><span class="nf">minmax</span><span class="p">(</span><span class="mi">100</span><span class="kt">px</span><span class="p">,</span><span class="w"> </span><span class="kc">auto</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="p">.</span><span class="nc">first-div</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">grid-column</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">grid-row</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h4 id="_39">属性<a class="headerlink" href="#_39" title="Permanent link">#</a></h4>
+<ul>
+<li><code>grid-template-columns: repeat(2, 2fr 1fr)</code>, 表示<code>2fr 1fr 2fr 1fr</code></li>
+<li>显式网格是使用<code>grid-template-columns</code> 和 <code>grid-template-rows</code>创建的，隐式网格是为了放显式网格放不下的元素，浏览器根据已经定义的显式网格自动生成的网格部分，可以根据<code>grid-auto-rows</code> 和 <code>grid-auto-columns</code>来手动设置隐式网格的大小。</li>
+<li><code>minmax(100px, auto)</code>, 尺寸至少为 100 像素，并且如果内容尺寸大于 100 像素则会根据内容自动调整。</li>
+<li><code>grid-column</code> 和 <code>grid-row</code>，指定从那条线开始到哪条线结束。  </li>
+<li><code>grid-template-areas</code>:
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">container</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="k">grid</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">grid-template-areas</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="s2">&quot;header header&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="s2">&quot;sidebar content&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="s2">&quot;footer footer&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="w"> </span><span class="mi">3</span><span class="n">fr</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">grid-gap</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="nt">header</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">grid-area</span><span class="p">:</span><span class="w"> </span><span class="n">header</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="nt">article</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">grid-area</span><span class="p">:</span><span class="w"> </span><span class="k">content</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="nt">aside</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">grid-area</span><span class="p">:</span><span class="w"> </span><span class="n">sidebar</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="nt">footer</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">grid-area</span><span class="p">:</span><span class="w"> </span><span class="n">footer</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></li>
+</ul>
+<h3 id="_40">浮动<a class="headerlink" href="#_40" title="Permanent link">#</a></h3>
+<p>浮动元素会脱离正常的文档布局流，并吸附到其父容器的左边。在正常布局中位于该浮动元素之下的内容，此时会围绕着浮动元素，填满其右侧的空间。</p>
+<div id="css-page-8">
+  <p>This is my very important paragraph.
+  I am a distinguished gentleman of such renown that my paragraph
+  needs to be styled in a manner befitting my majesty. Bow before
+  my splendour, dear students, and go forth and learn CSS!</p>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This is my very important paragraph.
+I am a distinguished gentleman of such renown that my paragraph
+needs to be styled in a manner befitting my majesty. Bow before
+my splendour, dear students, and go forth and learn CSS!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nt">p</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="nt">p</span><span class="p">::</span><span class="nd">first-line</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">text-transform</span><span class="p">:</span><span class="w"> </span><span class="kc">uppercase</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="nt">p</span><span class="p">::</span><span class="nd">first-letter</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="kt">em</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="kc">black</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">red</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">float</span><span class="p">:</span><span class="w"> </span><span class="kc">left</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">margin-right</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h4 id="_41">高度塌陷<a class="headerlink" href="#_41" title="Permanent link">#</a></h4>
+<p>子元素浮动后，将会无法撑起父元素的高度，导致父元素的高度丢失</p>
+<h4 id="bfc-block-formatter-context">BFC, Block Formatter Context (块级格式化环境)<a class="headerlink" href="#bfc-block-formatter-context" title="Permanent link">#</a></h4>
+<ul>
+<li>css中的隐含属性，可以为一个元素开启BFC。开启BFC，该元素会变成一个独立的布局区域。  </li>
+<li>元素开启BFC后的特点：<ul>
+<li>解决外边距重叠</li>
+<li>开启BFC后的元素不会被浮动元素覆盖</li>
+<li>开启BFC的元素子元素和父元素外边距不会重叠</li>
+<li>开启BFC的元素可以包含浮动的子元素</li>
+</ul>
+</li>
+<li>可以通过特殊方式开启BFC<ul>
+<li>设置元素浮动</li>
+<li>将元素设为行内块元素</li>
+<li>将元素的overflow设置为非visible的值<ul>
+<li>overflow: hidden或auto</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="clear">clear<a class="headerlink" href="#clear" title="Permanent link">#</a></h4>
+<p>清除浮动元素对当前元素所产生的影响<br />
+可选值：</p>
+<ul>
+<li>left 清除左浮动元素对当前元素的影响</li>
+<li>right 清除右浮动元素对当前元素的影响</li>
+<li>both 清除两侧中最大影响的那侧</li>
+</ul>
+<p>原理：设置清除浮动后，浏览器会自动为元素添加上外边距，以使其位置不受其他元素的影响</p>
+<ul>
+<li>使用 <code>clear</code> 和 <code>::after</code>处理高度塌陷问题
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="nc">box1</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="kc">red</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="nc">box2</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">green</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">float</span><span class="p">:</span><span class="w"> </span><span class="kc">left</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="nc">box1</span><span class="p">::</span><span class="nd">after</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">clear</span><span class="p">:</span><span class="w"> </span><span class="kc">both</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">content</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;box1&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;box2&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div></li>
+<li>处理外边距重叠问题
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="nc">box1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">yellowgreen</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="p">.</span><span class="nc">box2</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">green</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="p">.</span><span class="nc">box1</span><span class="p">::</span><span class="nd">before</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">content</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">table</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;box1&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;box2&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div></li>
+</ul>
+<p>综合以上代码, 使用 <code>clearfix</code> 解决高度塌陷和外边距重叠问题
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="nc">clearfix</span><span class="p">::</span><span class="nd">before</span><span class="o">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="nc">clearfix</span><span class="p">::</span><span class="nd">after</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">content</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">table</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">clear</span><span class="p">:</span><span class="w"> </span><span class="kc">both</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;clearfix&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;box2&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div></p>
+<h3 id="position">定位<code>position</code><a class="headerlink" href="#position" title="Permanent link">#</a></h3>
+<h4 id="position-relative">相对定位<code>position: relative;</code><a class="headerlink" href="#position-relative" title="Permanent link">#</a></h4>
+<p>例子:</p>
+<div id="css-page-9">
+  <h1>Basic document flow</h1>
+  <p>I am a basic block level element. My adjacent block level elements sit on new lines below me.</p>
+  <p class="positioned">By default we span 100% of the width of our parent element, and we are as tall as our child content. Our total width and height is our content + padding + border width/height.</p>
+  <p>We are separated by our margins. Because of margin collapsing, we are separated by the width of one of our margins, not both.</p>
+  <p>inline elements <span>like this one</span> and <span>this one</span> sit on the same line as one another, and adjacent text nodes, if there is space on the same line. Overflowing inline elements will <span>wrap onto a new line if possible (like this one containing text)</span>, or just go on to a new line if not, much like this image will do: <img src="https://mdn.github.io/learning-area/css/css-layout/positioning/long.jpg"></p>
+</div>
+
+<p>第二段设置为<code>position: relative;</code>，添加<code>top: 30px;left: 30px;</code></p>
+<h4 id="position-absolute">绝对定位<code>position: absolute;</code><a class="headerlink" href="#position-absolute" title="Permanent link">#</a></h4>
+<p>例子:</p>
+<div id="css-page-10">
+  <h1>Basic document flow</h1>
+  <p>I am a basic block level element. My adjacent block level elements sit on new lines below me.</p>
+  <p class="positioned">By default we span 100% of the width of our parent element, and we are as tall as our child content. Our total width and height is our content + padding + border width/height.</p>
+  <p>We are separated by our margins. Because of margin collapsing, we are separated by the width of one of our margins, not both.</p>
+  <p>inline elements <span>like this one</span> and <span>this one</span> sit on the same line as one another, and adjacent text nodes, if there is space on the same line. Overflowing inline elements will <span>wrap onto a new line if possible (like this one containing text)</span>, or just go on to a new line if not, much like this image will do: <img src="https://mdn.github.io/learning-area/css/css-layout/positioning/long.jpg"></p>
+</div>
+
+<p>第二段设置为<code>position: absolute;</code>, 父元素设置为<code>position: relative;</code>, 添加<code>top: 30px;left: 30px;</code></p>
+<h4 id="position-fixed">固定定位<code>position: fixed;</code><a class="headerlink" href="#position-fixed" title="Permanent link">#</a></h4>
+<p>与绝对定位的工作方式完全相同，只有一个主要区别：绝对定位固定元素是相对于 <code>&lt;html&gt;</code> 元素或其最近的定位祖先，而固定定位固定元素则是相对于浏览器视口本身。</p>
+<p>查看<a href="https://mdn.github.io/learning-area/css/css-layout/positioning/6_fixed-positioning.html">例子</a></p>
+<h4 id="position-sticky">粘性定位<code>position: sticky;</code><a class="headerlink" href="#position-sticky" title="Permanent link">#</a></h4>
+<p>是相对位置和固定位置的混合体，它允许被定位的元素表现得像相对定位一样，直到它滚动到某个阈值点（例如，从视口顶部起 1​​0 像素）为止，此后它就变得固定了。</p>
+<p>查看<a href="../../example/position_sticky.html">例子</a></p>
+<h4 id="z-index">z-index<a class="headerlink" href="#z-index" title="Permanent link">#</a></h4>
+<p>对于开启了定位的元素，可以通过z-index指定元素的层级</p>
+<p>祖先元素层级再高，也不会盖住后代元素</p>
+<h3 id="_42">多列布局<a class="headerlink" href="#_42" title="Permanent link">#</a></h3>
+<p><code>column-count: 3;</code> 将创建指定数量的列<br />
+<code>column-width: 200px;</code> 将按照指定的宽度尽可能多的创建列, 任何剩余的空间之后会被现有的列平分。这意味着可能无法期望得到指定的宽度，除非容器的宽度刚好可以被你指定的宽度除尽。<br />
+<code>column-gap: 20px;</code> 改变列间间隙。<br />
+<code>column-rule: 4px dotted rgb(79, 185, 227);</code> 在列间加入一条分割线。<br />
+<code>break-inside: avoid;</code> 避免列与内容折断。  </p>
+<h3 id="_43">媒体查询<a class="headerlink" href="#_43" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="nt">media-type</span><span class="w"> </span><span class="nt">and</span><span class="w"> </span><span class="o">(</span><span class="nt">media-feature-rule</span><span class="o">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c">/* CSS rules go here */</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>媒体类型:   </p>
+<ul>
+<li><code>all</code>  </li>
+<li><code>print</code>  </li>
+<li><code>screen</code>  </li>
+<li><code>speech</code>  </li>
+</ul>
+<p>媒体特征规则:  </p>
+<ul>
+<li>宽和高: <code>min-width</code>, <code>max-width</code>, <code>width</code>  </li>
+<li>朝向: <code>orientation</code> 竖放(portrait),横放(landscape)  </li>
+<li>使用指点设备: <code>hover: hover</code> 触摸屏和键盘导航没法实现悬浮，用户不能悬浮的话，可以默认显示一些交互功能  </li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c">/*  body 的文字只会在视口至少为 400 像素宽，且设备横放时变为蓝色 */</span><span class="w"></span>
+<span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="nt">screen</span><span class="w"> </span><span class="nt">and</span><span class="w"> </span><span class="o">(</span><span class="nt">min-width</span><span class="o">:</span><span class="w"> </span><span class="nt">400px</span><span class="o">)</span><span class="w"> </span><span class="nt">and</span><span class="w"> </span><span class="o">(</span><span class="nt">orientation</span><span class="o">:</span><span class="w"> </span><span class="nt">landscape</span><span class="o">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">body</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">blue</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="c">/* 文本会在视口至少为 400 像素宽的时候或者设备处于横放状态的时候变为蓝色 */</span><span class="w"></span>
+<span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="nt">screen</span><span class="w"> </span><span class="nt">and</span><span class="w"> </span><span class="o">(</span><span class="nt">min-width</span><span class="o">:</span><span class="w"> </span><span class="nt">400px</span><span class="o">),</span><span class="w"> </span><span class="nt">screen</span><span class="w"> </span><span class="nt">and</span><span class="w"> </span><span class="o">(</span><span class="nt">orientation</span><span class="o">:</span><span class="w"> </span><span class="nt">landscape</span><span class="o">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">body</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">blue</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="c">/* 文本只会在朝向为竖着的时候变成蓝色 */</span><span class="w"></span>
+<span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="nt">not</span><span class="w"> </span><span class="nt">all</span><span class="w"> </span><span class="nt">and</span><span class="w"> </span><span class="o">(</span><span class="nt">orientation</span><span class="o">:</span><span class="w"> </span><span class="nt">landscape</span><span class="o">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">body</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">blue</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h2 id="_44">空间转换<a class="headerlink" href="#_44" title="Permanent link">#</a></h2>
+<p>实现鼠标悬浮立方体旋转效果
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">ul</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">list-style</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="nt">li</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">transform-style</span><span class="p">:</span><span class="w"> </span><span class="kc">preserve-3d</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">relative</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">transition</span><span class="p">:</span><span class="w"> </span><span class="kc">all</span><span class="w"> </span><span class="mf">.5</span><span class="kt">s</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="nt">li</span><span class="p">:</span><span class="nd">hover</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">transform</span><span class="p">:</span><span class="w"> </span><span class="nb">rotateX</span><span class="p">(</span><span class="nv">-90deg</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="nt">li</span><span class="o">&gt;</span><span class="nt">a</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">absolute</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">line-height</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">text-decoration</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="nt">li</span><span class="o">&gt;</span><span class="nt">a</span><span class="p">:</span><span class="nd">first-child</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">pink</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">transform</span><span class="p">:</span><span class="w"> </span><span class="nb">rotateX</span><span class="p">(</span><span class="mi">90</span><span class="kt">deg</span><span class="p">)</span><span class="w"> </span><span class="nb">translateZ</span><span class="p">(</span><span class="mi">25</span><span class="kt">px</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="nt">li</span><span class="o">&gt;</span><span class="nt">a</span><span class="p">:</span><span class="nd">last-child</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">skyblue</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">transform</span><span class="p">:</span><span class="w"> </span><span class="nb">translateZ</span><span class="p">(</span><span class="mi">25</span><span class="kt">px</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;javascript:;&quot;</span><span class="p">&gt;</span>首页<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;javascript:;&quot;</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;javascript:;&quot;</span><span class="p">&gt;</span>登录<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;javascript:;&quot;</span><span class="p">&gt;</span>Login<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;javascript:;&quot;</span><span class="p">&gt;</span>注册<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;javascript:;&quot;</span><span class="p">&gt;</span>Register<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</code></pre></div></p>
+<h2 id="animation">animation<a class="headerlink" href="#animation" title="Permanent link">#</a></h2>
+<h3 id="_45">过渡<a class="headerlink" href="#_45" title="Permanent link">#</a></h3>
+<p>通过过渡(transition)可以指定一个属性发生变化时的切换方式</p>
+<div class="highlight"><pre><span></span><code><span class="o">*</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c">/* </span>
+<span class="c">    transition-property 指定要执行过渡的属性, 所有属性用all</span>
+<span class="c">  */</span><span class="w"></span>
+<span class="w">  </span><span class="k">transition-property</span><span class="p">:</span><span class="w"> </span><span class="k">width</span><span class="p">,</span><span class="w"> </span><span class="k">height</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="c">/* transition-duration 过渡效果的持续时间, 单位 1s 1000ms */</span><span class="w"></span>
+<span class="w">  </span><span class="k">transition-duration</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">s</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="c">/* </span>
+<span class="c">    过渡执行方式 </span>
+<span class="c">    可选值: ease 默认值; linear 匀速; ease-in 加速; ease-out 减速</span>
+<span class="c">  */</span><span class="w"></span>
+<span class="w">  </span><span class="k">transition-timing-function</span><span class="p">:</span><span class="w"> </span><span class="kc">ease</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="c">/* 过渡时间的延迟 */</span><span class="w"></span>
+<span class="w">  </span><span class="k">transition-delay</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">s</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="c">/* 设置所有相关属性 */</span><span class="w"></span>
+<span class="w">  </span><span class="k">transition</span><span class="p">:</span><span class="w"> </span><span class="k">margin-left</span><span class="w"> </span><span class="mi">2</span><span class="kt">s</span><span class="w"> </span><span class="nb">steps</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="_46">动画<a class="headerlink" href="#_46" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c">/* 关键帧 */</span><span class="w"></span>
+<span class="p">@</span><span class="k">keyframes</span><span class="w"> </span><span class="nt">test</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c">/* 动画开始位置,from可以替换为0% */</span><span class="w"></span>
+<span class="w">  </span><span class="nt">from</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">margin-left</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="c">/* 可以设置其他百分比 */</span><span class="w"></span>
+
+<span class="w">  </span><span class="c">/* 动画结束位置,to可以替换为100% */</span><span class="w"></span>
+<span class="w">  </span><span class="nt">to</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">margin-left</span><span class="p">:</span><span class="w"> </span><span class="mi">700</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">.</span><span class="nc">box</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">animation-name</span><span class="p">:</span><span class="w"> </span><span class="n">test</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">animation-duration</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">s</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="c">/* 动画执行次数 */</span><span class="w"></span>
+<span class="w">  </span><span class="k">animation-iteration-count</span><span class="p">:</span><span class="w"> </span><span class="kc">infinite</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="c">/* 动画运行的方向,alternate表示从from到to，再从to到from */</span><span class="w"></span>
+<span class="w">  </span><span class="k">animation-direction</span><span class="p">:</span><span class="w"> </span><span class="kc">alternate</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="c">/* 动画运行状态,可以设置为running和paused */</span><span class="w"></span>
+<span class="w">  </span><span class="k">animation-play-state</span><span class="p">:</span><span class="w"> </span><span class="kc">paused</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="c">/* forwards表示动画执行完毕停在to的位置，而不是元素原来的位置 */</span><span class="w"></span>
+<span class="w">  </span><span class="k">animation-fill-mode</span><span class="p">:</span><span class="w"> </span><span class="kc">forwards</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="_47">变形<a class="headerlink" href="#_47" title="Permanent link">#</a></h3>
+<p>变形不会影响页面布局
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">box</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c">/* 实现水平垂直居中 */</span><span class="w"></span>
+<span class="w">  </span><span class="k">transform</span><span class="p">:</span><span class="w"> </span><span class="nb">translate</span><span class="p">(</span><span class="nv">-50</span><span class="err">%</span><span class="p">,</span><span class="w"> </span><span class="nv">-50</span><span class="err">%</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">absolute</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">left</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+<h3 id="_48">缩放<a class="headerlink" href="#_48" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">box</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c">/* </span>
+<span class="c">    scaleX() 水平方向缩放</span>
+<span class="c">    scaleY() 垂直方向缩放</span>
+<span class="c">    scale() 双方向缩放</span>
+<span class="c">  */</span><span class="w"></span>
+<span class="w">  </span><span class="k">transform</span><span class="p">:</span><span class="w"> </span><span class="nb">scaleX</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h2 id="less">less<a class="headerlink" href="#less" title="Permanent link">#</a></h2>
+<div class="highlight"><pre><span></span><code><span class="o">//</span><span class="w"> </span><span class="nt">引入</span><span class="w"></span>
+<span class="nv">@import</span><span class="w"> </span><span class="s1">&#39;syntax2.less&#39;</span><span class="o">;</span><span class="w"></span>
+
+<span class="o">//</span><span class="w"> </span><span class="nt">less</span><span class="w"> </span><span class="nt">单行注释</span><span class="w"></span>
+<span class="p">.</span><span class="nc">box1</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#bfa</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">.box2</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#ff0</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">.box3</span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">orange</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="o">//</span><span class="w"> </span><span class="nt">变量</span><span class="w"></span>
+<span class="nv">@a</span><span class="p">:</span><span class="nd">100px</span><span class="o">;</span><span class="w"></span>
+<span class="nv">@b</span><span class="o">:</span><span class="p">#</span><span class="nn">bfa</span><span class="o">;</span><span class="w"></span>
+<span class="nv">@c</span><span class="p">:</span><span class="nd">box6</span><span class="o">;</span><span class="w"></span>
+
+<span class="p">.</span><span class="nc">box5</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="o">@</span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="o">@</span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="o">//</span><span class="w"> </span><span class="nt">作为类名或者值的一部分使用变量</span><span class="w"></span>
+<span class="o">.@</span><span class="p">{</span><span class="err">c</span><span class="p">}{</span><span class="w"></span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="o">@</span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nb">url</span><span class="p">(</span><span class="s2">&quot;@{c}/1.png&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+
+<span class="nv">@d</span><span class="p">:</span><span class="nd">200px</span><span class="o">;</span><span class="w"></span>
+<span class="nv">@d</span><span class="p">:</span><span class="nd">300px</span><span class="o">;</span><span class="w"></span>
+
+<span class="nt">div</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="o">@</span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// 300px</span>
+<span class="w">  </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="o">@</span><span class="n">e</span><span class="p">;</span><span class="w"> </span><span class="c1">// 335px</span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="nv">@e</span><span class="p">:</span><span class="nd">335px</span><span class="o">;</span><span class="w"></span>
+
+<span class="nt">div</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="o">@</span><span class="n">e</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="k">width</span><span class="p">;</span><span class="w"> </span><span class="c1">//使用width中的值</span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="o">//</span><span class="w"> </span><span class="nt">子元素选择器</span><span class="w"></span>
+<span class="p">.</span><span class="nc">box11</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="err">&gt;.box21</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">red</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//&amp; 表示外层的父元素</span>
+<span class="w">  </span><span class="err">&amp;:hover</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#bfa</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">.</span><span class="nc">p1</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="o">//</span><span class="p">:</span><span class="nd">extend</span><span class="o">()</span><span class="w"> </span><span class="nt">对当前选择器扩展指定选择器的样式</span><span class="w"></span>
+<span class="p">.</span><span class="nc">p2</span><span class="p">:</span><span class="nd">extend</span><span class="o">(</span><span class="p">.</span><span class="nc">p1</span><span class="o">)</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">red</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">.</span><span class="nc">p3</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// 直接对指定样式引用，相当于将p1的样式在这里复制</span>
+<span class="w">  </span><span class="err">.p1()</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="o">//</span><span class="nt">相当于创建了一个函数</span><span class="o">(</span><span class="nt">mixins</span><span class="o">)</span><span class="w"></span>
+<span class="p">.</span><span class="nc">p4</span><span class="o">()</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#bfa</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">.</span><span class="nc">p5</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="err">.p4</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="o">//</span><span class="w"> </span><span class="nt">设置参数</span><span class="w"></span>
+<span class="p">.</span><span class="nc">test</span><span class="o">(</span><span class="nv">@w</span><span class="p">:</span><span class="nd">300px</span><span class="o">)</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="o">@</span><span class="n">w</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="nt">div</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="err">.test(100px)</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="nt">div</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="err">.test(@</span><span class="n">w</span><span class="p">:</span><span class="mi">200</span><span class="kt">px</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="nt">span</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="kc">red</span><span class="p">,</span><span class="kc">yellow</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="nt">body</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="o">@</span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="err">&amp;:hover</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nf">darken</span><span class="p">(</span><span class="err">@</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="kt">%</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="o">//</span><span class="w"> </span><span class="nt">数值可以运算</span><span class="w"></span>
+<span class="nt">div</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="o">@</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">100</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+
+
+
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../html/" class="md-footer__link md-footer__link--prev" aria-label="Previous: HTML" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              HTML
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../bootstrap/" class="md-footer__link md-footer__link--next" aria-label="Next: Bootstrap3" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Bootstrap3
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "search.highlight", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+    
+  </body>
+</html>

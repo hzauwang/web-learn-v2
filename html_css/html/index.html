@@ -1,0 +1,2301 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.0">
+    
+    
+      
+        <title>HTML - Web learn</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Web learn" class="md-header__button md-logo" aria-label="Web learn" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Web learn
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              HTML
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../http/" class="md-tabs__link md-tabs__link--active">
+        HTML/CSS
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../js/js/" class="md-tabs__link">
+        JavaScript
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../php/php/" class="md-tabs__link">
+        PHP
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../db/mysql/" class="md-tabs__link">
+        Database
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../linux/linux/" class="md-tabs__link">
+      Linux
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../more/user_inter/" class="md-tabs__link">
+        More
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Web learn" class="md-nav__button md-logo" aria-label="Web learn" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Web learn
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          HTML/CSS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="HTML/CSS" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          HTML/CSS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../http/" class="md-nav__link">
+        HTTP协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          HTML
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        HTML
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    浏览器是如何渲染页面的
+  </a>
+  
+    <nav class="md-nav" aria-label="浏览器是如何渲染页面的">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#critical-rendering-pathcrp" class="md-nav__link">
+    Critical Rendering Path（CRP）
+  </a>
+  
+    <nav class="md-nav" aria-label="Critical Rendering Path（CRP）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dom" class="md-nav__link">
+    构建DOM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cssom" class="md-nav__link">
+    构建CSSOM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render-tree" class="md-nav__link">
+    构建Render Tree
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layout" class="md-nav__link">
+    Layout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paint" class="md-nav__link">
+    Paint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js" class="md-nav__link">
+    引入js
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    在线学习网站
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    视频教程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    电子书
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#htmlcss" class="md-nav__link">
+    HTML/CSS训练
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    代码编辑
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#htmlhead-bodydoctype" class="md-nav__link">
+    html标签的类型（head， body，!Doctype） 他们的作用是什么
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    字符编码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seo" class="md-nav__link">
+    SEO 搜索引擎优化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    实体(转义字符)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#meta" class="md-nav__link">
+    meta标签
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    语义化标签
+  </a>
+  
+    <nav class="md-nav" aria-label="语义化标签">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hgroup" class="md-nav__link">
+    hgroup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#em" class="md-nav__link">
+    em
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strong" class="md-nav__link">
+    strong
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blockquota" class="md-nav__link">
+    blockquota
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q" class="md-nav__link">
+    q
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#header" class="md-nav__link">
+    header
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main" class="md-nav__link">
+    main
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#footer" class="md-nav__link">
+    footer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nav" class="md-nav__link">
+    nav
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aside" class="md-nav__link">
+    aside
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#article" class="md-nav__link">
+    article
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section" class="md-nav__link">
+    section
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    定义列表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#html5" class="md-nav__link">
+    html5的新特性
+  </a>
+  
+    <nav class="md-nav" aria-label="html5的新特性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    新增选择器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drag-and-dropapi" class="md-nav__link">
+    拖拽释放(Drag and drop)API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#video-audio" class="md-nav__link">
+    媒体播放的 &lt;video&gt; 和 &lt;audio&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#localstorage-sessionstorage" class="md-nav__link">
+    本地存储 localStorage 和 sessionStorage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cache-manifest" class="md-nav__link">
+    离线应用 Cache Manifest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notifications" class="md-nav__link">
+    桌面通知 Notifications
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    语义化标签
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    新表单元素
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geolocation" class="md-nav__link">
+    Geolocation（地理定位）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webworker" class="md-nav__link">
+    多任务 webworker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#websocket" class="md-nav__link">
+    全双工通信协议 websocket
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visibilitychange" class="md-nav__link">
+    页面可见性改变事件 visibilitychange
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postmessage" class="md-nav__link">
+    跨窗口通信 PostMessage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../css/" class="md-nav__link">
+        CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bootstrap/" class="md-nav__link">
+        Bootstrap3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          JavaScript
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JavaScript" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          JavaScript
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/js/" class="md-nav__link">
+        JavaScript
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/promise/" class="md-nav__link">
+        Promise
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/axios/" class="md-nav__link">
+        axios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/nodejs/" class="md-nav__link">
+        Node.js
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/webpack/" class="md-nav__link">
+        Webpack
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/typescript/" class="md-nav__link">
+        TypeScript
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/jquery/" class="md-nav__link">
+        jQuery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/Vue/" class="md-nav__link">
+        Vue.js
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/programming/" class="md-nav__link">
+        编程题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/element/" class="md-nav__link">
+        ElementUI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/quasar/" class="md-nav__link">
+        Quasar
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_12" type="checkbox" id="__nav_3_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_12">
+          数据可视化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据可视化" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_12">
+          <span class="md-nav__icon md-icon"></span>
+          数据可视化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/visualization/" class="md-nav__link">
+        数据可视化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/echarts/" class="md-nav__link">
+        Echarts(基本图)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/amcharts/" class="md-nav__link">
+        amCharts(地图)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/plotly/" class="md-nav__link">
+        plotly.js(小提琴图)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/highcharts/" class="md-nav__link">
+        Highcharts(基因结构图)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/phylotree/" class="md-nav__link">
+        Phylotree.js(绘制进化树)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/cytoscape/" class="md-nav__link">
+        Cytoscape.js(网络图)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/gtex_viz/" class="md-nav__link">
+        gtex-viz(带聚类树的热图)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/biocircos/" class="md-nav__link">
+        BioCircos.js(eQTL的circos图)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          PHP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="PHP" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          PHP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/php/" class="md-nav__link">
+        PHP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/tp/" class="md-nav__link">
+        ThinkPHP
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Database
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Database" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Database
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../db/mysql/" class="md-nav__link">
+        MySQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../db/mongodb/" class="md-nav__link">
+        MongoDB
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/linux/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          More
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="More" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          More
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../more/user_inter/" class="md-nav__link">
+        异常检测、提交反馈
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../more/jbrowse1/" class="md-nav__link">
+        JBrowse1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../more/jbrowse2/" class="md-nav__link">
+        JBrowse2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../more/blast/" class="md-nav__link">
+        Blast
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../more/gbrowse/" class="md-nav__link">
+        GBrowse_syn
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    浏览器是如何渲染页面的
+  </a>
+  
+    <nav class="md-nav" aria-label="浏览器是如何渲染页面的">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#critical-rendering-pathcrp" class="md-nav__link">
+    Critical Rendering Path（CRP）
+  </a>
+  
+    <nav class="md-nav" aria-label="Critical Rendering Path（CRP）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dom" class="md-nav__link">
+    构建DOM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cssom" class="md-nav__link">
+    构建CSSOM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render-tree" class="md-nav__link">
+    构建Render Tree
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layout" class="md-nav__link">
+    Layout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paint" class="md-nav__link">
+    Paint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js" class="md-nav__link">
+    引入js
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    在线学习网站
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    视频教程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    电子书
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#htmlcss" class="md-nav__link">
+    HTML/CSS训练
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    代码编辑
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#htmlhead-bodydoctype" class="md-nav__link">
+    html标签的类型（head， body，!Doctype） 他们的作用是什么
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    字符编码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seo" class="md-nav__link">
+    SEO 搜索引擎优化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    实体(转义字符)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#meta" class="md-nav__link">
+    meta标签
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    语义化标签
+  </a>
+  
+    <nav class="md-nav" aria-label="语义化标签">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hgroup" class="md-nav__link">
+    hgroup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#em" class="md-nav__link">
+    em
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strong" class="md-nav__link">
+    strong
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blockquota" class="md-nav__link">
+    blockquota
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q" class="md-nav__link">
+    q
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#header" class="md-nav__link">
+    header
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main" class="md-nav__link">
+    main
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#footer" class="md-nav__link">
+    footer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nav" class="md-nav__link">
+    nav
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aside" class="md-nav__link">
+    aside
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#article" class="md-nav__link">
+    article
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section" class="md-nav__link">
+    section
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    定义列表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#html5" class="md-nav__link">
+    html5的新特性
+  </a>
+  
+    <nav class="md-nav" aria-label="html5的新特性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    新增选择器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drag-and-dropapi" class="md-nav__link">
+    拖拽释放(Drag and drop)API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#video-audio" class="md-nav__link">
+    媒体播放的 &lt;video&gt; 和 &lt;audio&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#localstorage-sessionstorage" class="md-nav__link">
+    本地存储 localStorage 和 sessionStorage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cache-manifest" class="md-nav__link">
+    离线应用 Cache Manifest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notifications" class="md-nav__link">
+    桌面通知 Notifications
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    语义化标签
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    新表单元素
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geolocation" class="md-nav__link">
+    Geolocation（地理定位）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webworker" class="md-nav__link">
+    多任务 webworker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#websocket" class="md-nav__link">
+    全双工通信协议 websocket
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visibilitychange" class="md-nav__link">
+    页面可见性改变事件 visibilitychange
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postmessage" class="md-nav__link">
+    跨窗口通信 PostMessage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+  <h1>HTML</h1>
+
+<h2 id="_1">浏览器是如何渲染页面的<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
+<ol>
+<li>浏览器载入 HTML 文件。</li>
+<li>将 HTML 文件转化成一个 DOM。</li>
+<li>接下来，浏览器会拉取该 HTML 相关的大部分资源，比如嵌入到页面的图片、视频和 CSS 样式，js会稍后加载。</li>
+<li>浏览器拉取到 CSS 之后会进行解析，根据选择器的不同类型（比如 element、class、id 等等）把他们分到不同的“桶”中。浏览器基于它找到的不同的选择器，将不同的规则（基于选择器的规则，如元素选择器、类选择器、id 选择器等）应用在对应的 DOM 的节点中，并添加节点依赖的样式（这个中间步骤称为渲染树）。</li>
+<li>上述的规则应用于渲染树之后，渲染树会依照应该出现的结构进行布局。</li>
+<li>网页展示在屏幕上（这一步被称为着色）。</li>
+</ol>
+<p><img alt="rendering" src="../../images/html_css_rendering.svg" /></p>
+<h3 id="critical-rendering-pathcrp">Critical Rendering Path（CRP）<a class="headerlink" href="#critical-rendering-pathcrp" title="Permanent link">#</a></h3>
+<ol>
+<li>构建DOM<ul>
+<li>将HTML解析为许多tokens</li>
+<li>将tokens解析为object</li>
+<li>将object组合为DOM树</li>
+</ul>
+</li>
+<li>构建CSSOM<ul>
+<li>解析css文件，构建CSSOM树</li>
+</ul>
+</li>
+<li>构建Render Tree<ul>
+<li>结合DOM和CSSOM构建Render树</li>
+</ul>
+</li>
+<li>Layout<ul>
+<li>计算出元素相对于viewport的相对位置</li>
+</ul>
+</li>
+<li>Paint<ul>
+<li>将render tree转换为像素显示</li>
+</ul>
+</li>
+</ol>
+<p>上面的过程不是依次进行的，存在一定交叉</p>
+<h4 id="dom">构建DOM<a class="headerlink" href="#dom" title="Permanent link">#</a></h4>
+<p>HTML很大的时候，一个RTT（Round-Trip time，往返时延）只得到一部分，浏览器会根据这部分进行构建DOM，并不会等到收到整个文档才开始。<strong>而CSSOM需要等到所有字节收到才开始构建。</strong>
+<img alt="DOM解析" src="../../images/dom%E8%A7%A3%E6%9E%90.png" /></p>
+<h4 id="cssom">构建CSSOM<a class="headerlink" href="#cssom" title="Permanent link">#</a></h4>
+<p>HTML遇到link标签时，会请求css文件，css文件就位时便开始解析（如果是行内style则直接解析），这一过程和构建DOM同时进行<br />
+上面构建的并不是完整的CSSOM树，除此之外还有浏览器的默认样式，称为user agent styles</p>
+<h4 id="render-tree">构建Render Tree<a class="headerlink" href="#render-tree" title="Permanent link">#</a></h4>
+<p>这一步只构建需要在屏幕上显示的部分，对于<code>display: none;</code>的元素也无需构建</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>display: none;</code>告诉浏览器这个元素无需出现在render tree中，但是<code>visibility: hidden;</code>只是隐藏了这个元素，但是元素还占空间，会影响到后面的layout，因此仍需要出现在render tree中。</p>
+</div>
+<p>具体步骤：</p>
+<ol>
+<li>浏览器从DOM树开始遍历，找到每一个可见节点</li>
+<li>对于每一个可见节点，在CSSOM上找到匹配的样式并应用</li>
+<li>生成render tree</li>
+</ol>
+<h4 id="layout">Layout<a class="headerlink" href="#layout" title="Permanent link">#</a></h4>
+<p>这一步计算元素相对于viewport的位置和大小，根据计算出的信息，输出元素的box model</p>
+<h4 id="paint">Paint<a class="headerlink" href="#paint" title="Permanent link">#</a></h4>
+<p>浏览器将每一个节点以像素显示在屏幕上，最终看到页面。</p>
+<h4 id="js">引入js<a class="headerlink" href="#js" title="Permanent link">#</a></h4>
+<ol>
+<li>解析HTML构建DOM时，遇到JavaScript会被堵塞</li>
+<li>JavaScript执行会被CSSOM构建阻塞，JavaScript必须等到CSSOM构建完成后才会执行</li>
+<li>使用异步脚本，脚本的网络请求优先级降低，网络请求期间不阻塞DOM构建，直到请求完成后开始执行</li>
+</ol>
+<h2 id="_2">在线学习网站<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="https://www.runoob.com/">菜鸟教程</a>  </li>
+<li><a href="https://www.w3school.com.cn/h.asp">W3school</a>  </li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web">Mozilla 开发者社区</a>  </li>
+</ul>
+<h2 id="_3">视频教程<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
+<p><a href="https://www.bilibili.com/video/BV14J4114768">黑马前端</a>  </p>
+<h2 id="_4">电子书<a class="headerlink" href="#_4" title="Permanent link">#</a></h2>
+<p><a href="https://pan.baidu.com/s/1EeKVMuZWzvHCDw7I6EO0mw">Head First HTML与CSS</a> (提取码: eplw)  </p>
+<h2 id="htmlcss">HTML/CSS训练<a class="headerlink" href="#htmlcss" title="Permanent link">#</a></h2>
+<p><a href="https://chinese.freecodecamp.org/learn/responsive-web-design/">freeCodeCamp</a>  </p>
+<h2 id="_5">代码编辑<a class="headerlink" href="#_5" title="Permanent link">#</a></h2>
+<p>代码编辑器可以使用<a href="https://code.visualstudio.com/">Visual Studio Code</a>,可以安装插件以支持各种编程语言(js、python、R等)语法高亮以及可以安装<a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">remote-ssh</a>以进行ssh远程连接等。</p>
+<h2 id="htmlhead-bodydoctype">html标签的类型（head， body，!Doctype） 他们的作用是什么<a class="headerlink" href="#htmlhead-bodydoctype" title="Permanent link">#</a></h2>
+<p><code>&lt;!DOCTYPE html&gt;</code>:</p>
+<ul>
+<li>声明文档类型，早期规定了 HTML 页面必须遵从的良好规则，能自动检测错误和其他有用的东西。目前用处不大。</li>
+</ul>
+<p><code>&lt;head&gt;</code>:</p>
+<ul>
+<li>包含了所有想包含在 HTML 页面中但不想在 HTML 页面中显示的内容, 包括网站标题及图标、meta标签、CSS样式、字符集声明等</li>
+</ul>
+<p><code>&lt;body&gt;</code>:</p>
+<ul>
+<li>文档主体，页面上显示的内容都包括在这里</li>
+<li>支持 html 的全局属性和事件属性</li>
+</ul>
+<h2 id="_6">字符编码<a class="headerlink" href="#_6" title="Permanent link">#</a></h2>
+<ul>
+<li>编码，字符转换为二进制码</li>
+<li>解码，二进制码转为字符</li>
+<li>字符集(charset)，编码和解码采用的规则，常用的字符集<ul>
+<li>ASCII</li>
+<li>ISO88591</li>
+<li>GB2312</li>
+<li>GBK</li>
+<li>UTF-8</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+</code></pre></div>
+<h2 id="seo">SEO 搜索引擎优化<a class="headerlink" href="#seo" title="Permanent link">#</a></h2>
+<p>让网站在搜索引擎上的排名靠前
+SEO三大标签
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>.......<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;description&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;......&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;keywords&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;keyword1,keyword2...&quot;</span><span class="p">&gt;</span>
+</code></pre></div></p>
+<h2 id="_7">实体(转义字符)<a class="headerlink" href="#_7" title="Permanent link">#</a></h2>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- </span>
+<span class="cm">  &amp;实体名; </span>
+<span class="cm">  &amp;nbsp; 空格</span>
+<span class="cm">  &amp;gt; 大于</span>
+<span class="cm">  &amp;lt; 小于</span>
+<span class="cm">  &amp;copy; 版权符号</span>
+<span class="cm">--&gt;</span>
+</code></pre></div>
+<h2 id="meta">meta标签<a class="headerlink" href="#meta" title="Permanent link">#</a></h2>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;keywords&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;keyword1,keyword2&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;description&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;some description&quot;</span><span class="p">&gt;</span>
+<span class="cm">&lt;!-- 网站重定向, 3表示3秒后跳转 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;refresh&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;3;url=http://www.mydomain.com&quot;</span><span class="p">&gt;</span>
+</code></pre></div>
+<h2 id="_8">语义化标签<a class="headerlink" href="#_8" title="Permanent link">#</a></h2>
+<h3 id="hgroup">hgroup<a class="headerlink" href="#hgroup" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- 将一组相关的标题放入hgroup --&gt;</span>
+<span class="p">&lt;</span><span class="nt">hgroup</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">hgroup</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="em">em<a class="headerlink" href="#em" title="Permanent link">#</a></h3>
+<p>表示语音语调的加重</p>
+<h3 id="strong">strong<a class="headerlink" href="#strong" title="Permanent link">#</a></h3>
+<p>表示强调</p>
+<h3 id="blockquota">blockquota<a class="headerlink" href="#blockquota" title="Permanent link">#</a></h3>
+<p>表示长引用</p>
+<h3 id="q">q<a class="headerlink" href="#q" title="Permanent link">#</a></h3>
+<p>表示短引用</p>
+<h3 id="header">header<a class="headerlink" href="#header" title="Permanent link">#</a></h3>
+<p>表示网页的头部</p>
+<h3 id="main">main<a class="headerlink" href="#main" title="Permanent link">#</a></h3>
+<p>网页的主体(一个页面只有一个)</p>
+<h3 id="footer">footer<a class="headerlink" href="#footer" title="Permanent link">#</a></h3>
+<p>网页的底部</p>
+<h3 id="nav">nav<a class="headerlink" href="#nav" title="Permanent link">#</a></h3>
+<p>网页中的导航</p>
+<h3 id="aside">aside<a class="headerlink" href="#aside" title="Permanent link">#</a></h3>
+<p>和主体相关的其他内容(侧边栏)</p>
+<h3 id="article">article<a class="headerlink" href="#article" title="Permanent link">#</a></h3>
+<p>表示独立的文章</p>
+<h3 id="section">section<a class="headerlink" href="#section" title="Permanent link">#</a></h3>
+<p>表示独立的区块，上面的标签都不能表示时使用section</p>
+<h3 id="_9">定义列表<a class="headerlink" href="#_9" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">dl</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">dt</span><span class="p">&gt;</span>结构<span class="p">&lt;/</span><span class="nt">dt</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">dd</span><span class="p">&gt;</span>结构表示网页的结构,......<span class="p">&lt;/</span><span class="nt">dd</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">dd</span><span class="p">&gt;</span>结构用来规定网页中......<span class="p">&lt;/</span><span class="nt">dd</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">dl</span><span class="p">&gt;</span>
+</code></pre></div>
+<h2 id="html5">html5的新特性<a class="headerlink" href="#html5" title="Permanent link">#</a></h2>
+<h3 id="_10">新增选择器<a class="headerlink" href="#_10" title="Permanent link">#</a></h3>
+<p><code>document.querySelector()</code>、<code>document.querySelectorAll()</code></p>
+<p>用法见<a href="/js/js/#_9">javaScript</a></p>
+<h3 id="drag-and-dropapi">拖拽释放(Drag and drop)API<a class="headerlink" href="#drag-and-dropapi" title="Permanent link">#</a></h3>
+<style>
+  #drop_box{
+    width: 350px;
+    height: 70px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+  }
+</style>
+<div>
+  <div id="drop_box" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+  <img id="drag_img" src="../../images/gene.png" draggable="true" ondragstart="drag(event)">
+</div>
+<script>
+  function drag(event) {
+    event.dataTransfer.setData('Text', event.target.id)
+  }
+  function allowDrop(event) {
+    event.preventDefault()
+  }
+  function drop(event) {
+    event.preventDefault()
+    let data = event.dataTransfer.getData('Text')
+    event.target.appendChild(document.getElementById(data))
+  }
+</script>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="p">#</span><span class="nn">drop_box</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">350</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#aaaaaa</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;drop_box&quot;</span> <span class="na">ondragover</span><span class="o">=</span><span class="s">&quot;allowDrop(event)&quot;</span> <span class="na">ondrop</span><span class="o">=</span><span class="s">&quot;drop(event)&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="cm">&lt;!-- draggable标识元素是否允许使用拖放操作，默认值为auto，必须显式指定值为true或者false --&gt;</span>
+  <span class="p">&lt;</span><span class="nt">img</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;drag_img&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../../images/gene.png&quot;</span> <span class="na">draggable</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">ondragstart</span><span class="o">=</span><span class="s">&quot;drag(event)&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// 当用户开始拖动元素或文本选择时，将触发该事件</span><span class="w"></span>
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">drag</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// dataTransfer用于保存拖放操作期间正在拖动的数据</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 将要存放的图片的id以text格式存储起来</span><span class="w"></span>
+<span class="w">    </span><span class="nx">event</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">.</span><span class="nx">setData</span><span class="p">(</span><span class="s1">&#39;Text&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">allowDrop</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 默认地，无法将数据/元素放置到其他元素中</span><span class="w"></span>
+<span class="w">    </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">()</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// 当放置被拖数据时，会发生 drop 事件。</span><span class="w"></span>
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">drop</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">.</span><span class="nx">getData</span><span class="p">(</span><span class="s1">&#39;Text&#39;</span><span class="p">)</span><span class="w"> </span><span class="c1">//获取之前存储的ID</span><span class="w"></span>
+<span class="w">    </span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="video-audio">媒体播放的 &lt;video&gt; 和 &lt;audio&gt;<a class="headerlink" href="#video-audio" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- 视频 --&gt;</span>
+<span class="cm">&lt;!-- </span>
+<span class="cm">  autoplay 自动播放 </span>
+<span class="cm">  loop 循环播放</span>
+<span class="cm">--&gt;</span>
+<span class="p">&lt;</span><span class="nt">video</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;320&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;240&quot;</span> <span class="na">controls</span> <span class="na">autoplay</span> <span class="na">loop</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;movie.mp4&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;video/mp4&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;movie.ogg&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;video/ogg&quot;</span><span class="p">&gt;</span>
+  您的浏览器不支持Video标签。
+<span class="p">&lt;/</span><span class="nt">video</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">myVideo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;video&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="nx">myVideo</span><span class="p">.</span><span class="nx">play</span><span class="p">()</span><span class="w"> </span><span class="c1">//播放</span><span class="w"></span>
+<span class="w">  </span><span class="nx">myVideo</span><span class="p">.</span><span class="nx">pause</span><span class="p">()</span><span class="w"> </span><span class="c1">//暂停</span><span class="w"></span>
+<span class="w">  </span><span class="nx">myVideo</span><span class="p">.</span><span class="nx">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">500</span><span class="w"> </span><span class="c1">//修改大小</span><span class="w"></span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="cm">&lt;!-- 音频 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">audio</span> <span class="na">controls</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;horse.ogg&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;audio/ogg&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;horse.mp3&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;audio/mpeg&quot;</span><span class="p">&gt;</span>
+  您的浏览器不支持 audio 元素。
+<span class="p">&lt;/</span><span class="nt">audio</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="localstorage-sessionstorage">本地存储 <code>localStorage</code> 和 <code>sessionStorage</code><a class="headerlink" href="#localstorage-sessionstorage" title="Permanent link">#</a></h3>
+<p>见<a href="/js/js/#_10">JavaScript</a></p>
+<h3 id="cache-manifest">离线应用 Cache Manifest<a class="headerlink" href="#cache-manifest" title="Permanent link">#</a></h3>
+<p>通过创建 cache manifest 文件，可以创建 web 应用的离线版本</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span> <span class="na">manifest</span><span class="o">=</span><span class="s">&quot;demo.appcache&quot;</span><span class="p">&gt;</span>
+  ...
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="notifications">桌面通知 Notifications<a class="headerlink" href="#notifications" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">//先请求适当的权限</span><span class="w"></span>
+<span class="nx">Notification</span><span class="p">.</span><span class="nx">requestPermission</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">status</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">status</span><span class="p">)</span><span class="w"> </span><span class="c1">// 值为&quot;granted&quot;时显示通知</span><span class="w"></span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Notification</span><span class="p">(</span><span class="s1">&#39;my notification title&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;my notification body&#39;</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+</code></pre></div>
+<h3 id="_11">语义化标签<a class="headerlink" href="#_11" title="Permanent link">#</a></h3>
+<ul>
+<li>&lt;header&gt;  </li>
+<li>&lt;nav&gt;  </li>
+<li>&lt;section&gt;  </li>
+<li>&lt;article&gt;  </li>
+<li>&lt;aside&gt;  </li>
+<li>&lt;figcaption&gt;: 标签定义 &lt;figure&gt; 元素的标题  </li>
+<li>&lt;figure&gt;: 规定独立的流内容（图像、图表、照片、代码等等）  </li>
+<li>&lt;footer&gt;  </li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>      <span class="cm">&lt;!--：页面主体内容。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">hn</span><span class="p">&gt;</span>         <span class="cm">&lt;!--：h1~h6，分级标题，&lt;h1&gt; 与 &lt;title&gt; 协调有利于搜索引擎优化。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>         <span class="cm">&lt;!--：无序列表。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">ol</span><span class="p">&gt;</span>         <span class="cm">&lt;!--：有序列表。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>     <span class="cm">&lt;!--：页眉通常包括网站标志、主导航、全站链接以及搜索框。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>        <span class="cm">&lt;!--：标记导航，仅对文档中重要的链接群使用。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">main</span><span class="p">&gt;</span>       <span class="cm">&lt;!--：页面主要内容，一个页面只能使用一次。如果是web应用，则包围其主要功能。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;</span>    <span class="cm">&lt;!--：定义外部的内容，其中的内容独立于文档的其余部分。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">section</span><span class="p">&gt;</span>    <span class="cm">&lt;!--：定义文档中的节（section、区段）。比如章节、页眉、页脚或文档中的其他部分。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">aside</span><span class="p">&gt;</span>      <span class="cm">&lt;!--：定义其所处内容之外的内容。如侧栏、文章的一组链接、广告、友情链接、相关产品列表等。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">footer</span><span class="p">&gt;</span>     <span class="cm">&lt;!--：页脚，只有当父级是body时，才是整个页面的页脚。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">small</span><span class="p">&gt;</span>      <span class="cm">&lt;!--：呈现小号字体效果，指定细则，输入免责声明、注解、署名、版权。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>     <span class="cm">&lt;!--：和 em 标签一样，用于强调文本，但它强调的程度更强一些。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>         <span class="cm">&lt;!--：将其中的文本表示为强调的内容，表现为斜体。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">mark</span><span class="p">&gt;</span>       <span class="cm">&lt;!--：使用黄色突出显示部分文本。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">figure</span><span class="p">&gt;</span>     <span class="cm">&lt;!--：规定独立的流内容（图像、图表、照片、代码等等）（默认有40px左右margin）。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">figcaption</span><span class="p">&gt;</span> <span class="cm">&lt;!--：定义 figure 元素的标题，应该被置于 figure 元素的第一个或最后一个子元素的位置。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">cite</span><span class="p">&gt;</span>       <span class="cm">&lt;!--：表示所包含的文本对某个参考文献的引用，比如书籍或者杂志的标题。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">blockquoto</span><span class="p">&gt;</span> <span class="cm">&lt;!--：定义块引用，块引用拥有它们自己的空间。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">q</span><span class="p">&gt;</span>          <span class="cm">&lt;!--：短的引述（跨浏览器问题，尽量避免使用）。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">time</span><span class="p">&gt;</span>       <span class="cm">&lt;!--：datetime属性遵循特定格式，如果忽略此属性，文本内容必须是合法的日期或者时间格式。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">abbr</span><span class="p">&gt;</span>       <span class="cm">&lt;!--：简称或缩写。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">dfn</span><span class="p">&gt;</span>        <span class="cm">&lt;!--：定义术语元素，与定义必须紧挨着，可以在描述列表dl元素中使用。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">address</span><span class="p">&gt;</span>    <span class="cm">&lt;!--：作者、相关人士或组织的联系信息（电子邮件地址、指向联系信息页的链接）。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">del</span><span class="p">&gt;</span>        <span class="cm">&lt;!--：移除的内容。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">ins</span><span class="p">&gt;</span>        <span class="cm">&lt;!--：添加的内容。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>       <span class="cm">&lt;!--：标记代码。--&gt;</span>
+<span class="p">&lt;</span><span class="nt">meter</span><span class="p">&gt;</span>      <span class="cm">&lt;!--：定义已知范围或分数值内的标量测量。（Internet Explorer 不支持 meter 标签）--&gt;</span>
+<span class="p">&lt;</span><span class="nt">progress</span><span class="p">&gt;</span>   <span class="cm">&lt;!--：定义运行中的进度（进程）。--&gt;</span>
+</code></pre></div>
+<h3 id="_12">新表单元素<a class="headerlink" href="#_12" title="Permanent link">#</a></h3>
+<ul>
+<li>
+<p>&lt;datalist&gt;
+  <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">list</span><span class="o">=</span><span class="s">&quot;browsers&quot;</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">datalist</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;browsers&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Internet Explorer&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Firefox&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Chrome&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Opera&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Safari&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">datalist</span><span class="p">&gt;</span>
+</code></pre></div>
+  示例：
+<br />
+<div>
+    <input list="browsers" style="border: 1px solid black;">
+
+    <datalist id="browsers">
+      <option value="Internet Explorer">
+      <option value="Firefox">
+      <option value="Chrome">
+      <option value="Opera">
+      <option value="Safari">
+    </datalist>
+  </div></p>
+</li>
+<li>
+<p>&lt;output&gt;
+  <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">oninput</span><span class="o">=</span><span class="s">&quot;result.value=parseInt(a.value)+parseInt(b.value)&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;range&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;b&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;50&quot;</span> <span class="p">/&gt;</span> +
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;number&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;a&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;10&quot;</span> <span class="p">/&gt;</span> =
+  <span class="p">&lt;</span><span class="nt">output</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;result&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">output</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div>
+<br />
+<form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+    <input type="range" name="b" value="50" /> +
+    <input type="number" name="a" value="10" style="border: 1px solid black;"/> =
+    <output name="result"></output>
+  </form>
+</p>
+</li>
+</ul>
+<h3 id="geolocation">Geolocation（地理定位）<a class="headerlink" href="#geolocation" title="Permanent link">#</a></h3>
+<p>Navigator 对象的实例是唯一的，可以用 Window 对象的 navigator 属性来引用它
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;navigator_demo&quot;</span><span class="p">&gt;</span>点击按钮获取当前坐标<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;getLocationButton&quot;</span><span class="p">&gt;</span>获取坐标<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#navigator_demo&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#getLocationButton&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="nx">button</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">.</span><span class="nx">getCurrentPosition</span><span class="p">(</span><span class="nx">showPosition</span><span class="p">,</span><span class="w"> </span><span class="nx">showError</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">container</span><span class="p">.</span><span class="nx">innerText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;该浏览器不支持获取地理位置&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">})</span><span class="w"></span>
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">showPosition</span><span class="p">(</span><span class="nx">position</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">container</span><span class="p">.</span><span class="nx">innerText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`纬度: </span><span class="si">${</span><span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span><span class="si">}</span><span class="sb">, 经度: </span><span class="si">${</span><span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span><span class="si">}</span><span class="sb">`</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">showError</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">code</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">PERMISSION_DENIED</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="nx">container</span><span class="p">.</span><span class="nx">innerHTML</span><span class="o">=</span><span class="s2">&quot;用户拒绝对获取地理位置的请求。&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">POSITION_UNAVAILABLE</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="nx">container</span><span class="p">.</span><span class="nx">innerHTML</span><span class="o">=</span><span class="s2">&quot;位置信息是不可用的。&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">TIMEOUT</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="nx">container</span><span class="p">.</span><span class="nx">innerHTML</span><span class="o">=</span><span class="s2">&quot;请求用户地理位置超时。&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">UNKNOWN_ERROR</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="nx">container</span><span class="p">.</span><span class="nx">innerHTML</span><span class="o">=</span><span class="s2">&quot;未知错误。&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div></p>
+<div>
+  <p id="navigator_demo">点击按钮获取当前坐标</p>
+  <button id="getLocationButton" style="border: 1px solid black;cursor: pointer;">获取坐标</button>
+</div>
+
+<script>
+  let container = document.querySelector('#navigator_demo')
+  let button = document.querySelector('#getLocationButton')
+  button.addEventListener('click', () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition, showError)
+    } else {
+      container.innerText = "该浏览器不支持获取地理位置"
+    }
+  })
+  function showPosition(position) {
+    container.innerText = `纬度: ${position.coords.latitude}, 经度: ${position.coords.longitude}`
+  }
+  function showError(error) {
+    switch(error.code)
+    {
+      case error.PERMISSION_DENIED:
+        container.innerHTML="用户拒绝对获取地理位置的请求。"
+        break;
+      case error.POSITION_UNAVAILABLE:
+        container.innerHTML="位置信息是不可用的。"
+        break;
+      case error.TIMEOUT:
+        container.innerHTML="请求用户地理位置超时。"
+        break;
+      case error.UNKNOWN_ERROR:
+        container.innerHTML="未知错误。"
+        break;
+    }
+  }
+</script>
+
+<h3 id="webworker">多任务 webworker<a class="headerlink" href="#webworker" title="Permanent link">#</a></h3>
+<p>见<a href="/js/js/#workers">JavaScript</a></p>
+<h3 id="websocket">全双工通信协议 websocket<a class="headerlink" href="#websocket" title="Permanent link">#</a></h3>
+<p>具体见<a href="https://www.runoob.com/html/html5-websocket.html">菜鸟教程</a></p>
+<h3 id="visibilitychange">页面可见性改变事件 visibilitychange<a class="headerlink" href="#visibilitychange" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// 在文档可见时开始播放音乐曲目，在文档不再可见时暂停音乐</span><span class="w"></span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;visibilitychange&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// document.visibilityState:</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// 1. visible 页面内容至少是部分可见;</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// 2. hidden 文档处于背景标签页或者窗口处于最小化,或者操作系统正处于 &#39;锁屏状态&#39;;</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// 3. prerender 页面此时正在渲染中</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">visibilityState</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;visible&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">backgroundMusic</span><span class="p">.</span><span class="nx">play</span><span class="p">()</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">backgroundMusic</span><span class="p">.</span><span class="nx">pause</span><span class="p">()</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+</code></pre></div>
+<h3 id="postmessage">跨窗口通信 PostMessage<a class="headerlink" href="#postmessage" title="Permanent link">#</a></h3>
+<p>对于两个不同页面的脚本，只有当执行它们的页面位于具有相同的协议（通常为 https），端口号（443 为 https 的默认值），以及主机  (两个页面的模数 Document.domain设置为相同的值) 时，这两个脚本才能相互通信。
+<div class="highlight"><pre><span></span><code><span class="c1">// A窗口的域名为www.myDomain.com/A</span><span class="w"></span>
+<span class="c1">// 以下是 A 窗口的 script 标签下的代码</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">popup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;www.myDomain.com/B&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="nx">popup</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="s2">&quot;hello there!&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;www.myDomain.com/B&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="c1">// B窗口的域名为www.myDomain.com/b</span><span class="w"></span>
+<span class="c1">// 以下是 B 窗口的 script 标签下的代码</span><span class="w"></span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">origin</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s1">&#39;www.myDomain.com&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nx">event</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="s2">&quot;hi there yourself!&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;www.myDomain.com/A&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">//回信</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+</code></pre></div></p>
+
+
+
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../http/" class="md-footer__link md-footer__link--prev" aria-label="Previous: HTTP协议" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              HTTP协议
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../css/" class="md-footer__link md-footer__link--next" aria-label="Next: CSS" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              CSS
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "search.highlight", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+    
+  </body>
+</html>
